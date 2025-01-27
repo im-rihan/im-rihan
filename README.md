@@ -14,7 +14,7 @@
 
 - 💬 Ask me about **react,javascript,nodejs,react-native**
 
-- 📫 How to reach me **rihanmohammed26@gmail.com**
+- 📫 How to reach me **im.rihan.dev@gmail.com**
 
 - ⚡ Fun fact **I Think I can Do everything**
 
@@ -23,7 +23,7 @@
 <a href="https://codepen.io/rihanmohammed26" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="rihanmohammed26" height="30" width="40" /></a>
 <a href="https://dev.to/_im_rihan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="_im_rihan" height="30" width="40" /></a>
 <a href="https://twitter.com/_im_rihan_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="_im_rihan_" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/rihan-mohammed-3413b8217" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rihan-mohammed-3413b8217" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/im-rihan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rihan-mohammed-3413b8217" height="30" width="40" /></a>
 <a href="https://stackoverflow.com/users/16921900" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="16921900" height="30" width="40" /></a>
 <a href="https://fb.com/rihanmohammed26" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="rihanmohammed26" height="30" width="40" /></a>
 <a href="https://instagram.com/_im_rihan_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="_im_rihan_" height="30" width="40" /></a>
