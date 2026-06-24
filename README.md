@@ -1,40 +1,196 @@
-![masterhead](https://i.pinimg.com/originals/2f/f4/28/2ff428006f3ade5f10beac69372062ab.gif)
-<h1 align="center">Hi 👋, I'm Rih@N Moh@Mmed</h1>
-<h3 align="center">A Passionate Frontend And Backend developer from India</h3>
-<img alt="coder" align="right" width="400" src="https://camo.githubusercontent.com/61491d59e71fec5c794945fed916a4a682b6c0404fc31f30b08a0d919c558404/68747470733a2f2f696d616765732e73717561726573706163652d63646e2e636f6d2f636f6e74656e742f76312f3537363966633430316236333162616231616464623261622f313534313538303631313632342d5445363451474b524a4738535741495553374e532f6b6531375a77644742546f6464493870446d34386b506f73776c7a6a53564d4d2d53784f703743563539425a772d7a505067646e346a557756634a45315a7657515578776b6d794578676c4e714770304976544a5a616d574c49327a76595748384b332d735f3479737a63703272795449304871544f6161556f68724938504936465879386339505774426c7141566c555335697a7064634958445a71445976707252715a32395077306f2f636f64696e672d667265616b2e676966" />
+<!-- Header -->
+<div align="center">
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=im-rihan&label=Profile%20views&color=0e75b6&style=flat" alt="im-rihan" /> </p>
+![Coding](https://i.pinimg.com/originals/2f/f4/28/2ff428006f3ade5f10beac69372062ab.gif)
 
+# Hi 👋, I'm Rihan Mohammed
 
-<p align="left"> <a href="https://twitter.com/_im_rihan_" target="blank"><img src="https://img.shields.io/twitter/follow/_im_rihan_?logo=twitter&style=for-the-badge" alt="_im_rihan_" /></a> </p>
+### Full Stack Developer · HomeAbroad Inc. | Ziffy.ai
 
-- 🔭 I’m currently working in **HomeAbroadInc**
+[![Profile Views](https://komarev.com/ghpvc/?username=im-rihan&label=Profile%20views&color=0e75b6&style=flat-square)](https://github.com/im-rihan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-im--rihan-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/im-rihan)
+[![Email](https://img.shields.io/badge/Email-im.rihan.dev@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:im.rihan.dev@gmail.com)
+[![Location](https://img.shields.io/badge/Location-Puri,_Odisha,_India-008080?style=flat-square&logo=googlemaps&logoColor=white)]()
 
-- 🌱 I’m currently learning **Java**
+*Passionate about building scalable fintech & real-estate platforms — from AI-powered property search to mortgage pricing engines.*
 
-- 💬 Ask me about **react,javascript,nodejs,react-native**
+<img alt="Coding" align="right" width="380" src="https://camo.githubusercontent.com/61491d59e71fec5c794945fed916a4a682b6c0404fc31f30b08a0d919c558404/68747470733a2f2f696d616765732e73717561726573706163652d63646e2e636f6d2f636f6e74656e742f76312f3537363966633430316236333162616231616464623261622f313534313538303631313632342d5445363451474b524a4738535741495553374e532f6b6531375a77644742546f6464493870446d34386b506f73776c7a6a53564d4d2d53784f703743563539425a772d7a505067646e346a557756634a45315a7657515578776b6d794578676c4e714770304976544a5a616d574c49327a76595748384b332d735f3479737a63703272795449304871544f6161556f68724938504936465879386339505774426c7141566c555335697a7064634958445a71445976707252715a32395077306f2f636f64696e672d667265616b2e676966" />
 
-- 📫 How to reach me **im.rihan.dev@gmail.com**
+</div>
 
-- ⚡ Fun fact **I Think I can Do everything**
+---
 
-<h3 align="left">Connect with me:</h3>
+## 👨‍💻 About Me
+
+```typescript
+const rihan = {
+  pronouns: "He/Him",
+  location: "Puri, Odisha, India",
+  role: "Full Stack Developer",
+  company: ["HomeAbroad Inc.", "Ziffy.ai"],
+  experience: "4+ years",
+  focus: ["Fintech", "Real Estate Tech", "AI Integration", "DevOps"],
+  currentlyLearning: ["Advanced System Design", "AI/LLM Workflows"],
+  askMeAbout: ["React", "Next.js", "NestJS", "Node.js", "TypeScript", "Python", "CI/CD"],
+  funFact: "I believe every real-world problem has a clean code solution waiting to be written.",
+};
+```
+
+- 🔭 **Currently working on** [Ziffy.ai](https://ziffy.ai) — AI-native real estate investment platform & [HomeAbroad Inc.](https://homeabroadinc.com) fintech stack
+- 🏗️ **Building** Next.js frontends, NestJS APIs, PHP webhook backends, data pipelines & AWS Lambda services
+- 🌱 **Exploring** LangChain, AI-powered search, serverless architectures & cloud migrations
+- 💬 **Ask me about** React, Next.js, JavaScript, TypeScript, Node.js, NestJS, Python, PHP, MySQL, CI/CD
+- 📫 **Reach me at** [im.rihan.dev@gmail.com](mailto:im.rihan.dev@gmail.com)
+- ⚡ **Fun fact** I migrated production infrastructure from AWS Lightsail to Hetzner with zero downtime
+
+---
+
+## 🚀 What I Build
+
+| Platform | Stack | Highlights |
+|----------|-------|------------|
+| **Ziffy.ai** | Next.js 15 · React 19 · Zustand · SSE · Vercel | AI property search, SEO listings, DSCR calculators, pre-approval portal |
+| **HomeAbroad API** | NestJS · TypeORM · Redis · Typesense · LangChain | Auth, property search, loan estimates, CRM sync, BullMQ queues |
+| **Agent Platform** | React · Webpack · Tailwind · Leaflet | Multi-app dashboard for RE agents, MLOs & investors |
+| **Integrations Hub** | PHP 8 · MySQL · Redis · Cloudflare | 60+ webhooks, 40+ cron jobs, Twilio/Zoho/SendGrid/Gemini |
+| **Data Pipelines** | Python · Node.js · Typesense · AWS S3 | Zillow, Roofstock, Homes.com scrapers → MySQL ingestion |
+| **Mortgage Pricer** | TypeScript · Puppeteer · AWS Lambda | Live rate scraping from 11 Non-QM/DSCR lender portals |
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
 <p align="left">
-<a href="https://codepen.io/rihanmohammed26" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="rihanmohammed26" height="30" width="40" /></a>
-<a href="https://dev.to/_im_rihan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="_im_rihan" height="30" width="40" /></a>
-<a href="https://twitter.com/_im_rihan_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="_im_rihan_" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/im-rihan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rihan-mohammed-3413b8217" height="30" width="40" /></a>
-<a href="https://stackoverflow.com/users/16921900" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="16921900" height="30" width="40" /></a>
-<a href="https://fb.com/rihanmohammed26" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="rihanmohammed26" height="30" width="40" /></a>
-<a href="https://instagram.com/_im_rihan_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="_im_rihan_" height="30" width="40" /></a>
-<a href="https://discord.gg/https://discord.gg/Jk9HpZxnjv" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.gg/Jk9HpZxnjv" height="30" width="40" /></a>
+  <a href="https://reactjs.org/" target="_blank"><img src="https://skillicons.dev/icons?i=react" alt="React" /></a>
+  <a href="https://nextjs.org/" target="_blank"><img src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" /></a>
+  <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" /></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" /></a>
+  <a href="https://tailwindcss.com/" target="_blank"><img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" /></a>
+  <a href="https://webpack.js.org/" target="_blank"><img src="https://skillicons.dev/icons?i=webpack" alt="Webpack" /></a>
+  <a href="https://www.w3.org/html/" target="_blank"><img src="https://skillicons.dev/icons?i=html" alt="HTML5" /></a>
+  <a href="https://www.w3schools.com/css/" target="_blank"><img src="https://skillicons.dev/icons?i=css" alt="CSS3" /></a>
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://angular.io" target="_blank" rel="noreferrer"> <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40"/> </a> <a href="https://angular.io" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original-wordmark.svg" alt="angularjs" width="40" height="40"/> </a> <a href="https://cordova.apache.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_cordova/apache_cordova-icon.svg" alt="apachecordova" width="40" height="40"/> </a> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://babeljs.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://ionicframework.com" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" alt="ionic" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://materializecss.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/prplx/svg-logos/5585531d45d294869c4eaab4d7cf2e9c167710a9/svg/materialize.svg" alt="materialize" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nestjs.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg" alt="nestjs" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="https://reactnative.dev/img/header_logo.svg" alt="reactnative" width="40" height="40"/> </a> <a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://www.ruby-lang.org/en/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://svelte.dev" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" alt="svelte" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> <a href="https://vuejs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" alt="vuejs" width="40" height="40"/> </a> <a href="https://webpack.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/d00d0969292a6569d45b06d3f350f463a0107b0d/icons/webpack/webpack-original-wordmark.svg" alt="webpack" width="40" height="40"/> </a> <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd.svg" alt="xd" width="40" height="40"/> </a> </p>
+### Backend & Databases
+<p align="left">
+  <a href="https://nodejs.org" target="_blank"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" /></a>
+  <a href="https://nestjs.com/" target="_blank"><img src="https://skillicons.dev/icons?i=nestjs" alt="NestJS" /></a>
+  <a href="https://expressjs.com" target="_blank"><img src="https://skillicons.dev/icons?i=express" alt="Express" /></a>
+  <a href="https://www.php.net" target="_blank"><img src="https://skillicons.dev/icons?i=php" alt="PHP" /></a>
+  <a href="https://www.python.org" target="_blank"><img src="https://skillicons.dev/icons?i=python" alt="Python" /></a>
+  <a href="https://www.mysql.com/" target="_blank"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" /></a>
+  <a href="https://redis.io" target="_blank"><img src="https://skillicons.dev/icons?i=redis" alt="Redis" /></a>
+  <a href="https://www.mongodb.com/" target="_blank"><img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" /></a>
+  <a href="https://www.postgresql.org" target="_blank"><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" /></a>
+</p>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=im-rihan&show_icons=true&locale=en&layout=compact" alt="im-rihan" /></p>
+### DevOps, Cloud & Tools
+<p align="left">
+  <a href="https://aws.amazon.com" target="_blank"><img src="https://skillicons.dev/icons?i=aws" alt="AWS" /></a>
+  <a href="https://www.docker.com/" target="_blank"><img src="https://skillicons.dev/icons?i=docker" alt="Docker" /></a>
+  <a href="https://git-scm.com/" target="_blank"><img src="https://skillicons.dev/icons?i=git" alt="Git" /></a>
+  <a href="https://github.com/" target="_blank"><img src="https://skillicons.dev/icons?i=github" alt="GitHub" /></a>
+  <a href="https://www.linux.org/" target="_blank"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" /></a>
+  <a href="https://postman.com" target="_blank"><img src="https://skillicons.dev/icons?i=postman" alt="Postman" /></a>
+  <a href="https://www.figma.com/" target="_blank"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" /></a>
+  <a href="https://firebase.google.com/" target="_blank"><img src="https://skillicons.dev/icons?i=firebase" alt="Firebase" /></a>
+</p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=im-rihan&show_icons=true&locale=en" alt="im-rihan" /></p>
+### Also experienced with
+<p align="left">
+  <a href="https://reactnative.dev/" target="_blank"><img src="https://skillicons.dev/icons?i=react" alt="React Native" title="React Native" /></a>
+  <a href="https://www.djangoproject.com/" target="_blank"><img src="https://skillicons.dev/icons?i=django" alt="Django" /></a>
+  <a href="https://flask.palletsprojects.com/" target="_blank"><img src="https://skillicons.dev/icons?i=flask" alt="Flask" /></a>
+  <a href="https://www.java.com" target="_blank"><img src="https://skillicons.dev/icons?i=java" alt="Java" /></a>
+  <a href="https://flutter.dev" target="_blank"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" /></a>
+  <a href="https://angular.io" target="_blank"><img src="https://skillicons.dev/icons?i=angular" alt="Angular" /></a>
+  <a href="https://vuejs.org/" target="_blank"><img src="https://skillicons.dev/icons?i=vue" alt="Vue.js" /></a>
+  <a href="https://getbootstrap.com" target="_blank"><img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" /></a>
+</p>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=im-rihan&" alt="im-rihan" /></p>
+---
+
+## 💼 Experience
+
+```
+Full Stack Engineer          Ziffy.ai                    Jan 2025 – Present
+Full Stack Developer         HomeAbroad Inc.             Apr 2022 – Present
+```
+
+**Key contributions:**
+- Architected Next.js 15 frontend with AI streaming search, SEO listings & investment calculators
+- Built NestJS REST API with JWT auth, Typesense search, LangChain AI & BullMQ job queues
+- Owned PHP integration backend — webhooks, cron jobs & internal agent AI tools
+- Shipped AWS Lambda mortgage pricer with Puppeteer scrapers for 11 lender portals
+- Built Python/Node.js property data pipelines (Zillow, Roofstock, Homes.com → MySQL)
+- Led AWS → Hetzner cloud migration with zero-downtime cutover
+
+---
+
+## 📜 Certifications
+
+- Practical Database Course for Beginners: 6 courses in 1
+- Build an Amazon Affiliate E-Commerce Store from Scratch
+- Introduction to Programming Using HTML and CSS
+- JavaScript Algorithms and Data Structures
+- Post Graduate Diploma in Computer Application — Utkal University
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=im-rihan&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=im-rihan&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=im-rihan&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
+
+</div>
+
+---
+
+## 🤝 Connect With Me
+
+<p align="left">
+  <a href="https://linkedin.com/in/im-rihan" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://twitter.com/_im_rihan_" target="_blank">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
+  </a>
+  <a href="https://dev.to/_im_rihan" target="_blank">
+    <img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="Dev.to" />
+  </a>
+  <a href="https://stackoverflow.com/users/16921900" target="_blank">
+    <img src="https://img.shields.io/badge/Stack_Overflow-F58025?style=for-the-badge&logo=stack-overflow&logoColor=white" alt="Stack Overflow" />
+  </a>
+  <a href="https://codepen.io/rihanmohammed26" target="_blank">
+    <img src="https://img.shields.io/badge/CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white" alt="CodePen" />
+  </a>
+  <a href="https://instagram.com/_im_rihan_" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+  </a>
+  <a href="mailto:im.rihan.dev@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+  </a>
+</p>
+
+<p align="left">
+  <a href="https://twitter.com/_im_rihan_" target="_blank">
+    <img src="https://img.shields.io/twitter/follow/_im_rihan_?logo=twitter&style=for-the-badge" alt="Twitter Follow" />
+  </a>
+</p>
+
+---
+
+<div align="center">
+
+### 💡 *"Turning complex real-world problems into elegant, scalable software."*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f766e,100:1e293b&height=120&section=footer&text=Thanks%20for%20visiting!%20%E2%9C%A8&fontSize=20&fontColor=ffffff&animation=fadeIn" />
+
+⭐️ From [im-rihan](https://github.com/im-rihan)
+
+</div>
