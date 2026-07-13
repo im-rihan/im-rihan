@@ -1,7 +1,7 @@
 <!-- Header -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f766e,100:14b8a6&height=160&section=header&text=Rihan%20Mohammed&fontSize=42&fontColor=ffffff&fontAlignY=35&desc=Full%20Stack%20Developer%20%C2%B7%20Fintech%20%26%20Real%20Estate%20Tech&descAlignY=55&descSize=16" alt="header" />
+![header](https://capsule-render.vercel.app/api?type=waving&color=0f766e&height=160&section=header&text=Rihan%20Mohammed&fontSize=42&fontColor=ffffff&animation=fadeIn)
 
 ### Full Stack Developer · HomeAbroad Inc. | Ziffy.ai
 
@@ -193,16 +193,10 @@ Fintech / real-estate platform — full-stack application development.
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=im-rihan&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=0D1117&title_color=14b8a6&icon_color=0f766e&text_color=c9d1d9" alt="GitHub Stats" height="165" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=im-rihan&theme=radical&hide_border=true&background=0D1117&ring=0f766e&fire=14b8a6&currStreakLabel=14b8a6" alt="GitHub Streak" height="165" />
+![GitHub Stats](https://github-readme-stats.shion.dev/api?username=im-rihan&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
+![GitHub Streak](https://streak-stats.demolab.com/?user=im-rihan&theme=tokyonight&hide_border=true)
 
-<br/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=im-rihan&layout=compact&theme=radical&hide_border=true&langs_count=8&bg_color=0D1117&title_color=14b8a6&text_color=c9d1d9" alt="Top Languages" height="165" />
-
-<br/>
-
-![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=im-rihan&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=8)
+![Top Languages](https://github-readme-stats.shion.dev/api/top-langs/?username=im-rihan&layout=compact&theme=tokyonight&hide_border=true&langs_count=8)
 
 ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=im-rihan&theme=react-dark&hide_border=true&area=true)
 
@@ -257,7 +251,7 @@ Fintech / real-estate platform — full-stack application development.
   <a href="mailto:im.rihan.dev@gmail.com"><strong>Let's talk</strong></a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f766e,100:1e293b&height=120&section=footer&text=Thanks%20for%20visiting!%20%E2%9C%A8&fontSize=20&fontColor=ffffff&animation=fadeIn" alt="footer" />
+![footer](https://capsule-render.vercel.app/api?type=waving&color=0f766e&height=120&section=footer&text=Thanks%20for%20visiting!&fontSize=20&fontColor=ffffff&animation=fadeIn)
 
 ⭐️ From [im-rihan](https://github.com/im-rihan)
 
