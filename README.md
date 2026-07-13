@@ -1,14 +1,14 @@
 <div align="center">
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│  im-rihan@github:~$ whoami                                  │
-│  Rihan Mohammed · Full Stack Developer                      │
-│  HomeAbroad Inc. × Ziffy.ai · Puri, Odisha, India           │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│  im-rihan@github:~$ whoami                                   │
+│  Rihan Mohammed · Full Stack Developer                       │
+│  HomeAbroad Inc. × Ziffy.ai · fintech & real-estate systems  │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3500&pause=1000&color=14B8A6&center=true&vCenter=true&width=680&lines=Full+Stack+Developer;%24+building+fintech+%26+real-estate+platforms;%24+Next.js+%C2%B7+NestJS+%C2%B7+TypeScript+%C2%B7+Python;%24+open+to+opportunities)](https://im-rihan.github.io/)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3500&pause=1000&color=14B8A6&center=true&vCenter=true&width=720&lines=%24+shipping+production+APIs+%26+frontends;%24+Next.js+16+%C2%B7+NestJS+%C2%B7+TypeScript+%C2%B7+Python;%24+AI+search+%C2%B7+data+pipelines+%C2%B7+cloud+infra;%24+open+to+opportunities)](https://im-rihan.github.io/)
 
 [![Portfolio](https://img.shields.io/badge/portfolio-im--rihan.github.io-0f766e?style=flat-square&logo=vercel&logoColor=white)](https://im-rihan.github.io/)
 [![LinkedIn](https://img.shields.io/badge/linkedin-im--rihan-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/im-rihan)
@@ -27,7 +27,6 @@ type Engineer = {
   name: "Rihan Mohammed";
   role: "Full Stack Developer";
   years: "4+";
-  stack: ["Next.js", "NestJS", "TypeScript", "Python", "PHP"];
   domains: ["Fintech", "Real Estate Tech", "AI", "DevOps"];
   shipping: ["Ziffy.ai", "HomeAbroad Inc."];
   site: "https://im-rihan.github.io";
@@ -36,16 +35,30 @@ type Engineer = {
 
 | | |
 |:--|:--|
-| **portfolio** | [im-rihan.github.io](https://im-rihan.github.io/) — case studies · status · chat · blog |
+| **portfolio** | [im-rihan.github.io](https://im-rihan.github.io/) — case studies · live status · chat · blog |
 | **shipping** | [Ziffy.ai](https://ziffy.ai) · [HomeAbroad Inc.](https://homeabroadinc.com) |
-| **building** | Next.js 16 · NestJS APIs · PHP webhooks · data pipelines · AWS Lambda |
+| **building** | Next.js 16 · NestJS · PHP webhooks · pipelines · AWS Lambda |
 | **learning** | system design · AI / LLM workflows · serverless |
 | **contact** | [im.rihan.dev@gmail.com](mailto:im.rihan.dev@gmail.com) |
-| **note** | AWS Lightsail → Hetzner migration with **zero downtime** |
+| **note** | AWS Lightsail → Hetzner with **zero downtime** |
 
 ```text
   4+ yrs  ·  9+ systems  ·  60+ webhooks  ·  40+ crons  ·  14 certs
 ```
+
+---
+
+## `~/featured`
+
+<div align="center">
+
+[![Portfolio](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=im-rihan.github.io&theme=tokyonight&hide_border=true&description_lines_count=2)](https://im-rihan.github.io/)
+[![PDF → Excel](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=pdf-to-excel-converter&theme=tokyonight&hide_border=true&description_lines_count=2)](https://github.com/im-rihan/pdf-to-excel-converter)
+[![WooCommerce Affiliates](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=woocommerce-amazon-affiliates&theme=tokyonight&hide_border=true&description_lines_count=2)](https://github.com/im-rihan/woocommerce-amazon-affiliates)
+
+</div>
+
+> Production case studies (private) → [im-rihan.github.io/work](https://im-rihan.github.io/work/) · Blog → [im-rihan.github.io/blog](https://im-rihan.github.io/blog/)
 
 ---
 
@@ -60,8 +73,6 @@ type Engineer = {
 | **data-pipelines** | Python · Node.js · Typesense · S3 | Zillow / Roofstock / Homes.com → MySQL |
 | **mortgage-pricer** | TypeScript · Puppeteer · Lambda | live rates from 11 Non-QM / DSCR portals |
 | **estimate-calculator** | TypeScript · Jest | fees · liquidity · DSCR · pricing lib |
-
-→ [case studies](https://im-rihan.github.io/work/)
 
 ---
 
@@ -162,6 +173,21 @@ familiar React Native · Django · Flask · Java · Flutter · Angular · Vue
 
 ---
 
+## `~/contributions`
+
+<div align="center">
+
+<!-- Generated daily by .github/workflows/snake.yml → output branch -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake.svg" />
+  <img alt="github contribution snake" src="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake.svg" />
+</picture>
+
+</div>
+
+---
+
 ## `~/connect`
 
 <p align="center">
@@ -180,7 +206,7 @@ familiar React Native · Django · Flask · Java · Flutter · Angular · Vue
 
 ```bash
 # turning complex real-world problems into elegant, scalable software
-git clone https://im-rihan.github.io
+open https://im-rihan.github.io
 ```
 
 [portfolio](https://im-rihan.github.io/) · [email](mailto:im.rihan.dev@gmail.com) · [follow](https://github.com/im-rihan)
