@@ -50,15 +50,49 @@ type Engineer = {
 
 ## `~/featured`
 
-<div align="center">
+Production systems shipping now — not tutorial repos.
 
-[![Portfolio](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=im-rihan.github.io&theme=tokyonight&hide_border=true&description_lines_count=2)](https://im-rihan.github.io/)
-[![PDF → Excel](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=pdf-to-excel-converter&theme=tokyonight&hide_border=true&description_lines_count=2)](https://github.com/im-rihan/pdf-to-excel-converter)
-[![WooCommerce Affiliates](https://github-readme-stats.shion.dev/api/pin/?username=im-rihan&repo=woocommerce-amazon-affiliates&theme=tokyonight&hide_border=true&description_lines_count=2)](https://github.com/im-rihan/woocommerce-amazon-affiliates)
+### [ziffy.ai](https://ziffy.ai) — AI investor platform
+```ts
+stack: ["Next.js 16", "React 19", "Zustand", "SSE", "Typesense", "Vercel"]
+```
+| feature | what it does |
+|:--------|:-------------|
+| **NLP search** | token-by-token SSE streaming · Typesense full-text |
+| **SEO listings** | ISR programmatic pages · dual-brand routing |
+| **DSCR / pre-approval** | investor calculators · mortgage intake flows |
+| **analytics** | GA4 · Ads · Pixel · LogRocket · Fingerprint.js |
 
-</div>
+[case study →](https://im-rihan.github.io/work/ziffy-ai-search/) · [live →](https://ziffy.ai)
 
-> Production case studies (private) → [im-rihan.github.io/work](https://im-rihan.github.io/work/) · Blog → [im-rihan.github.io/blog](https://im-rihan.github.io/blog/)
+### [appi](https://homeabroadinc.com) — NestJS core API
+```ts
+stack: ["NestJS", "TypeORM", "Redis", "BullMQ", "LangChain", "Typesense"]
+```
+| feature | what it does |
+|:--------|:-------------|
+| **auth + CRM** | modular REST · Zoho sync · multi-app clients |
+| **search + loans** | Typesense property search · estimate endpoints |
+| **jobs + AI** | BullMQ workers · LangChain SEO content tools |
+| **scale** | Redis cache · MySQL · production fintech traffic |
+
+[case study →](https://im-rihan.github.io/work/nestjs-appi-api/) · [HomeAbroad →](https://homeabroadinc.com)
+
+### 3rdpartycomms + mortgage-pricer — integrations & pricing
+```ts
+hub: ["PHP 8", "MySQL", "Redis", "Cloudflare"]
+pricer: ["TypeScript", "Puppeteer", "AWS Lambda"]
+```
+| feature | what it does |
+|:--------|:-------------|
+| **webhooks** | **60+** event handlers · Twilio / Zoho / SendGrid / Gemini |
+| **crons + agents** | **40+** scheduled jobs · **12+** AI agent tools |
+| **live rates** | headless scrapers across **11** Non-QM / DSCR portals |
+| **cutover** | AWS Lightsail → Hetzner · **zero downtime** |
+
+[integrations →](https://im-rihan.github.io/work/php-3rdpartycomms/) · [pricer →](https://im-rihan.github.io/work/lambda-mortgage-pricer/)
+
+> More case studies · portfolio · blog → [im-rihan.github.io](https://im-rihan.github.io/)
 
 ---
 
@@ -73,6 +107,7 @@ type Engineer = {
 | **data-pipelines** | Python · Node.js · Typesense · S3 | Zillow / Roofstock / Homes.com → MySQL |
 | **mortgage-pricer** | TypeScript · Puppeteer · Lambda | live rates from 11 Non-QM / DSCR portals |
 | **estimate-calculator** | TypeScript · Jest | fees · liquidity · DSCR · pricing lib |
+| **[portfolio](https://im-rihan.github.io/)** | Next.js · R3F · PWA · Playwright | case studies · live status · chat · blog |
 
 ---
 
