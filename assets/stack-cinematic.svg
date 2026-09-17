@@ -5,9 +5,13 @@
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
     <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
   </defs>
-  <rect width="900" height="300" rx="18" fill="url(#void)"/>
+  <rect width="900" height="300" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
   <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="180" cy="240" rx="160" ry="50" fill="#f59e0b" fill-opacity="0.05"/>
   <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.35">
+    <path d="M14 14 H30 V30"/><path d="M886 14 H870 V30"/><path d="M14 286 H30 V270"/><path d="M886 286 H870 V270"/>
+  </g>
   <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
     <path d="M70 210 L450 175 L830 210"/>
     <path d="M140 235 L450 190 L760 235"/>

@@ -6,7 +6,7 @@
 
   <br/>
 
-  <img src="./assets/intro-signal.svg" alt="I build production fintech and real-estate platforms — AI search, NestJS APIs, pipelines, cloud" width="900" />
+  <img src="./assets/signal-deck.svg" alt="Mission brief — production fintech platforms · 4+ years · 9+ systems · 60+ webhooks · 2 companies" width="900" />
 
   <br/>
 
@@ -14,10 +14,6 @@
   <a href="https://linkedin.com/in/im-rihan"><img src="./assets/cta-linkedin.svg" alt="LinkedIn — im-rihan" width="216" height="68" /></a>
   <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-email.svg" alt="Email — im.rihan.dev@gmail.com" width="216" height="68" /></a>
   <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-available.svg" alt="Available for work" width="216" height="68" /></a>
-
-  <br/><br/>
-
-  <img src="./assets/metrics-strip.svg" alt="4+ years · 9+ systems · 60+ webhooks · 2 companies" width="900" />
 
 </div>
 

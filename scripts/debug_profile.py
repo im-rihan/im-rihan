@@ -25,29 +25,33 @@ def git_sha() -> str:
 
 def main() -> None:
     sha = git_sha()
-    report: dict = {"sha": sha}
+    report: dict = {"sha": sha, "gaps": [], "shotErrors": []}
 
     with sync_playwright() as p:
         browser = p.chromium.launch()
 
-        # --- Local asset truth (no CDN cache) ---
         local = browser.new_page(viewport={"width": 1100, "height": 900}, color_scheme="dark")
         assets = [
-            ("hero", ROOT / "assets" / "hero-aurora.svg"),
-            ("intro", ROOT / "assets" / "intro-signal.svg"),
-            ("more", ROOT / "assets" / "more-systems.svg"),
-            ("stack", ROOT / "assets" / "stack-cinematic.svg"),
-            ("metrics", ROOT / "assets" / "metrics-strip.svg"),
-            ("card-ziffy", ROOT / "assets" / "card-ziffy.svg"),
-            ("exp-ziffy", ROOT / "assets" / "exp-ziffy.svg"),
-            ("cta-portfolio", ROOT / "assets" / "cta-portfolio.svg"),
+            ("hero", "hero-aurora.svg"),
+            ("signal-deck", "signal-deck.svg"),
+            ("metrics", "metrics-strip.svg"),
+            ("intro", "intro-signal.svg"),
+            ("label-featured", "label-featured.svg"),
+            ("label-stack", "label-stack.svg"),
+            ("more", "more-systems.svg"),
+            ("stack", "stack-cinematic.svg"),
+            ("card-ziffy", "card-ziffy.svg"),
+            ("exp-ziffy", "exp-ziffy.svg"),
+            ("cta-portfolio", "cta-portfolio.svg"),
         ]
-        for name, path in assets:
-            url = path.as_uri()
-            local.goto(url, wait_until="load", timeout=30000)
-            local.wait_for_timeout(400)
+        for name, file in assets:
+            path = ROOT / "assets" / file
+            if not path.exists():
+                report["shotErrors"].append(f"missing:{file}")
+                continue
+            local.goto(path.as_uri(), wait_until="load", timeout=30000)
+            local.wait_for_timeout(350)
             local.screenshot(path=str(OUT / f"local-{name}.png"))
-            # OCR-ish: extract visible text nodes from SVG
             texts = local.evaluate(
                 """() => [...document.querySelectorAll('text')]
                   .map(t => (t.textContent || '').trim())
@@ -55,19 +59,18 @@ def main() -> None:
             )
             report.setdefault("localTexts", {})[name] = texts
 
-        # Truncation heuristic: title texts longer than ~14 chars in more cards
+        # Local composite: signal deck alone is the mission+metrics unit
         more_titles = [
             t
-            for t in report["localTexts"].get("more", [])
+            for t in report.get("localTexts", {}).get("more", [])
             if t not in {"MORE SYSTEMS", "SYSTEM"} and len(t) < 40
         ]
         report["moreTitles"] = more_titles
         report["suspectLongTitles"] = [t for t in more_titles if len(t) > 14]
 
-        # --- Live GitHub (cache-bust raw SVG URLs) ---
-        page = browser.new_page(viewport={"width": 1280, "height": 2200}, color_scheme="dark")
+        page = browser.new_page(viewport={"width": 1280, "height": 2600}, color_scheme="dark")
         page.goto("https://github.com/im-rihan", wait_until="domcontentloaded", timeout=90000)
-        page.wait_for_timeout(8000)
+        page.wait_for_timeout(9000)
 
         page.evaluate(
             """(sha) => {
@@ -78,23 +81,20 @@ def main() -> None:
                 if (!/im-rihan\\/im-rihan.*assets\\/.*\\.svg/i.test(src)
                     && !/raw\\.githubusercontent\\.com\\/im-rihan\\/im-rihan/i.test(src)
                     && !src.includes('/assets/')) return;
-                // rewrite to raw + bust
-                let file = src;
                 const m = src.match(/assets\\/[^?#\"']+\\.svg/);
                 if (m) {
-                  file = `https://raw.githubusercontent.com/im-rihan/im-rihan/main/${m[0]}?v=${sha}`;
-                  img.src = file;
+                  img.src = `https://raw.githubusercontent.com/im-rihan/im-rihan/main/${m[0]}?v=${sha}`;
                 }
               });
             }""",
             sha,
         )
-        page.wait_for_timeout(4000)
+        page.wait_for_timeout(4500)
 
         details = page.locator("article details").first
         if details.count():
             details.click()
-            page.wait_for_timeout(1200)
+            page.wait_for_timeout(1000)
 
         page.screenshot(path=str(OUT / "full.png"), full_page=True)
         article = page.locator("article").first
@@ -110,34 +110,54 @@ def main() -> None:
                 return {
                   i,
                   alt: img.alt || '',
-                  src: (img.currentSrc || img.src || '').slice(0, 160),
+                  src: (img.currentSrc || img.src || '').slice(0, 180),
                   naturalW: img.naturalWidth,
                   naturalH: img.naturalHeight,
                   displayW: Math.round(r.width),
                   displayH: Math.round(r.height),
+                  top: Math.round(r.top + window.scrollY),
                   broken: img.complete && img.naturalWidth === 0,
                   loading: !img.complete,
                   visible: r.width > 0 && r.height > 0,
                 };
               });
+              // gap analysis between consecutive visible imgs in article
+              const gaps = [];
+              for (let i = 1; i < imgs.length; i++) {
+                const prev = imgs[i - 1];
+                const cur = imgs[i];
+                if (!prev.visible || !cur.visible) continue;
+                const gap = cur.top - (prev.top + prev.displayH);
+                if (gap > 48) {
+                  gaps.push({
+                    between: [prev.alt.slice(0, 40), cur.alt.slice(0, 40)],
+                    gapPx: gap,
+                  });
+                }
+              }
               return {
                 imgCount: imgs.length,
                 broken: imgs.filter(x => x.broken).map(x => x.alt),
                 zeroSize: imgs.filter(x => x.naturalW === 0 || x.displayW === 0).map(x => x.alt),
                 stillLoading: imgs.filter(x => x.loading).map(x => x.alt),
+                gaps,
                 alts: imgs.map(x => x.alt),
                 imgs,
               };
             }"""
         )
         report["live"] = live
+        report["gaps"] = live.get("gaps", [])
 
         shots = [
             ("hero", 'article img[alt="Rihan Mohammed — Full Stack Developer"]'),
-            ("intro", 'article img[alt*="fintech"]'),
+            ("signal-deck", 'article img[alt*="Mission brief"]'),
             ("stack", 'article img[alt="Cinematic tech stack matrix with skill icons"]'),
             ("more", 'article img[alt="More production systems"]'),
-            ("metrics", 'article img[alt*="years"]'),
+            ("label-featured", 'article img[alt="Featured"]'),
+            ("label-stack", 'article img[alt="Stack"]'),
+            ("label-experience", 'article img[alt="Experience"]'),
+            ("label-activity", 'article img[alt="Activity"]'),
             ("activity-pacman", 'article img[alt*="Pac-Man"]'),
             ("activity-stats", 'article img[alt="GitHub Stats"]'),
             ("activity-streak", 'article img[alt="GitHub Streak"]'),
@@ -148,27 +168,23 @@ def main() -> None:
                 try:
                     loc.screenshot(path=str(OUT / f"{name}.png"))
                 except Exception as exc:  # noqa: BLE001
-                    report.setdefault("shotErrors", []).append(f"{name}: {exc}")
+                    report["shotErrors"].append(f"{name}: {exc}")
             else:
-                report.setdefault("shotErrors", []).append(f"{name}: not found ({sel})")
+                report["shotErrors"].append(f"{name}: not found")
 
         browser.close()
 
     (OUT / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
-    print(json.dumps({k: report[k] for k in report if k != "live"}, indent=2))
-    live = report.get("live", {})
-    print(
-        json.dumps(
-            {
-                "broken": live.get("broken"),
-                "zeroSize": live.get("zeroSize"),
-                "stillLoading": live.get("stillLoading"),
-                "imgCount": live.get("imgCount"),
-                "alts": live.get("alts"),
-            },
-            indent=2,
-        )
-    )
+    summary = {
+        "sha": sha,
+        "broken": report.get("live", {}).get("broken"),
+        "zeroSize": report.get("live", {}).get("zeroSize"),
+        "gaps": report.get("gaps"),
+        "shotErrors": report.get("shotErrors"),
+        "suspectLongTitles": report.get("suspectLongTitles"),
+        "imgCount": report.get("live", {}).get("imgCount"),
+    }
+    print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":

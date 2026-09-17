@@ -33,11 +33,24 @@ def wrap_text(text: str, width: int = 42) -> list[str]:
 
 
 def section_label(filename: str, label: str) -> None:
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="56" viewBox="0 0 900 56" role="img">
+    """HUD section header with aurora panel background."""
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="64" viewBox="0 0 900 64" role="img">
+  <title>{escape(label)}</title>
   <defs>
-    <linearGradient id="lineL" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#14b8a6"/>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="wash" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineL" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="lineR" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#14b8a6"/>
@@ -45,15 +58,25 @@ def section_label(filename: str, label: str) -> None:
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect x="40" y="27" width="280" height="2" fill="url(#lineL)"/>
-  <rect x="580" y="27" width="280" height="2" fill="url(#lineR)"/>
-  <circle cx="328" cy="28" r="3" fill="#14b8a6">
+  <rect width="900" height="64" rx="14" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
+  <ellipse cx="450" cy="32" rx="220" ry="40" fill="url(#wash)">
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="4.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <rect x="1" y="1" width="898" height="2" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.4">
+    <path d="M14 14 H28 V28"/><path d="M886 14 H872 V28"/><path d="M14 50 H28 V36"/><path d="M886 50 H872 V36"/>
+  </g>
+  <rect x="48" y="31" width="250" height="2" fill="url(#lineL)"/>
+  <rect x="602" y="31" width="250" height="2" fill="url(#lineR)"/>
+  <circle cx="312" cy="32" r="3" fill="#14b8a6">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="572" cy="28" r="3" fill="#f59e0b">
+  <circle cx="588" cy="32" r="3" fill="#f59e0b">
     <animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite"/>
   </circle>
-  <text x="450" y="34" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#e2e8f0" letter-spacing="4">{escape(label.upper())}</text>
+  <text x="450" y="38" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="16" font-weight="800" fill="#e2e8f0" letter-spacing="4">{escape(label.upper())}</text>
 </svg>
 """
     (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
@@ -220,16 +243,26 @@ def more_systems() -> None:
       <stop offset="0%" stop-color="#020617"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
+    <radialGradient id="wash" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
       <stop offset="50%" stop-color="#14b8a6"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="920" height="220" rx="16" fill="url(#void)"/>
+  <rect width="920" height="220" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
+  <ellipse cx="460" cy="90" rx="280" ry="70" fill="url(#wash)">
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
   <rect x="1" y="1" width="918" height="3" fill="url(#rim)">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
   </rect>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.35">
+    <path d="M14 14 H30 V30"/><path d="M906 14 H890 V30"/><path d="M14 206 H30 V190"/><path d="M906 206 H890 V190"/>
+  </g>
   <text x="460" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
   <path d="M60 200 L460 182 L860 200" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
   {''.join(cards)}
@@ -291,9 +324,13 @@ def stack_panel() -> None:
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
     <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
   </defs>
-  <rect width="900" height="300" rx="18" fill="url(#void)"/>
+  <rect width="900" height="300" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
   <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="180" cy="240" rx="160" ry="50" fill="#f59e0b" fill-opacity="0.05"/>
   <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.35">
+    <path d="M14 14 H30 V30"/><path d="M886 14 H870 V30"/><path d="M14 286 H30 V270"/><path d="M886 286 H870 V270"/>
+  </g>
   <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
     <path d="M70 210 L450 175 L830 210"/>
     <path d="M140 235 L450 190 L760 235"/>
@@ -486,82 +523,90 @@ def hero_banner() -> None:
 
 
 def metrics() -> None:
-    """Cinematic metrics strip — sheen, staggered pulses, HUD corners (matches intro)."""
+    """Clean metrics strip — equal columns, balanced vertical rhythm, soft motion only."""
+    # Keep standalone for debug/compat; primary surface is signal_deck().
+    _write_metrics_strip(ASSETS / "metrics-strip.svg")
+
+
+def _metrics_cells(y0: int = 0) -> tuple[str, str]:
     cells = [
         (112.5, "4+", "YEARS", "#14b8a6", 0.0),
-        (337.5, "9+", "SYSTEMS", "#14b8a6", 0.25),
-        (562.5, "60+", "WEBHOOKS", "#f59e0b", 0.5),
-        (787.5, "2", "COMPANIES", "#14b8a6", 0.75),
+        (337.5, "9+", "SYSTEMS", "#14b8a6", 0.2),
+        (562.5, "60+", "WEBHOOKS", "#f59e0b", 0.4),
+        (787.5, "2", "COMPANIES", "#14b8a6", 0.6),
     ]
-    cell_svg = []
+    parts = []
     for cx, value, label, color, delay in cells:
-        cell_svg.append(
-            f"""<g transform="translate({cx},0)">
-  <animateTransform attributeName="transform" type="translate" values="{cx} 0; {cx} -2; {cx} 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
-  <circle cx="0" cy="28" r="22" fill="{color}" fill-opacity="0.08">
-    <animate attributeName="r" values="18;26;18" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
-    <animate attributeName="fill-opacity" values="0.05;0.16;0.05" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
+        parts.append(
+            f"""<g transform="translate({cx},{y0})">
+  <circle cx="0" cy="32" r="28" fill="{color}" fill-opacity="0.08">
+    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="{delay}s" repeatCount="indefinite"/>
   </circle>
-  <text x="0" y="42" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="{color}">
-    {value}
-    <animate attributeName="opacity" values="0.75;1;0.75" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/>
-  </text>
-  <rect x="-22" y="48" width="44" height="2" rx="1" fill="{color}" fill-opacity="0.55">
-    <animate attributeName="width" values="22;44;22" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="-11;-22;-11" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
-  </rect>
-  <text x="0" y="70" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">{label}</text>
+  <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="{color}">{value}</text>
+  <rect x="-16" y="44" width="32" height="2" rx="1" fill="{color}" fill-opacity="0.75"/>
+  <text x="0" y="64" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">{label}</text>
 </g>"""
         )
     dividers = "\n".join(
-        f'<line x1="{x}" y1="22" x2="{x}" y2="74" stroke="rgba(148,163,184,0.22)"><animate attributeName="stroke-opacity" values="0.12;0.4;0.12" dur="3.5s" begin="{i*0.2}s" repeatCount="indefinite"/></line>'
-        for i, x in enumerate([225, 450, 675])
+        f'<line x1="{x}" y1="{y0 + 16}" x2="{x}" y2="{y0 + 68}" stroke="#334155" stroke-opacity="0.5"/>'
+        for x in (225, 450, 675)
     )
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="104" viewBox="0 0 900 104" role="img">
+    return "".join(parts), dividers
+
+
+def _write_metrics_strip(path: Path) -> None:
+    cells, dividers = _metrics_cells(0)
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="88" viewBox="0 0 900 88" role="img">
   <title>Profile metrics</title>
   <defs>
     <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/>
+      <stop offset="0%" stop-color="#0b1220"/><stop offset="100%" stop-color="#020617"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0f766e" stop-opacity="0"/>
+    <radialGradient id="wash" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
       <stop offset="50%" stop-color="#14b8a6"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#fff" stop-opacity="0.14"/>
-      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
   </defs>
-  <rect width="900" height="104" rx="16" fill="url(#panel)" stroke="rgba(20,184,166,0.28)"/>
-  <rect x="1" y="1" width="898" height="2.5" fill="url(#accentLine)">
-    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
+  <rect width="900" height="88" rx="16" fill="url(#panel)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="450" cy="40" rx="280" ry="50" fill="url(#wash)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
+  <rect x="1" y="1" width="898" height="2" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/>
   </rect>
-  <rect x="0" y="0" width="200" height="104" fill="url(#sheen)">
-    <animate attributeName="x" values="-220;920" dur="8.5s" repeatCount="indefinite"/>
-  </rect>
-  <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.4">
-    <path d="M16 16 H32 V32"/><path d="M884 16 H868 V32"/><path d="M16 88 H32 V72"/><path d="M884 88 H868 V72"/>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.4">
+    <path d="M14 14 H28 V28"/><path d="M886 14 H872 V28"/><path d="M14 74 H28 V60"/><path d="M886 74 H872 V60"/>
   </g>
   {dividers}
-  {''.join(cell_svg)}
+  {cells}
 </svg>
 """
-    (ASSETS / "metrics-strip.svg").write_text(svg, encoding="utf-8", newline="\n")
-    print("wrote metrics-strip.svg")
+    path.write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote", path.name)
 
 
-def intro_signal() -> None:
-    """Manifesto band under hero — editorial, not competing with the nameplate."""
-    svg = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="100" viewBox="0 0 900 100" role="img">
-  <title>I build production fintech and real-estate platforms</title>
+def signal_deck() -> None:
+    """Mission brief + metrics in one panel — removes awkward gap between sections."""
+    cells, dividers = _metrics_cells(112)
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img">
+  <title>Mission brief and profile metrics</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/>
+      <stop offset="0%" stop-color="#020617"/><stop offset="55%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
+    <radialGradient id="auroraA" cx="22%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraB" cx="78%" cy="70%" r="40%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
       <stop offset="50%" stop-color="#14b8a6"/>
@@ -570,31 +615,87 @@ def intro_signal() -> None:
     <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#99f6e4"/>
     </linearGradient>
-    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#fff" stop-opacity="0.12"/>
-      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.08"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="100" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <rect width="900" height="200" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.3)"/>
+  <ellipse cx="200" cy="50" rx="260" ry="90" fill="url(#auroraA)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="7s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="720" cy="160" rx="220" ry="70" fill="url(#auroraB)"/>
+  <rect x="0" y="150" width="900" height="50" fill="url(#floor)"/>
+  <g opacity="0.18" stroke="#14b8a6" fill="none" stroke-width="1">
+    <path d="M40 188 L450 168 L860 188"/>
+    <path d="M80 198 L450 176 L820 198"/>
+  </g>
   <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
     <animate attributeName="opacity" values="0.35;1;0.35" dur="3.4s" repeatCount="indefinite"/>
   </rect>
-  <rect x="0" y="0" width="220" height="100" fill="url(#sheen)" opacity="0.9">
-    <animate attributeName="x" values="-240;920" dur="9s" repeatCount="indefinite"/>
-  </rect>
-  <text x="450" y="28" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
-  <text x="450" y="56" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
-  <text x="450" y="80" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
   <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.45">
-    <path d="M18 18 H36 V36"/><path d="M882 18 H864 V36"/><path d="M18 82 H36 V64"/><path d="M882 82 H864 V64"/>
+    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 184 H34 V166"/><path d="M884 184 H866 V166"/>
   </g>
+
+  <!-- mission -->
+  <text x="450" y="32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
+  <text x="450" y="60" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
+  <text x="450" y="84" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
+
+  <!-- soft separator -->
+  <line x1="80" y1="102" x2="820" y2="102" stroke="#14b8a6" stroke-opacity="0.22"/>
+  <circle cx="450" cy="102" r="2.5" fill="#f59e0b">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+
+  {dividers}
+  {cells}
 </svg>
 """
-    (ASSETS / "intro-signal.svg").write_text(svg, encoding="utf-8", newline="\n")
+    (ASSETS / "signal-deck.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote signal-deck.svg")
+    # Keep intro-signal as thin alias for older links / debug
+    intro = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="88" viewBox="0 0 900 88" role="img">
+  <title>I build production fintech and real-estate platforms</title>
+  <defs>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="wash" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="88" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="450" cy="40" rx="260" ry="48" fill="url(#wash)">
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
+  <rect x="1" y="1" width="898" height="2" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.4s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.4">
+    <path d="M14 14 H28 V28"/><path d="M886 14 H872 V28"/><path d="M14 74 H28 V60"/><path d="M886 74 H872 V60"/>
+  </g>
+  <text x="450" y="28" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
+  <text x="450" y="52" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
+  <text x="450" y="74" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
+</svg>
+"""
+    (ASSETS / "intro-signal.svg").write_text(intro, encoding="utf-8", newline="\n")
     print("wrote intro-signal.svg")
+
+
+def intro_signal() -> None:
+    """Deprecated standalone — generated via signal_deck()."""
+    pass
 
 
 def cta_tile(
@@ -682,7 +783,7 @@ def link_chip(*, filename: str, label: str, accent: str, delay: float = 0.0) -> 
 
 
 def connect_assets() -> None:
-    intro_signal()
+    signal_deck()
     cta_tile(
         filename="cta-portfolio.svg",
         eyebrow="Web",
