@@ -32,7 +32,6 @@
 
 <details>
 <summary><strong>More systems</strong> — expand for the full production set</summary>
-<br/>
 <div align="center">
   <img src="./assets/more-systems.svg" alt="More production systems" width="900" />
 </div>

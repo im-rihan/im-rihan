@@ -875,7 +875,7 @@ def _write_metrics_strip(path: Path) -> None:
 
 def signal_deck() -> None:
     """Mission brief + metrics in one panel — removes awkward gap between sections."""
-    cells, dividers = _metrics_cells(104)
+    cells, dividers = _metrics_cells(100)
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="188" viewBox="0 0 900 188" role="img">
   <title>Mission brief and profile metrics</title>
   <defs>
@@ -902,6 +902,18 @@ def signal_deck() -> None:
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
       <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.08"/>
     </linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152033"/><stop offset="100%" stop-color="#0c1524"/>
+    </linearGradient>
+    <linearGradient id="sideT" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.32"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="sideR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.5"/><stop offset="100%" stop-color="#0f766e" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="drop" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
   </defs>
   <rect width="900" height="188" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.3)"/>
   <ellipse cx="200" cy="44" rx="260" ry="80" fill="url(#auroraA)">
@@ -921,18 +933,28 @@ def signal_deck() -> None:
   </g>
 
   <!-- mission -->
-  <text x="450" y="28" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
-  <text x="450" y="54" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
-  <text x="450" y="76" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
+  <text x="450" y="26" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
+  <text x="450" y="50" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
+  <text x="450" y="70" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
 
   <!-- soft separator -->
-  <line x1="80" y1="92" x2="820" y2="92" stroke="#14b8a6" stroke-opacity="0.22"/>
-  <circle cx="450" cy="92" r="2.5" fill="#f59e0b">
+  <line x1="80" y1="84" x2="820" y2="84" stroke="#14b8a6" stroke-opacity="0.22"/>
+  <circle cx="450" cy="84" r="2.5" fill="#f59e0b">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
   </circle>
 
-  {dividers}
-  {cells}
+  <!-- floating 3D metrics plate -->
+  <g filter="url(#drop)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="5s" repeatCount="indefinite"/>
+    <path d="M848 90 L868 100 L868 174 L848 164 Z" fill="url(#sideR)"/>
+    <path d="M32 90 L52 80 L868 100 L848 90 Z" fill="url(#sideT)"/>
+    <rect x="32" y="90" width="816" height="78" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.35"/>
+    <rect x="32" y="90" width="816" height="2.5" fill="#14b8a6">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    {dividers}
+    {cells}
+  </g>
 </svg>
 """
     (ASSETS / "signal-deck.svg").write_text(svg, encoding="utf-8", newline="\n")
