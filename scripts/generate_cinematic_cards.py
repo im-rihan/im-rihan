@@ -431,22 +431,18 @@ def _parse_activity_numbers() -> dict:
             stats["total"] = nums[0].strip()
             stats["current"] = nums[1].strip()
             stats["longest"] = nums[2].strip()
-        # Current streak date line (e.g. Sep 17)
-        cur = re.findall(
-            r"Current Streak.*?</g>\s*<g[^>]*>.*?font-size='12px'[^>]*>\s*([^<]+?)\s*<",
-            text,
-            re.I | re.S,
-        )
-        if not cur:
-            # fallback: small date under current streak area
-            dates = re.findall(r"font-size='12px'[^>]*>\s*([A-Za-z]{3}\s+\d{1,2}(?:,\s*\d{4})?(?:\s*-\s*[A-Za-z]{3}\s+\d{1,2})?)\s*<", text)
-            if dates:
-                stats["current_range"] = dates[0].strip()
-        else:
-            stats["current_range"] = cur[0].strip()
-        years = re.search(r"([A-Za-z]{3}\s+\d{1,2},\s*)?(\d{4})\s*-\s*Present", text)
+        years = re.search(r"(\d{4})\s*-\s*Present", text)
         if years:
-            stats["total_range"] = f"{years.group(2)} — Present"
+            stats["total_range"] = f"{years.group(1)} — Present"
+        # Prefer a short current-streak day label if present near "Current Streak"
+        day = re.search(
+            r"Current Streak</text>[\s\S]{0,400}?font-size='12px'[^>]*>\s*([A-Za-z]{3}\s+\d{1,2})\s*<",
+            text,
+        )
+        if day:
+            stats["current_range"] = day.group(1).strip()
+        else:
+            stats["current_range"] = "today"
     return stats
 
 
@@ -460,7 +456,7 @@ def activity_hud(data: dict | None = None) -> None:
     dash = 163  # 2*pi*26
     offset = int(dash * (1 - fill))
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img">
   <title>GitHub activity — {escape(d['commits'])} commits · streak {escape(d['current'])}</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -494,87 +490,86 @@ def activity_hud(data: dict | None = None) -> None:
       <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.45"/>
     </filter>
   </defs>
-  <rect width="900" height="220" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
-  <ellipse cx="200" cy="90" rx="260" ry="100" fill="url(#washL)">
+  <rect width="900" height="200" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="200" cy="80" rx="240" ry="90" fill="url(#washL)">
     <animate attributeName="opacity" values="0.6;1;0.6" dur="6s" repeatCount="indefinite"/>
   </ellipse>
-  <ellipse cx="720" cy="130" rx="220" ry="80" fill="url(#washR)"/>
+  <ellipse cx="720" cy="120" rx="200" ry="70" fill="url(#washR)"/>
   <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
     <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
   </rect>
   <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.45">
-    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 204 H34 V186"/><path d="M884 204 H866 V186"/>
+    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 184 H34 V166"/><path d="M884 184 H866 V166"/>
   </g>
-  <text x="450" y="26" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">ACTIVITY SIGNAL</text>
+  <text x="450" y="24" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">ACTIVITY SIGNAL</text>
 
   <!-- left 3D plate: ops -->
   <g filter="url(#drop)">
-    <path d="M430 48 L458 64 L458 188 L430 172 Z" fill="url(#sideR)"/>
-    <path d="M36 48 L64 34 L458 64 L430 48 Z" fill="url(#sideT)"/>
-    <rect x="36" y="48" width="394" height="124" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
-    <rect x="36" y="48" width="394" height="3" fill="#14b8a6">
+    <path d="M412 40 L436 54 L436 168 L412 154 Z" fill="url(#sideR)"/>
+    <path d="M32 40 L56 28 L436 54 L412 40 Z" fill="url(#sideT)"/>
+    <rect x="32" y="40" width="380" height="114" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
+    <rect x="32" y="40" width="380" height="3" fill="#14b8a6">
       <animate attributeName="opacity" values="0.45;1;0.45" dur="2.8s" repeatCount="indefinite"/>
     </rect>
-    <text x="54" y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="1.6">OPS METRICS</text>
+    <text x="50" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="1.6">OPS METRICS</text>
     <g text-anchor="middle" font-family="Inter, Segoe UI, sans-serif">
-      <g transform="translate(110,118)">
+      <g transform="translate(100,105)">
         <text y="0" font-size="28" font-weight="800" fill="#14b8a6">{escape(d['commits'])}</text>
         <rect x="-20" y="8" width="40" height="2" rx="1" fill="#14b8a6" fill-opacity="0.7"/>
-        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">COMMITS</text>
-        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">last year</text>
+        <text y="26" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">COMMITS</text>
+        <text y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">last year</text>
       </g>
-      <g transform="translate(220,118)">
+      <g transform="translate(210,105)">
         <text y="0" font-size="28" font-weight="800" fill="#22d3ee">{escape(d['prs'])}</text>
         <rect x="-16" y="8" width="32" height="2" rx="1" fill="#22d3ee" fill-opacity="0.7"/>
-        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">PRS</text>
-        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">all time</text>
+        <text y="26" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">PRS</text>
+        <text y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">all time</text>
       </g>
-      <g transform="translate(320,118)">
+      <g transform="translate(320,105)">
         <text y="0" font-size="28" font-weight="800" fill="#f59e0b">{escape(d['stars'])}</text>
         <rect x="-14" y="8" width="28" height="2" rx="1" fill="#f59e0b" fill-opacity="0.7"/>
-        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">STARS</text>
-        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">earned</text>
+        <text y="26" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">STARS</text>
+        <text y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">earned</text>
       </g>
     </g>
   </g>
 
   <!-- right 3D plate: streak -->
   <g filter="url(#drop)">
-    <path d="M844 48 L872 64 L872 188 L844 172 Z" fill="url(#sideRo)"/>
-    <path d="M458 48 L486 34 L872 64 L844 48 Z" fill="url(#sideT)"/>
-    <rect x="458" y="48" width="386" height="124" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.35"/>
-    <rect x="458" y="48" width="386" height="3" fill="#f59e0b">
+    <path d="M848 40 L872 54 L872 168 L848 154 Z" fill="url(#sideRo)"/>
+    <path d="M468 40 L492 28 L872 54 L848 40 Z" fill="url(#sideT)"/>
+    <rect x="468" y="40" width="380" height="114" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.35"/>
+    <rect x="468" y="40" width="380" height="3" fill="#f59e0b">
       <animate attributeName="opacity" values="0.45;1;0.45" dur="2.8s" begin="0.3s" repeatCount="indefinite"/>
     </rect>
-    <text x="476" y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.6">STREAK CORE</text>
+    <text x="486" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.6">STREAK CORE</text>
 
-    <g transform="translate(546,126)">
-      <circle r="40" fill="none" stroke="#14b8a6" stroke-opacity="0.15" stroke-width="7"/>
-      <circle r="40" fill="none" stroke="#14b8a6" stroke-width="7" stroke-linecap="round" stroke-dasharray="188 63">
+    <g transform="translate(545,108)">
+      <circle r="36" fill="none" stroke="#14b8a6" stroke-opacity="0.15" stroke-width="6"/>
+      <circle r="36" fill="none" stroke="#14b8a6" stroke-width="6" stroke-linecap="round" stroke-dasharray="170 56">
         <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
       </circle>
-      <text text-anchor="middle" y="10" font-family="Inter, Segoe UI, sans-serif" font-size="36" font-weight="800" fill="#f8fafc">{escape(d['current'])}</text>
-      <text text-anchor="middle" y="56" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
+      <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">{escape(d['current'])}</text>
+      <text text-anchor="middle" y="48" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
     </g>
 
-    <g transform="translate(680,108)" text-anchor="middle">
-      <text y="0" font-family="Inter, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#f59e0b">{escape(d['longest'])}</text>
-      <text y="18" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">LONGEST</text>
-      <text y="52" font-family="Inter, Segoe UI, sans-serif" font-size="22" font-weight="800" fill="#e2e8f0">{escape(d['total'])}</text>
-      <text y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">TOTAL</text>
+    <g transform="translate(680,95)" text-anchor="middle">
+      <text y="0" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="800" fill="#f59e0b">{escape(d['longest'])}</text>
+      <text y="16" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">LONGEST</text>
+      <text y="48" font-family="Inter, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#e2e8f0">{escape(d['total'])}</text>
+      <text y="64" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">TOTAL</text>
     </g>
 
-    <!-- rank chip -->
-    <g transform="translate(800,118)">
-      <circle r="24" fill="none" stroke="#14b8a6" stroke-opacity="0.2" stroke-width="4"/>
-      <circle r="24" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"
+    <g transform="translate(800,108)">
+      <circle r="22" fill="none" stroke="#14b8a6" stroke-opacity="0.2" stroke-width="4"/>
+      <circle r="22" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"
         stroke-dasharray="{dash}" stroke-dashoffset="{offset}" transform="rotate(-90)"/>
-      <text text-anchor="middle" y="5" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="800" fill="url(#ink)">{escape(d['rank'])}</text>
-      <text text-anchor="middle" y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="8" fill="#64748b">RANK</text>
+      <text text-anchor="middle" y="5" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="800" fill="url(#ink)">{escape(d['rank'])}</text>
+      <text text-anchor="middle" y="38" font-family="JetBrains Mono, Consolas, monospace" font-size="8" fill="#64748b">RANK</text>
     </g>
-
-    <text x="651" y="182" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">{escape(d['current_range'])}  ·  {escape(d['total_range'])}</text>
   </g>
+
+  <text x="450" y="186" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">streak {escape(d['current_range'])}  ·  contributions {escape(d['total_range'])}</text>
 </svg>
 """
     (ASSETS / "activity-hud.svg").write_text(svg, encoding="utf-8", newline="\n")
