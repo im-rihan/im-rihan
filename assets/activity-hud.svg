@@ -92,7 +92,7 @@
         <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
       </circle>
       <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">1</text>
-      <text text-anchor="middle" y="48" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
+      <text text-anchor="middle" y="56" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
     </g>
 
     <g transform="translate(680,95)" text-anchor="middle">
