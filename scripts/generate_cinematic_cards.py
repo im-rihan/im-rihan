@@ -592,18 +592,18 @@ def _write_metrics_strip(path: Path) -> None:
 
 def signal_deck() -> None:
     """Mission brief + metrics in one panel — removes awkward gap between sections."""
-    cells, dividers = _metrics_cells(112)
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img">
+    cells, dividers = _metrics_cells(104)
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="188" viewBox="0 0 900 188" role="img">
   <title>Mission brief and profile metrics</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#020617"/><stop offset="55%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <radialGradient id="auroraA" cx="22%" cy="30%" r="45%">
+    <radialGradient id="auroraA" cx="22%" cy="28%" r="45%">
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.22"/>
       <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="auroraB" cx="78%" cy="70%" r="40%">
+    <radialGradient id="auroraB" cx="78%" cy="72%" r="40%">
       <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.1"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </radialGradient>
@@ -620,31 +620,31 @@ def signal_deck() -> None:
       <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.08"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="200" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.3)"/>
-  <ellipse cx="200" cy="50" rx="260" ry="90" fill="url(#auroraA)">
+  <rect width="900" height="188" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.3)"/>
+  <ellipse cx="200" cy="44" rx="260" ry="80" fill="url(#auroraA)">
     <animate attributeName="opacity" values="0.7;1;0.7" dur="7s" repeatCount="indefinite"/>
   </ellipse>
-  <ellipse cx="720" cy="160" rx="220" ry="70" fill="url(#auroraB)"/>
-  <rect x="0" y="150" width="900" height="50" fill="url(#floor)"/>
-  <g opacity="0.18" stroke="#14b8a6" fill="none" stroke-width="1">
-    <path d="M40 188 L450 168 L860 188"/>
-    <path d="M80 198 L450 176 L820 198"/>
+  <ellipse cx="720" cy="150" rx="220" ry="60" fill="url(#auroraB)"/>
+  <rect x="0" y="140" width="900" height="48" fill="url(#floor)"/>
+  <g opacity="0.16" stroke="#14b8a6" fill="none" stroke-width="1">
+    <path d="M40 176 L450 158 L860 176"/>
+    <path d="M80 184 L450 164 L820 184"/>
   </g>
   <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
     <animate attributeName="opacity" values="0.35;1;0.35" dur="3.4s" repeatCount="indefinite"/>
   </rect>
   <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.45">
-    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 184 H34 V166"/><path d="M884 184 H866 V166"/>
+    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 172 H34 V154"/><path d="M884 172 H866 V154"/>
   </g>
 
   <!-- mission -->
-  <text x="450" y="32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
-  <text x="450" y="60" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
-  <text x="450" y="84" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
+  <text x="450" y="28" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
+  <text x="450" y="54" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
+  <text x="450" y="76" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
 
   <!-- soft separator -->
-  <line x1="80" y1="102" x2="820" y2="102" stroke="#14b8a6" stroke-opacity="0.22"/>
-  <circle cx="450" cy="102" r="2.5" fill="#f59e0b">
+  <line x1="80" y1="92" x2="820" y2="92" stroke="#14b8a6" stroke-opacity="0.22"/>
+  <circle cx="450" cy="92" r="2.5" fill="#f59e0b">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
   </circle>
 
