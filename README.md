@@ -138,11 +138,11 @@ familiar  React Native · Django · Flask · Java · Flutter · Angular · Vue
 
 <div align="center">
 
-<!-- Generated daily by .github/workflows/snake.yml → output branch -->
+<!-- Generated daily by .github/workflows/pacman.yml → output branch -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake.svg" />
-  <img alt="github contribution snake" src="https://raw.githubusercontent.com/im-rihan/im-rihan/output/github-snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph.svg" />
+  <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph.svg" />
 </picture>
 
 </div>
