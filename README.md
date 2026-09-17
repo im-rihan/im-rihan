@@ -55,13 +55,11 @@
 
 ---
 
-## Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react,nextjs,ts,nodejs,nestjs,php,python,mysql,redis,aws,docker,vercel,cloudflare&theme=dark" alt="tech stack" />
-</p>
-
-`LangChain · LangGraph · MCP · Typesense · BullMQ · FastAPI · CatBoost · Puppeteer · Leaflet`
+<div align="center">
+  <img src="./assets/label-stack.svg" alt="Stack" width="900" />
+  <br/>
+  <img src="./assets/stack-cinematic.svg" alt="Cinematic tech stack matrix" width="900" />
+</div>
 
 ---
 
@@ -76,7 +74,9 @@
 
 ---
 
-## Activity
+<div align="center">
+  <img src="./assets/label-activity.svg" alt="Activity" width="900" />
+</div>
 
 <div align="center">
 

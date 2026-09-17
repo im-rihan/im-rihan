@@ -18,5 +18,5 @@
   <circle cx="572" cy="28" r="3" fill="#f59e0b">
     <animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite"/>
   </circle>
-  <text x="450" y="34" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#e2e8f0" letter-spacing="4">EXPERIENCE</text>
+  <text x="450" y="34" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#e2e8f0" letter-spacing="4">ACTIVITY</text>
 </svg>

@@ -17,6 +17,13 @@
       <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.28"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
     </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="48%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="52%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
     <radialGradient id="orb" cx="90%" cy="12%" r="35%">
       <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
@@ -26,22 +33,30 @@
     </filter>
   </defs>
   <rect width="560" height="220" fill="url(#void)"/>
-  <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)"/>
+  <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)">
+    <animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" begin="0.6s" repeatCount="indefinite"/>
+  </ellipse>
   <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="#f59e0b" opacity="0.08"/>
   <g filter="url(#shadow)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="5.5s" begin="0.6s" repeatCount="indefinite"/>
     <path d="M480 36 L520 54 L520 184 L480 166 Z" fill="url(#side)"/>
     <path d="M40 36 L80 18 L520 54 L480 36 Z" fill="url(#top)"/>
     <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.4"/>
+    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)">
+      <animate attributeName="x" values="-400;480" dur="7s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
   </g>
-  <rect x="40" y="36" width="8" height="130" fill="#f59e0b"/>
+  <rect x="40" y="36" width="8" height="130" fill="#f59e0b">
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" begin="0.6s" repeatCount="indefinite"/>
+  </rect>
   <text x="64" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="2">EXPERIENCE</text>
   <text x="64" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Full Stack Developer</text>
   <text x="64" y="104" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">HomeAbroad Inc.  ·  Apr 2022 - Present · Remote</text>
-  <circle cx="58" cy="113" r="2.6" fill="#f59e0b"/>
+  <circle cx="58" cy="113" r="2.6" fill="#f59e0b"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
 <text x="70" y="116" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">NestJS API - auth, search, loans, CRM, LangGraph/MCP</text>
-<circle cx="58" cy="135" r="2.6" fill="#f59e0b"/>
+<circle cx="58" cy="135" r="2.6" fill="#f59e0b"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
 <text x="70" y="138" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">PHP 8.3 hub - 60+ webhooks and 12+ AI agent tools</text>
-<circle cx="58" cy="157" r="2.6" fill="#f59e0b"/>
+<circle cx="58" cy="157" r="2.6" fill="#f59e0b"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
 <text x="70" y="160" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">Lambda pricer, CatBoost AVM, AWS to Hetzner cutover</text>
 
 </svg>
