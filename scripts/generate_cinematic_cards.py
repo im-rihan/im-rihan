@@ -79,6 +79,9 @@ ICONS = {
     "fastapi": '<circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/>',
     "puppeteer": '<circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/>',
     "leaflet": '<path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/>',
+    "typesense": '<circle cx="-2" cy="-2" r="7" fill="none" stroke="#d4ff52" stroke-width="2.2"/><path d="M3 3 L9 9" stroke="#d4ff52" stroke-width="2.4" stroke-linecap="round"/><circle cx="-2" cy="-2" r="2" fill="#d4ff52"/>',
+    "catboost": '<rect x="-10" y="-10" width="20" height="20" rx="4" fill="#ffcc00"/><path d="M-6 4 L0 -6 L6 4 Z" fill="#1a1a1a"/>',
+    "mcp": '<rect x="-11" y="-8" width="22" height="16" rx="3" fill="none" stroke="#22d3ee" stroke-width="1.8"/><circle cx="-4" cy="0" r="2.2" fill="#22d3ee"/><circle cx="4" cy="0" r="2.2" fill="#22d3ee"/><path d="M-2 0 H2" stroke="#f59e0b" stroke-width="1.6"/>',
 }
 
 
@@ -258,9 +261,9 @@ def stack_panel() -> None:
         ("LangChain", "langchain", "#14b8a6"),
         ("Puppeteer", "puppeteer", "#00d8a2"),
         ("Leaflet", "leaflet", "#199900"),
-        ("Typesense", "mysql", "#14b8a6"),
-        ("CatBoost", "py", "#f59e0b"),
-        ("MCP", "langchain", "#22d3ee"),
+        ("Typesense", "typesense", "#d4ff52"),
+        ("CatBoost", "catboost", "#ffcc00"),
+        ("MCP", "mcp", "#22d3ee"),
     ]
     tile_svg = "\n".join(isometric_tile(*t) for t in tiles)
     chip_w = 118
@@ -452,14 +455,22 @@ def hero_banner() -> None:
       <path d="M200 0 L230 16 L230 140 L200 124 Z" fill="url(#plateSide)"/>
       <path d="M0 0 L30 -14 L230 16 L200 0 Z" fill="url(#plateTop)"/>
       <rect width="200" height="124" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.4"/>
-      <text x="18" y="32" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6">SYSTEM SIGNAL</text>
-      <text x="18" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">4+ yrs production</text>
-      <text x="18" y="80" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">AI search - pipelines</text>
-      <g transform="translate(18, 98)">
-        <g transform="translate(8,0) scale(0.55)"><path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/></g>
-        <g transform="translate(40,0) scale(0.45)"><path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/></g>
-        <g transform="translate(72,0) scale(0.5)"><path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text></g>
-        <text x="96" y="4" font-family="JetBrains Mono, Consolas, monospace" font-size="11" fill="#94a3b8">Nest · Next · AWS</text>
+      <text x="18" y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6">SYSTEM SIGNAL</text>
+      <text x="18" y="52" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">4+ yrs production</text>
+      <text x="18" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">AI search - pipelines</text>
+      <g transform="translate(100, 98)">
+        <g transform="translate(-48,0)">
+          <g transform="translate(0,-2) scale(0.55)"><path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/></g>
+          <text x="0" y="16" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#94a3b8">Nest</text>
+        </g>
+        <g transform="translate(0,0)">
+          <g transform="translate(0,-2) scale(0.45)"><path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/></g>
+          <text x="0" y="16" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#94a3b8">Next</text>
+        </g>
+        <g transform="translate(48,0)">
+          <g transform="translate(0,-2) scale(0.5)"><path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text></g>
+          <text x="0" y="16" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#94a3b8">AWS</text>
+        </g>
       </g>
     </g>
 
