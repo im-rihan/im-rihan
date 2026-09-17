@@ -1,4 +1,4 @@
-"""Generate cinematic teal-aurora SVG cards for the GitHub profile README."""
+"""Generate cinematic isometric SVG cards for the GitHub profile README."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +15,7 @@ def escape(text: str) -> str:
     )
 
 
-def wrap_text(text: str, width: int = 52) -> list[str]:
+def wrap_text(text: str, width: int = 42) -> list[str]:
     words = text.split()
     lines: list[str] = []
     current = ""
@@ -32,6 +32,24 @@ def wrap_text(text: str, width: int = 52) -> list[str]:
     return lines[:3]
 
 
+def section_label(filename: str, label: str) -> None:
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="52" viewBox="0 0 900 52" role="img">
+  <defs>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="55%" stop-color="#14b8a6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="32" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#e2e8f0" letter-spacing="3">{escape(label.upper())}</text>
+  <rect x="170" y="26" width="700" height="2" fill="url(#line)"/>
+  <circle cx="170" cy="27" r="3" fill="#14b8a6"/>
+</svg>
+"""
+    (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote", filename)
+
+
 def featured_card(
     *,
     filename: str,
@@ -39,54 +57,65 @@ def featured_card(
     title: str,
     stack: str,
     blurb: str,
-    accent: str = "#14b8a6",
+    accent: str,
 ) -> None:
-    blurb_lines = wrap_text(blurb, 50)
-    blurb_svg = "\n".join(
-        f'<text x="34" y="{138 + i * 18}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">{escape(line)}</text>'
-        for i, line in enumerate(blurb_lines)
+    # Isometric card: top face + right extrusion + bottom shelf for depth
+    lines = wrap_text(blurb, 40)
+    text = "\n".join(
+        f'<text x="48" y="{132 + i * 17}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" fill="#94a3b8">{escape(line)}</text>'
+        for i, line in enumerate(lines)
     )
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="380" height="210" viewBox="0 0 380 210" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240" role="img">
   <title>{escape(title)}</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#020617"/>
-      <stop offset="55%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#0b1220"/>
     </linearGradient>
-    <linearGradient id="glass" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#122033"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b1524"/>
     </linearGradient>
-    <radialGradient id="glow" cx="18%" cy="20%" r="55%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.35"/>
+    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="20%" cy="18%" r="50%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.45"/>
       <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0"/>
-      <stop offset="40%" stop-color="{accent}"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.7"/>
-    </linearGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="10"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"/>
     </filter>
   </defs>
-  <rect width="380" height="210" rx="18" fill="url(#bg)"/>
-  <ellipse cx="70" cy="40" rx="120" ry="70" fill="url(#glow)" filter="url(#soft)"/>
-  <path d="M24 168 L190 148 L356 168 L190 188 Z" fill="#14b8a6" opacity="0.08"/>
-  <path d="M24 168 L190 148 L356 168" fill="none" stroke="{accent}" stroke-opacity="0.35" stroke-width="1"/>
-  <rect x="14" y="14" width="352" height="182" rx="14" fill="url(#glass)" stroke="rgba(20,184,166,0.35)" stroke-width="1"/>
-  <rect x="14" y="14" width="352" height="3" rx="1.5" fill="url(#edge)"/>
-  <g stroke="{accent}" stroke-width="1.4" fill="none" opacity="0.55">
-    <path d="M26 42 L26 28 L40 28"/>
-    <path d="M340 28 L354 28 L354 42"/>
-    <path d="M26 168 L26 182 L40 182"/>
-    <path d="M340 182 L354 182 L354 168"/>
+  <rect width="400" height="240" fill="url(#void)"/>
+  <ellipse cx="90" cy="50" rx="130" ry="70" fill="url(#glow)"/>
+  <!-- floor plane -->
+  <path d="M30 205 L210 185 L370 205 L190 225 Z" fill="{accent}" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <!-- right extrusion (depth) -->
+    <path d="M340 42 L370 58 L370 188 L340 172 Z" fill="url(#side)"/>
+    <!-- top bevel -->
+    <path d="M40 42 L70 26 L370 58 L340 42 Z" fill="url(#top)"/>
+    <!-- main face -->
+    <path d="M40 42 L340 42 L340 172 L40 172 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.45"/>
   </g>
-  <text x="34" y="52" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="1.8">{escape(eyebrow.upper())}</text>
-  <text x="34" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f1f5f9">{escape(title)}</text>
-  <text x="34" y="108" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#f59e0b">{escape(stack)}</text>
-  {blurb_svg}
+  <rect x="40" y="42" width="300" height="3" fill="{accent}" opacity="0.85"/>
+  <g stroke="{accent}" stroke-width="1.3" fill="none" opacity="0.65">
+    <path d="M52 58 L52 50 L62 50"/>
+    <path d="M318 50 L328 50 L328 58"/>
+    <path d="M52 156 L52 164 L62 164"/>
+    <path d="M318 164 L328 164 L328 156"/>
+  </g>
+  <text x="58" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">{escape(eyebrow.upper())}</text>
+  <text x="58" y="100" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#f8fafc">{escape(title)}</text>
+  <text x="58" y="120" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#f59e0b">{escape(stack)}</text>
+  {text}
 </svg>
 """
     (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
@@ -100,62 +129,55 @@ def experience_card(
     company: str,
     period: str,
     bullets: list[str],
-    accent: str = "#14b8a6",
+    accent: str,
 ) -> None:
     lines = ""
-    y = 118
+    y = 116
     for b in bullets[:3]:
-        lines += f'<circle cx="42" cy="{y - 3}" r="2.5" fill="{accent}"/>\n'
-        lines += f'<text x="54" y="{y}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">{escape(b)}</text>\n'
+        lines += f'<circle cx="58" cy="{y - 3}" r="2.6" fill="{accent}"/>\n'
+        lines += f'<text x="70" y="{y}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">{escape(b)}</text>\n'
         y += 22
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="560" height="200" viewBox="0 0 560 200" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="560" height="220" viewBox="0 0 560 220" role="img">
   <title>{escape(role)} - {escape(company)}</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132033"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.05"/>
+    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.2"/>
     </linearGradient>
-    <radialGradient id="orb" cx="88%" cy="18%" r="40%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.4"/>
+    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="90%" cy="12%" r="35%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.5"/>
       <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
     </radialGradient>
-    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="14"/>
+    <filter id="shadow" x="-15%" y="-15%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity="0.5"/>
     </filter>
   </defs>
-  <rect width="560" height="200" rx="18" fill="url(#bg)"/>
-  <ellipse cx="480" cy="40" rx="110" ry="70" fill="url(#orb)" filter="url(#blur)"/>
-  <!-- perspective plate -->
-  <path d="M28 176 L280 156 L532 176 L280 196 Z" fill="#14b8a6" opacity="0.07"/>
-  <rect x="16" y="16" width="528" height="168" rx="14" fill="url(#panel)" stroke="rgba(20,184,166,0.32)"/>
-  <rect x="16" y="16" width="6" height="168" rx="3" fill="{accent}"/>
-  <text x="40" y="48" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="1.6">EXPERIENCE</text>
-  <text x="40" y="78" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">{escape(role)}</text>
-  <text x="40" y="100" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">{escape(company)}  ·  {escape(period)}</text>
+  <rect width="560" height="220" fill="url(#void)"/>
+  <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)"/>
+  <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="{accent}" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <path d="M480 36 L520 54 L520 184 L480 166 Z" fill="url(#side)"/>
+    <path d="M40 36 L80 18 L520 54 L480 36 Z" fill="url(#top)"/>
+    <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.4"/>
+  </g>
+  <rect x="40" y="36" width="8" height="130" fill="{accent}"/>
+  <text x="64" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">EXPERIENCE</text>
+  <text x="64" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">{escape(role)}</text>
+  <text x="64" y="104" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">{escape(company)}  ·  {escape(period)}</text>
   {lines}
-</svg>
-"""
-    (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
-    print("wrote", filename)
-
-
-def section_label(filename: str, label: str) -> None:
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="48" viewBox="0 0 900 48" role="img">
-  <defs>
-    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#14b8a6"/>
-      <stop offset="70%" stop-color="#14b8a6" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect width="900" height="48" fill="transparent"/>
-  <text x="0" y="30" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#e2e8f0" letter-spacing="2">{escape(label.upper())}</text>
-  <rect x="160" y="24" width="720" height="2" fill="url(#line)"/>
 </svg>
 """
     (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
