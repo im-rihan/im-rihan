@@ -10,14 +10,14 @@
 
   <br/>
 
-  <a href="https://im-rihan.github.io/"><img src="./assets/cta-portfolio.svg" alt="Portfolio — im-rihan.github.io" height="68" /></a>
-  <a href="https://linkedin.com/in/im-rihan"><img src="./assets/cta-linkedin.svg" alt="LinkedIn — im-rihan" height="68" /></a>
-  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-email.svg" alt="Email — im.rihan.dev@gmail.com" height="68" /></a>
-  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-available.svg" alt="Available for work" height="68" /></a>
+  <a href="https://im-rihan.github.io/"><img src="./assets/cta-portfolio.svg" alt="Portfolio — im-rihan.github.io" width="216" height="68" /></a>
+  <a href="https://linkedin.com/in/im-rihan"><img src="./assets/cta-linkedin.svg" alt="LinkedIn — im-rihan" width="216" height="68" /></a>
+  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-email.svg" alt="Email — im.rihan.dev@gmail.com" width="216" height="68" /></a>
+  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-available.svg" alt="Available for work" width="216" height="68" /></a>
 
   <br/><br/>
 
-  <img src="./assets/metrics-strip.svg" alt="4+ years · 9+ systems · 60+ webhooks · 2 companies" width="820" />
+  <img src="./assets/metrics-strip.svg" alt="4+ years · 9+ systems · 60+ webhooks · 2 companies" width="900" />
 
 </div>
 
@@ -82,17 +82,13 @@
 
 <div align="center">
 
-<!-- Pac-Man eats the contribution grid — .github/workflows/pacman.yml -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph.svg" />
-  <img alt="Pac-Man contribution graph" width="100%" src="https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph.svg" />
-</picture>
+<!-- Pac-Man via jsDelivr (stable through GitHub camo); stats via github-stats-extended -->
+<img alt="Pac-Man contribution graph" width="100%" src="https://cdn.jsdelivr.net/gh/im-rihan/im-rihan@output/pacman-contribution-graph-dark.svg" />
 
 <br/>
 
-<img height="148" src="https://github-readme-stats.shion.dev/api?username=im-rihan&show_icons=true&hide_border=true&count_private=true&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a&hide=issues,contribs" alt="GitHub Stats" />
-<img height="148" src="https://streak-stats.demolab.com/?user=im-rihan&hide_border=true&background=0F172A&stroke=0F766E&ring=14B8A6&fire=F59E0B&currStreakLabel=14B8A6&sideLabels=94A3B8&dates=64748B&currStreakNum=E2E8F0&sideNums=E2E8F0" alt="GitHub Streak" />
+<img height="150" src="https://github-stats-extended.vercel.app/api?username=im-rihan&show_icons=true&hide_border=true&count_private=true&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a&hide=issues,contribs" alt="GitHub Stats" />
+<img height="150" src="https://streak-stats.demolab.com/?user=im-rihan&hide_border=true&background=0F172A&stroke=0F766E&ring=14B8A6&fire=F59E0B&currStreakLabel=14B8A6&sideLabels=94A3B8&dates=64748B&currStreakNum=E2E8F0&sideNums=E2E8F0" alt="GitHub Streak" />
 
 </div>
 

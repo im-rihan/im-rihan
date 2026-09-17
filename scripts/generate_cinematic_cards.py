@@ -486,23 +486,68 @@ def hero_banner() -> None:
 
 
 def metrics() -> None:
-    svg = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" role="img">
+    """Cinematic metrics strip — sheen, staggered pulses, HUD corners (matches intro)."""
+    cells = [
+        (112.5, "4+", "YEARS", "#14b8a6", 0.0),
+        (337.5, "9+", "SYSTEMS", "#14b8a6", 0.25),
+        (562.5, "60+", "WEBHOOKS", "#f59e0b", 0.5),
+        (787.5, "2", "COMPANIES", "#14b8a6", 0.75),
+    ]
+    cell_svg = []
+    for cx, value, label, color, delay in cells:
+        cell_svg.append(
+            f"""<g transform="translate({cx},0)">
+  <animateTransform attributeName="transform" type="translate" values="{cx} 0; {cx} -2; {cx} 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+  <circle cx="0" cy="28" r="22" fill="{color}" fill-opacity="0.08">
+    <animate attributeName="r" values="18;26;18" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.16;0.05" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
+  </circle>
+  <text x="0" y="42" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="{color}">
+    {value}
+    <animate attributeName="opacity" values="0.75;1;0.75" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/>
+  </text>
+  <rect x="-22" y="48" width="44" height="2" rx="1" fill="{color}" fill-opacity="0.55">
+    <animate attributeName="width" values="22;44;22" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="-11;-22;-11" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
+  </rect>
+  <text x="0" y="70" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">{label}</text>
+</g>"""
+        )
+    dividers = "\n".join(
+        f'<line x1="{x}" y1="22" x2="{x}" y2="74" stroke="rgba(148,163,184,0.22)"><animate attributeName="stroke-opacity" values="0.12;0.4;0.12" dur="3.5s" begin="{i*0.2}s" repeatCount="indefinite"/></line>'
+        for i, x in enumerate([225, 450, 675])
+    )
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="104" viewBox="0 0 900 104" role="img">
   <title>Profile metrics</title>
   <defs>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/></linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0f766e" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f766e" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.14"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <rect width="900" height="96" rx="14" fill="url(#panel)" stroke="rgba(20,184,166,0.28)"/>
-  <rect x="1" y="1" width="898" height="3" fill="url(#accentLine)"><animate attributeName="opacity" values="0.45;1;0.45" dur="3.2s" repeatCount="indefinite"/></rect>
-  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
-    <g transform="translate(112.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">4+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">YEARS</text></g>
-    <line x1="225" y1="24" x2="225" y2="72" stroke="rgba(148,163,184,0.25)"/>
-    <g transform="translate(337.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">9+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">SYSTEMS</text></g>
-    <line x1="450" y1="24" x2="450" y2="72" stroke="rgba(148,163,184,0.25)"/>
-    <g transform="translate(562.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#f59e0b">60+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">WEBHOOKS</text></g>
-    <line x1="675" y1="24" x2="675" y2="72" stroke="rgba(148,163,184,0.25)"/>
-    <g transform="translate(787.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">2</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">COMPANIES</text></g>
+  <rect width="900" height="104" rx="16" fill="url(#panel)" stroke="rgba(20,184,166,0.28)"/>
+  <rect x="1" y="1" width="898" height="2.5" fill="url(#accentLine)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="0" width="200" height="104" fill="url(#sheen)">
+    <animate attributeName="x" values="-220;920" dur="8.5s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.4">
+    <path d="M16 16 H32 V32"/><path d="M884 16 H868 V32"/><path d="M16 88 H32 V72"/><path d="M884 88 H868 V72"/>
   </g>
+  {dividers}
+  {''.join(cell_svg)}
 </svg>
 """
     (ASSETS / "metrics-strip.svg").write_text(svg, encoding="utf-8", newline="\n")
@@ -646,6 +691,7 @@ def connect_assets() -> None:
         accent="#14b8a6",
         icon='<path d="M-7 -7 H7 V7 H-7 Z" fill="none" stroke="#14b8a6" stroke-width="1.8"/><path d="M-3 0 H3 M0 -3 V3" stroke="#14b8a6" stroke-width="1.8"/>',
         delay=0.0,
+        width=216,
     )
     cta_tile(
         filename="cta-linkedin.svg",
@@ -655,6 +701,7 @@ def connect_assets() -> None:
         accent="#0A66C2",
         icon='<text x="0" y="5" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="800" fill="#0A66C2">in</text>',
         delay=0.15,
+        width=216,
     )
     cta_tile(
         filename="cta-email.svg",
@@ -664,17 +711,17 @@ def connect_assets() -> None:
         accent="#EA4335",
         icon='<rect x="-8" y="-5" width="16" height="11" rx="1.5" fill="none" stroke="#EA4335" stroke-width="1.7"/><path d="M-8 -5 L0 2 L8 -5" fill="none" stroke="#EA4335" stroke-width="1.7"/>',
         delay=0.3,
-        width=210,
+        width=216,
     )
     cta_tile(
         filename="cta-available.svg",
         eyebrow="Status",
         title="Available",
-        hint="open to opportunities",
+        hint="open to work",
         accent="#22c55e",
         icon='<circle cx="0" cy="0" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;0.35;1" dur="1.8s" repeatCount="indefinite"/></circle>',
         delay=0.45,
-        width=200,
+        width=216,
     )
     chips = [
         ("chip-casestudy.svg", "case study", "#14b8a6", 0.0),

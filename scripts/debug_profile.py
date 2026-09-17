@@ -34,11 +34,13 @@ def main() -> None:
         local = browser.new_page(viewport={"width": 1100, "height": 900}, color_scheme="dark")
         assets = [
             ("hero", ROOT / "assets" / "hero-aurora.svg"),
+            ("intro", ROOT / "assets" / "intro-signal.svg"),
             ("more", ROOT / "assets" / "more-systems.svg"),
             ("stack", ROOT / "assets" / "stack-cinematic.svg"),
             ("metrics", ROOT / "assets" / "metrics-strip.svg"),
             ("card-ziffy", ROOT / "assets" / "card-ziffy.svg"),
             ("exp-ziffy", ROOT / "assets" / "exp-ziffy.svg"),
+            ("cta-portfolio", ROOT / "assets" / "cta-portfolio.svg"),
         ]
         for name, path in assets:
             url = path.as_uri()
@@ -132,9 +134,13 @@ def main() -> None:
 
         shots = [
             ("hero", 'article img[alt="Rihan Mohammed — Full Stack Developer"]'),
+            ("intro", 'article img[alt*="fintech"]'),
             ("stack", 'article img[alt="Cinematic tech stack matrix with skill icons"]'),
             ("more", 'article img[alt="More production systems"]'),
             ("metrics", 'article img[alt*="years"]'),
+            ("activity-pacman", 'article img[alt*="Pac-Man"]'),
+            ("activity-stats", 'article img[alt="GitHub Stats"]'),
+            ("activity-streak", 'article img[alt="GitHub Streak"]'),
         ]
         for name, sel in shots:
             loc = page.locator(sel).first

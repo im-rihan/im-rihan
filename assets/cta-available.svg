@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="68" viewBox="0 0 200 68" role="img">
-  <title>Available — open to opportunities</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="216" height="68" viewBox="0 0 216 68" role="img">
+  <title>Available — open to work</title>
   <defs>
     <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#132033" stop-opacity="0.96"/>
@@ -22,14 +22,14 @@
     </filter>
   </defs>
   <g filter="url(#soft)">
-    <rect x="1" y="1" width="198" height="66" rx="14" fill="url(#glass)" stroke="#22c55e" stroke-opacity="0.45">
+    <rect x="1" y="1" width="214" height="66" rx="14" fill="url(#glass)" stroke="#22c55e" stroke-opacity="0.45">
       <animate attributeName="stroke-opacity" values="0.28;0.75;0.28" dur="3.2s" begin="0.45s" repeatCount="indefinite"/>
     </rect>
-    <rect x="1" y="1" width="198" height="2.5" rx="1" fill="url(#edge)">
+    <rect x="1" y="1" width="214" height="2.5" rx="1" fill="url(#edge)">
       <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" begin="0.45s" repeatCount="indefinite"/>
     </rect>
-    <rect x="1" y="1" width="198" height="66" rx="14" fill="url(#sheen)">
-      <animate attributeName="x" values="-200;200" dur="7.5s" begin="0.45s" repeatCount="indefinite"/>
+    <rect x="1" y="1" width="214" height="66" rx="14" fill="url(#sheen)">
+      <animate attributeName="x" values="-216;216" dur="7.5s" begin="0.45s" repeatCount="indefinite"/>
     </rect>
   </g>
   <g transform="translate(18, 34)">
@@ -38,5 +38,5 @@
   </g>
   <text x="44" y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#22c55e" letter-spacing="1.6">STATUS</text>
   <text x="44" y="46" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">Available</text>
-  <text x="44" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">open to opportunities</text>
+  <text x="44" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">open to work</text>
 </svg>
