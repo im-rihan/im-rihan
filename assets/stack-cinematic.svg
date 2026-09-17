@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="290" viewBox="0 0 900 290" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img">
   <title>Tech stack</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
     <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
   </defs>
-  <rect width="900" height="290" rx="18" fill="url(#void)"/>
+  <rect width="900" height="300" rx="18" fill="url(#void)"/>
   <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
   <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
   <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
@@ -154,7 +154,7 @@
     <animate attributeName="fill-opacity" values="0.1;0.28;0.1" dur="3.8s" begin="1.3s" repeatCount="indefinite"/>
   </path>
   <g transform="translate(670, 166) scale(0.85)"><path d="M-12 2 H4 C8 2 10 0 10 -3 C10 -7 6 -9 2 -8 C1 -12 -5 -12 -8 -9 C-12 -9 -13 -4 -12 2 Z" fill="#f38020"/></g>
-  <text x="670" y="221.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#cbd5e1">Cloudflare</text>
+  <text x="670" y="221.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#cbd5e1">CF</text>
 </g>
 <g>
   <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="3.8s" begin="1.5s" repeatCount="indefinite"/>
@@ -167,41 +167,41 @@
   <g transform="translate(770, 166) scale(0.85)"><circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/></g>
   <text x="770" y="221.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#cbd5e1">FastAPI</text>
 </g>
-  <g transform="translate(160, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#14b8a6" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.0s" repeatCount="indefinite"/>
+  <g transform="translate(125.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#14b8a6" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.0s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">LangChain</text>
-</g><g transform="translate(280, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#00d8a2" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.15s" repeatCount="indefinite"/>
+  <g transform="translate(0, -6) scale(0.62)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">LangChain</text>
+</g><g transform="translate(255.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#00d8a2" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.15s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Puppeteer</text>
-</g><g transform="translate(400, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#199900" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.3s" repeatCount="indefinite"/>
+  <g transform="translate(0, -6) scale(0.62)"><circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Puppeteer</text>
+</g><g transform="translate(385.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#199900" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.3s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Leaflet</text>
-</g><g transform="translate(520, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#009688" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.44999999999999996s" repeatCount="indefinite"/>
+  <g transform="translate(0, -6) scale(0.62)"><path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Leaflet</text>
+</g><g transform="translate(515.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#14b8a6" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.44999999999999996s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">FastAPI</text>
-</g><g transform="translate(640, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#f59e0b" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.6s" repeatCount="indefinite"/>
+  <g transform="translate(0, -6) scale(0.62)"><path d="M-10 6 Q-10 -8 0 -8 Q10 -8 10 6" fill="none" stroke="#00758f" stroke-width="2.2"/><ellipse cx="0" cy="6" rx="10" ry="3.5" fill="#f29111"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Typesense</text>
+</g><g transform="translate(645.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#f59e0b" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.6s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><path d="M-2 -10 H2 C8 -10 10 -6 10 -2 V2 H2 C-4 2 -6 6 -6 10 H-10 C-10 2 -6 -2 -2 -2 H6 V-6 H-2 C-6 -6 -6 -10 -2 -10 Z" fill="#3776ab"/><circle cx="-4" cy="-6" r="1.2" fill="#ffd43b"/><circle cx="4" cy="6" r="1.2" fill="#3776ab"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">CatBoost</text>
-</g><g transform="translate(760, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="#22d3ee" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.75s" repeatCount="indefinite"/>
+  <g transform="translate(0, -6) scale(0.62)"><path d="M-2 -10 H2 C8 -10 10 -6 10 -2 V2 H2 C-4 2 -6 6 -6 10 H-10 C-10 2 -6 -2 -2 -2 H6 V-6 H-2 C-6 -6 -6 -10 -2 -10 Z" fill="#3776ab"/><circle cx="-4" cy="-6" r="1.2" fill="#ffd43b"/><circle cx="4" cy="6" r="1.2" fill="#3776ab"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">CatBoost</text>
+</g><g transform="translate(775.0, 252)">
+  <rect x="-59.0" y="-22" width="118" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="#22d3ee" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="0.75s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">MCP</text>
+  <g transform="translate(0, -6) scale(0.62)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">MCP</text>
 </g>
 </svg>

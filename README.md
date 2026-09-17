@@ -61,8 +61,6 @@
   <img src="./assets/label-stack.svg" alt="Stack" width="900" />
   <br/>
   <img src="./assets/stack-cinematic.svg" alt="Cinematic tech stack matrix with skill icons" width="900" />
-  <br/>
-  <img src="https://skillicons.dev/icons?i=react,nextjs,ts,nodejs,nestjs,php,python,mysql,redis,aws,docker,vercel,cloudflare&theme=dark&perline=7" alt="Skill icons" />
 </div>
 
 ---

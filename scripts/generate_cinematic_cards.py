@@ -181,40 +181,36 @@ def experience_card(*, filename, role, company, period, bullets, accent, delay=0
 def more_systems() -> None:
     """Cinematic expanded 'more systems' panel — replaces ugly markdown table."""
     items = [
-        ("ha-realtor-plat", "Agent / MLO dashboards · Leaflet maps", "#14b8a6"),
-        ("data-pipelines", "Multi-source scrape → MySQL / Typesense", "#22d3ee"),
-        ("Rental-Estimate-AVM", "CatBoost rent AVM · FastAPI · DuckDB", "#f59e0b"),
-        ("estimate-calculator", "Shared DSCR / fees / liquidity library", "#a78bfa"),
-        ("portfolio", "Case studies · status · blog · R3F", "#34d399"),
+        ("ha-realtor-plat", "Agent / MLO dashboards", "Leaflet maps", "#14b8a6"),
+        ("data-pipelines", "Multi-source scrape", "MySQL / Typesense", "#22d3ee"),
+        ("Rental AVM", "CatBoost rent model", "FastAPI · DuckDB", "#f59e0b"),
+        ("estimate-lib", "Shared DSCR / fees", "liquidity library", "#a78bfa"),
+        ("portfolio", "Case studies · status", "blog · R3F", "#34d399"),
     ]
     cards = []
-    gap = 12
-    w = 168
+    gap = 14
+    w = 164
     total = len(items) * w + (len(items) - 1) * gap
     start = (920 - total) / 2
-    for i, (title, focus, accent) in enumerate(items):
+    for i, (title, line1, line2, accent) in enumerate(items):
         x = start + i * (w + gap)
-        focus_lines = wrap_text(focus, 20)
-        fl = "\n".join(
-            f'<text x="{x + (w-10)/2}" y="{128 + j * 13}" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">{escape(line)}</text>'
-            for j, line in enumerate(focus_lines[:2])
-        )
         cards.append(
             f"""<g>
   <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="{i * 0.2}s" repeatCount="indefinite"/>
-  <path d="M{x+w-10} 56 L{x+w+8} 68 L{x+w+8} 168 L{x+w-10} 156 Z" fill="{accent}" fill-opacity="0.35"/>
-  <path d="M{x} 56 L{x+16} 44 L{x+w+8} 68 L{x+w-10} 56 Z" fill="{accent}" fill-opacity="0.2"/>
-  <rect x="{x}" y="56" width="{w-10}" height="100" rx="10" fill="#0f172a" stroke="{accent}" stroke-opacity="0.5"/>
-  <rect x="{x}" y="56" width="{w-10}" height="3" fill="{accent}">
+  <path d="M{x+w-12} 52 L{x+w+6} 64 L{x+w+6} 178 L{x+w-12} 166 Z" fill="{accent}" fill-opacity="0.35"/>
+  <path d="M{x} 52 L{x+14} 40 L{x+w+6} 64 L{x+w-12} 52 Z" fill="{accent}" fill-opacity="0.22"/>
+  <rect x="{x}" y="52" width="{w-12}" height="114" rx="12" fill="#0f172a" stroke="{accent}" stroke-opacity="0.55"/>
+  <rect x="{x}" y="52" width="{w-12}" height="3" fill="{accent}">
     <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="{i * 0.2}s" repeatCount="indefinite"/>
   </rect>
-  <text x="{x + (w-10)/2}" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="{accent}" letter-spacing="1">SYSTEM</text>
-  <text x="{x + (w-10)/2}" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">{escape(title[:15])}</text>
-  {fl}
+  <text x="{x + (w-12)/2}" y="78" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="{accent}" letter-spacing="1.5">SYSTEM</text>
+  <text x="{x + (w-12)/2}" y="104" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="13" font-weight="800" fill="#f1f5f9">{escape(title)}</text>
+  <text x="{x + (w-12)/2}" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="10" fill="#94a3b8">{escape(line1)}</text>
+  <text x="{x + (w-12)/2}" y="144" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="10" fill="#94a3b8">{escape(line2)}</text>
 </g>"""
         )
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="920" height="210" viewBox="0 0 920 210" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="920" height="220" viewBox="0 0 920 220" role="img">
   <title>More systems</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -227,12 +223,12 @@ def more_systems() -> None:
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="920" height="210" rx="16" fill="url(#void)"/>
+  <rect width="920" height="220" rx="16" fill="url(#void)"/>
   <rect x="1" y="1" width="918" height="3" fill="url(#rim)">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
   </rect>
-  <text x="460" y="34" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
-  <path d="M60 190 L460 170 L860 190" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
+  <text x="460" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
+  <path d="M60 200 L460 182 L860 200" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
   {''.join(cards)}
 </svg>
 """
@@ -254,39 +250,45 @@ def stack_panel() -> None:
         (370, 168, "AWS", "aws", "#ff9900", 0.7),
         (470, 168, "Docker", "docker", "#2496ed", 0.9),
         (570, 168, "Vercel", "vercel", "#e2e8f0", 1.1),
-        (670, 168, "Cloudflare", "cf", "#f38020", 1.3),
+        (670, 168, "CF", "cf", "#f38020", 1.3),
         (770, 168, "FastAPI", "fastapi", "#009688", 1.5),
     ]
+    # Centered fluent chips: icon above label, both centered in pill
     fluent = [
-        (160, "LangChain", "langchain", "#14b8a6"),
-        (280, "Puppeteer", "puppeteer", "#00d8a2"),
-        (400, "Leaflet", "leaflet", "#199900"),
-        (520, "FastAPI", "fastapi", "#009688"),
-        (640, "CatBoost", "py", "#f59e0b"),
-        (760, "MCP", "langchain", "#22d3ee"),
+        ("LangChain", "langchain", "#14b8a6"),
+        ("Puppeteer", "puppeteer", "#00d8a2"),
+        ("Leaflet", "leaflet", "#199900"),
+        ("Typesense", "mysql", "#14b8a6"),
+        ("CatBoost", "py", "#f59e0b"),
+        ("MCP", "langchain", "#22d3ee"),
     ]
     tile_svg = "\n".join(isometric_tile(*t) for t in tiles)
+    chip_w = 118
+    gap = 12
+    total = len(fluent) * chip_w + (len(fluent) - 1) * gap
+    start = (900 - total) / 2
     fluent_svg = []
-    for i, (x, label, key, accent) in enumerate(fluent):
+    for i, (label, key, accent) in enumerate(fluent):
+        x = start + i * (chip_w + gap) + chip_w / 2
         icon = ICONS.get(key, "")
         fluent_svg.append(
-            f"""<g transform="translate({x}, 248)">
-  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="{accent}" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="{i*0.15}s" repeatCount="indefinite"/>
+            f"""<g transform="translate({x}, 252)">
+  <rect x="{-chip_w/2}" y="-22" width="{chip_w}" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="{accent}" stroke-opacity="0.55">
+    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="{i*0.15}s" repeatCount="indefinite"/>
   </rect>
-  <g transform="translate(-28,0) scale(0.7)">{icon}</g>
-  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">{escape(label)}</text>
+  <g transform="translate(0, -6) scale(0.62)">{icon}</g>
+  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">{escape(label)}</text>
 </g>"""
         )
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="290" viewBox="0 0 900 290" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img">
   <title>Tech stack</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
     <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
     <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
   </defs>
-  <rect width="900" height="290" rx="18" fill="url(#void)"/>
+  <rect width="900" height="300" rx="18" fill="url(#void)"/>
   <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
   <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
   <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
@@ -453,7 +455,12 @@ def hero_banner() -> None:
       <text x="18" y="32" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6">SYSTEM SIGNAL</text>
       <text x="18" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">4+ yrs production</text>
       <text x="18" y="80" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">AI search - pipelines</text>
-      <text x="18" y="102" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">NestJS - Next.js - AWS</text>
+      <g transform="translate(18, 98)">
+        <g transform="translate(8,0) scale(0.55)"><path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/></g>
+        <g transform="translate(40,0) scale(0.45)"><path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/></g>
+        <g transform="translate(72,0) scale(0.5)"><path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text></g>
+        <text x="96" y="4" font-family="JetBrains Mono, Consolas, monospace" font-size="11" fill="#94a3b8">Nest · Next · AWS</text>
+      </g>
     </g>
 
     <!-- scanline -->
