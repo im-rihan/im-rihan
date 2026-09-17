@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="200" viewBox="0 0 560 200" role="img">
+  <title>Full Stack Engineer - Ziffy.ai</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="88%" cy="18%" r="40%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <rect width="560" height="200" rx="18" fill="url(#bg)"/>
+  <ellipse cx="480" cy="40" rx="110" ry="70" fill="url(#orb)" filter="url(#blur)"/>
+  <!-- perspective plate -->
+  <path d="M28 176 L280 156 L532 176 L280 196 Z" fill="#14b8a6" opacity="0.07"/>
+  <rect x="16" y="16" width="528" height="168" rx="14" fill="url(#panel)" stroke="rgba(20,184,166,0.32)"/>
+  <rect x="16" y="16" width="6" height="168" rx="3" fill="#14b8a6"/>
+  <text x="40" y="48" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="1.6">EXPERIENCE</text>
+  <text x="40" y="78" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Full Stack Engineer</text>
+  <text x="40" y="100" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">Ziffy.ai  ·  Jan 2025 - Present · Remote</text>
+  <circle cx="42" cy="115" r="2.5" fill="#14b8a6"/>
+<text x="54" y="118" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">Next.js 15 / React 19 dual-brand frontend on Vercel</text>
+<circle cx="42" cy="137" r="2.5" fill="#14b8a6"/>
+<text x="54" y="140" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">AI property search with SSE streaming + Typesense</text>
+<circle cx="42" cy="159" r="2.5" fill="#14b8a6"/>
+<text x="54" y="162" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">SEO listings, DSCR calculators, pre-approval portal</text>
+
+</svg>

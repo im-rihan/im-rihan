@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="210" viewBox="0 0 380 210" role="img">
+  <title>Hub + Pricer</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="18%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <rect width="380" height="210" rx="18" fill="url(#bg)"/>
+  <ellipse cx="70" cy="40" rx="120" ry="70" fill="url(#glow)" filter="url(#soft)"/>
+  <path d="M24 168 L190 148 L356 168 L190 188 Z" fill="#14b8a6" opacity="0.08"/>
+  <path d="M24 168 L190 148 L356 168" fill="none" stroke="#f59e0b" stroke-opacity="0.35" stroke-width="1"/>
+  <rect x="14" y="14" width="352" height="182" rx="14" fill="url(#glass)" stroke="rgba(20,184,166,0.35)" stroke-width="1"/>
+  <rect x="14" y="14" width="352" height="3" rx="1.5" fill="url(#edge)"/>
+  <g stroke="#f59e0b" stroke-width="1.4" fill="none" opacity="0.55">
+    <path d="M26 42 L26 28 L40 28"/>
+    <path d="M340 28 L354 28 L354 42"/>
+    <path d="M26 168 L26 182 L40 182"/>
+    <path d="M340 182 L354 182 L354 168"/>
+  </g>
+  <text x="34" y="52" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#f59e0b" letter-spacing="1.8">INTEGRATIONS</text>
+  <text x="34" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f1f5f9">Hub + Pricer</text>
+  <text x="34" y="108" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#f59e0b">PHP 8.3 · Puppeteer · AWS Lambda</text>
+  <text x="34" y="138" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">60+ webhooks, 12+ AI agent tools, and live rates</text>
+<text x="34" y="156" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">from 11 Non-QM / DSCR lender portals.</text>
+</svg>

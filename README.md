@@ -23,25 +23,22 @@
 
 ---
 
-## Featured
+<div align="center">
+  <img src="./assets/label-featured.svg" alt="Featured" width="900" />
+</div>
 
-### [Ziffy.ai](https://ziffy.ai) — AI investor platform
-`Next.js 15 · React 19 · Zustand · SSE · Typesense · Vercel`
+<p align="center">
+  <a href="https://ziffy.ai"><img src="./assets/card-ziffy.svg" alt="Ziffy.ai — AI investor platform" width="32%" /></a>
+  <a href="https://im-rihan.github.io/work/nestjs-appi-api/"><img src="./assets/card-appi.svg" alt="appi — NestJS core API" width="32%" /></a>
+  <a href="https://im-rihan.github.io/work/php-3rdpartycomms/"><img src="./assets/card-integrations.svg" alt="Integrations hub + mortgage-pricer" width="32%" /></a>
+</p>
 
-AI property search with SSE streaming, ISR SEO listings, DSCR calculators, and dual-brand deployment.  
-[case study](https://im-rihan.github.io/work/ziffy-ai-search/) · [live](https://ziffy.ai)
-
-### [appi](https://homeabroadinc.com) — NestJS core API
-`NestJS · TypeORM · Redis · BullMQ · LangGraph · Typesense`
-
-Auth, property search, loan estimates, CRM sync, LangChain/LangGraph AI, and MCP tooling.  
-[case study](https://im-rihan.github.io/work/nestjs-appi-api/)
-
-### Integrations hub + mortgage-pricer
-`PHP 8.3 · Puppeteer · AWS Lambda · Cloudflare`
-
-**60+** webhooks · **40+** crons · **12+** AI tools · live rates from **11** lender portals.  
-[integrations](https://im-rihan.github.io/work/php-3rdpartycomms/) · [pricer](https://im-rihan.github.io/work/lambda-mortgage-pricer/)
+<p align="center">
+  <a href="https://im-rihan.github.io/work/ziffy-ai-search/">case study</a> ·
+  <a href="https://ziffy.ai">live</a> ·
+  <a href="https://im-rihan.github.io/work/nestjs-appi-api/">appi</a> ·
+  <a href="https://im-rihan.github.io/work/lambda-mortgage-pricer/">pricer</a>
+</p>
 
 <details>
 <summary>More systems</summary>
@@ -68,21 +65,14 @@ Auth, property search, loan estimates, CRM sync, LangChain/LangGraph AI, and MCP
 
 ---
 
-## Experience
+<div align="center">
+  <img src="./assets/label-experience.svg" alt="Experience" width="900" />
+</div>
 
-### Full Stack Engineer — [Ziffy.ai](https://ziffy.ai)
-`Jan 2025 – Present · Remote`
-
-- Next.js 15 / React 19 dual-brand frontend (Vercel ISR)
-- AI property search with **SSE** · Zustand · Typesense
-- SEO listings · DSCR calculators · pre-approval portal
-
-### Full Stack Developer — [HomeAbroad Inc.](https://homeabroadinc.com)
-`Apr 2022 – Present · Remote`
-
-- NestJS API — auth · search · loans · CRM · LangGraph/MCP
-- PHP 8.3 hub — **60+** webhooks · **12+** AI agent tools
-- Lambda mortgage pricer · CatBoost AVM · AWS → Hetzner cutover
+<p align="center">
+  <a href="https://ziffy.ai"><img src="./assets/exp-ziffy.svg" alt="Full Stack Engineer — Ziffy.ai" width="48%" /></a>
+  <a href="https://homeabroadinc.com"><img src="./assets/exp-homeabroad.svg" alt="Full Stack Developer — HomeAbroad Inc." width="48%" /></a>
+</p>
 
 ---
 
