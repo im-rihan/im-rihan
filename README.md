@@ -41,16 +41,18 @@
 </p>
 
 <details>
-<summary>More systems</summary>
-
-| project | focus |
-|:--------|:------|
-| **ha-realtor-plat** | Agent/MLO dashboards · Leaflet maps |
-| **data-pipelines** | Multi-source scrape → MySQL/Typesense |
-| **Rental-Estimate-AVM** | CatBoost rent AVM · FastAPI |
-| **estimate-calculator** | Shared DSCR / fees library |
-| **[portfolio](https://im-rihan.github.io/)** | Case studies · status · blog |
-
+<summary><strong>More systems</strong> — expand for the full production set</summary>
+<br/>
+<div align="center">
+  <img src="./assets/more-systems.svg" alt="More production systems" width="920" />
+</div>
+<p align="center">
+  <a href="https://im-rihan.github.io/work/ha-realtor-plat/">ha-realtor-plat</a> ·
+  <a href="https://im-rihan.github.io/work/property-data-pipelines/">data-pipelines</a> ·
+  <a href="https://im-rihan.github.io/work/rental-estimate-avm/">AVM</a> ·
+  <a href="https://im-rihan.github.io/work/estimate-calculator/">estimate-calculator</a> ·
+  <a href="https://im-rihan.github.io/">portfolio</a>
+</p>
 </details>
 
 ---
@@ -58,7 +60,9 @@
 <div align="center">
   <img src="./assets/label-stack.svg" alt="Stack" width="900" />
   <br/>
-  <img src="./assets/stack-cinematic.svg" alt="Cinematic tech stack matrix" width="900" />
+  <img src="./assets/stack-cinematic.svg" alt="Cinematic tech stack matrix with skill icons" width="900" />
+  <br/>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,ts,nodejs,nestjs,php,python,mysql,redis,aws,docker,vercel,cloudflare&theme=dark&perline=7" alt="Skill icons" />
 </div>
 
 ---

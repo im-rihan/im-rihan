@@ -1,113 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">Rihan Mohammed - Full Stack Developer</title>
-  <desc id="desc">Cinematic teal aurora HUD banner for GitHub profile</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img">
+  <title>Rihan Mohammed - Full Stack Developer</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="0%" stop-color="#01040c"/>
       <stop offset="45%" stop-color="#0b1220"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <radialGradient id="auroraA" cx="22%" cy="40%" r="55%">
-      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.45"/>
-      <stop offset="45%" stop-color="#0f766e" stop-opacity="0.18"/>
+    <radialGradient id="auroraA" cx="22%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.55"/>
       <stop offset="100%" stop-color="#0f766e" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="auroraB" cx="78%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.28"/>
-      <stop offset="50%" stop-color="#0f766e" stop-opacity="0.12"/>
+    <radialGradient id="auroraB" cx="78%" cy="28%" r="48%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="auroraC" cx="55%" cy="85%" r="45%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/>
+    <radialGradient id="auroraC" cx="50%" cy="90%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
-      <stop offset="40%" stop-color="#14b8a6" stop-opacity="0.35"/>
-      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    <linearGradient id="plate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152033" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#0c1524" stop-opacity="0.88"/>
+    </linearGradient>
+    <linearGradient id="plateSide" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="plateTop" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
     </linearGradient>
     <linearGradient id="wordmark" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="55%" stop-color="#e2e8f0"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
       <stop offset="100%" stop-color="#99f6e4"/>
     </linearGradient>
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="18" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.2"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 0.85  0 0 0 0 0.9  0 0 0 0 0.95  0 0 0 0.04 0" in="noise" result="tint"/>
-      <feBlend in="SourceGraphic" in2="tint" mode="overlay"/>
+    <filter id="cardShadow" x="-20%" y="-20%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000" flood-opacity="0.55"/>
     </filter>
-    <clipPath id="frame">
-      <rect width="1200" height="360" rx="18" ry="18"/>
-    </clipPath>
+    <clipPath id="frame"><rect width="1200" height="380" rx="20"/></clipPath>
   </defs>
-
   <g clip-path="url(#frame)">
-    <rect width="1200" height="360" fill="url(#void)"/>
-    <ellipse cx="260" cy="140" rx="320" ry="160" fill="url(#auroraA)" filter="url(#softGlow)">
-      <animate attributeName="cx" values="240;300;240" dur="14s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.85;1;0.85" dur="8s" repeatCount="indefinite"/>
+    <rect width="1200" height="380" fill="url(#void)"/>
+    <ellipse cx="260" cy="130" rx="340" ry="170" fill="url(#auroraA)" filter="url(#softGlow)">
+      <animate attributeName="cx" values="230;310;230" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.75;1;0.75" dur="9s" repeatCount="indefinite"/>
     </ellipse>
-    <ellipse cx="920" cy="110" rx="280" ry="140" fill="url(#auroraB)" filter="url(#softGlow)">
-      <animate attributeName="cy" values="100;140;100" dur="16s" repeatCount="indefinite"/>
+    <ellipse cx="940" cy="100" rx="300" ry="150" fill="url(#auroraB)" filter="url(#softGlow)">
+      <animate attributeName="cy" values="80;130;80" dur="18s" repeatCount="indefinite"/>
     </ellipse>
-    <ellipse cx="640" cy="300" rx="360" ry="100" fill="url(#auroraC)"/>
+    <ellipse cx="620" cy="320" rx="400" ry="110" fill="url(#auroraC)"/>
 
-    <!-- subtle perspective grid floor -->
-    <g opacity="0.18" stroke="#14b8a6" stroke-width="1" fill="none">
-      <path d="M0 290 L600 240 L1200 290"/>
-      <path d="M80 360 L600 250 L1120 360"/>
-      <path d="M200 360 L600 255 L1000 360"/>
-      <path d="M340 360 L600 260 L860 360"/>
-      <path d="M480 360 L600 265 L720 360"/>
-      <line x1="0" y1="300" x2="1200" y2="300"/>
-      <line x1="0" y1="320" x2="1200" y2="320"/>
-      <line x1="0" y1="340" x2="1200" y2="340"/>
+    <!-- deep perspective city grid -->
+    <g opacity="0.22" stroke="#14b8a6" fill="none" stroke-width="1">
+      <path d="M0 300 L600 235 L1200 300"/>
+      <path d="M40 340 L600 250 L1160 340"/>
+      <path d="M120 380 L600 265 L1080 380"/>
+      <path d="M220 380 L600 275 L980 380"/>
+      <path d="M360 380 L600 285 L840 380"/>
+      <line x1="0" y1="310" x2="1200" y2="310"/>
+      <line x1="0" y1="335" x2="1200" y2="335"/>
+      <line x1="0" y1="360" x2="1200" y2="360"/>
     </g>
 
-    <!-- HUD corner brackets -->
-    <g stroke="#14b8a6" stroke-width="1.5" fill="none" opacity="0.55">
-      <path d="M28 58 L28 28 L58 28"/>
-      <path d="M1142 28 L1172 28 L1172 58"/>
-      <path d="M28 302 L28 332 L58 332"/>
-      <path d="M1142 332 L1172 332 L1172 302"/>
-    </g>
-
-    <!-- amber accent hairline -->
-    <rect x="80" y="118" width="72" height="3" rx="1.5" fill="#f59e0b" opacity="0.9"/>
-
-    <text x="80" y="168" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="800" fill="url(#wordmark)" letter-spacing="-0.5">Rihan Mohammed</text>
-    <text x="80" y="208" font-family="JetBrains Mono, Consolas, monospace" font-size="18" font-weight="600" fill="#14b8a6" letter-spacing="2.5">FULL STACK DEVELOPER</text>
-    <text x="80" y="242" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#94a3b8">Fintech &amp; Real-Estate Systems - HomeAbroad Inc. - Ziffy.ai</text>
-
-    <!-- glass status pill -->
-    <g transform="translate(80, 268)">
-      <rect width="168" height="28" rx="8" fill="rgba(15,118,110,0.25)" stroke="#14b8a6" stroke-opacity="0.45"/>
-      <circle cx="16" cy="14" r="4" fill="#22c55e">
-        <animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/>
-      </circle>
-      <text x="28" y="18" font-family="JetBrains Mono, Consolas, monospace" font-size="12" font-weight="600" fill="#e2e8f0">AVAILABLE FOR WORK</text>
-    </g>
-
-    <!-- right HUD data callouts -->
-    <g transform="translate(860, 120)" font-family="JetBrains Mono, Consolas, monospace" fill="#94a3b8" font-size="11">
-      <rect x="0" y="0" width="240" height="120" rx="12" fill="rgba(15,23,42,0.55)" stroke="rgba(20,184,166,0.28)"/>
-      <text x="18" y="28" fill="#14b8a6" font-weight="700">SYSTEM SIGNAL</text>
-      <text x="18" y="54" fill="#e2e8f0">4+ yrs production</text>
-      <text x="18" y="74" fill="#e2e8f0">AI search - pipelines</text>
-      <text x="18" y="94" fill="#e2e8f0">NestJS - Next.js - AWS</text>
-    </g>
-
-    <rect width="1200" height="360" fill="url(#sheen)" opacity="0.18">
-      <animate attributeName="opacity" values="0.12;0.22;0.12" dur="10s" repeatCount="indefinite"/>
+    <!-- light beams -->
+    <rect x="200" y="0" width="40" height="380" fill="url(#beam)" opacity="0.35">
+      <animate attributeName="x" values="120;280;120" dur="12s" repeatCount="indefinite"/>
     </rect>
-    <rect width="1200" height="360" filter="url(#grain)" opacity="0.35"/>
+    <rect x="880" y="0" width="28" height="380" fill="url(#beam)" opacity="0.25">
+      <animate attributeName="x" values="820;960;820" dur="14s" repeatCount="indefinite"/>
+    </rect>
+
+    <circle cx="180" cy="70" r="1.8" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="70;58;70" dur="4.0s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.0s" begin="0s" repeatCount="indefinite"/></circle><circle cx="320" cy="50" r="1.2" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="50;38;50" dur="4.3s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.2s" begin="0.5s" repeatCount="indefinite"/></circle><circle cx="520" cy="90" r="2.0" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="90;78;90" dur="4.6s" begin="1.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.4s" begin="1.0s" repeatCount="indefinite"/></circle><circle cx="700" cy="60" r="1.4" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="60;48;60" dur="4.9s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.6s" begin="1.5s" repeatCount="indefinite"/></circle><circle cx="860" cy="100" r="1.6" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="100;88;100" dur="5.2s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.8s" begin="0.8s" repeatCount="indefinite"/></circle><circle cx="980" cy="45" r="1.3" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="45;33;45" dur="5.5s" begin="2.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="4.0s" begin="2.0s" repeatCount="indefinite"/></circle><circle cx="240" cy="200" r="1.5" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="200;188;200" dur="5.8s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="4.2s" begin="1.2s" repeatCount="indefinite"/></circle><circle cx="1100" cy="180" r="1.7" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="180;168;180" dur="6.1s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="4.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+
+    <!-- HUD corners -->
+    <g stroke="#14b8a6" stroke-width="1.6" fill="none" opacity="0.6">
+      <path d="M28 60 L28 28 L60 28"/>
+      <path d="M1140 28 L1172 28 L1172 60"/>
+      <path d="M28 320 L28 352 L60 352"/>
+      <path d="M1140 352 L1172 352 L1172 320"/>
+    </g>
+
+    <!-- 3D extruded identity plate -->
+    <g filter="url(#cardShadow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="6s" repeatCount="indefinite"/>
+      <path d="M820 88 L880 118 L880 278 L820 248 Z" fill="url(#plateSide)"/>
+      <path d="M70 88 L130 58 L880 118 L820 88 Z" fill="url(#plateTop)"/>
+      <path d="M70 88 L820 88 L820 248 L70 248 Z" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.45"/>
+      <rect x="70" y="88" width="750" height="160" fill="url(#sheen)">
+        <animate attributeName="x" values="-600;820" dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="70" y="88" width="750" height="3" fill="#14b8a6">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="92" y="118" width="70" height="3" rx="1.5" fill="#f59e0b"/>
+      <text x="92" y="168" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="48" font-weight="800" fill="url(#wordmark)" letter-spacing="-0.5">Rihan Mohammed</text>
+      <text x="92" y="202" font-family="JetBrains Mono, Consolas, monospace" font-size="16" font-weight="700" fill="#14b8a6" letter-spacing="3">FULL STACK DEVELOPER</text>
+      <text x="92" y="230" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#94a3b8">Fintech &amp; Real-Estate Systems - HomeAbroad Inc. - Ziffy.ai</text>
+    </g>
+
+    <!-- status + signal glass pods -->
+    <g transform="translate(92, 300)">
+      <rect width="180" height="30" rx="9" fill="rgba(15,118,110,0.28)" stroke="#14b8a6" stroke-opacity="0.5"/>
+      <circle cx="18" cy="15" r="4.5" fill="#22c55e"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+      <text x="32" y="19" font-family="JetBrains Mono, Consolas, monospace" font-size="12" font-weight="700" fill="#e2e8f0">AVAILABLE FOR WORK</text>
+    </g>
+
+    <g filter="url(#cardShadow)">
+      <animateTransform attributeName="transform" type="translate" values="920 130; 920 124; 920 130" dur="5s" repeatCount="indefinite"/>
+      <path d="M200 0 L230 16 L230 140 L200 124 Z" fill="url(#plateSide)"/>
+      <path d="M0 0 L30 -14 L230 16 L200 0 Z" fill="url(#plateTop)"/>
+      <rect width="200" height="124" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.4"/>
+      <text x="18" y="32" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6">SYSTEM SIGNAL</text>
+      <text x="18" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">4+ yrs production</text>
+      <text x="18" y="80" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">AI search - pipelines</text>
+      <text x="18" y="102" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">NestJS - Next.js - AWS</text>
+    </g>
+
+    <!-- scanline -->
+    <rect x="0" y="0" width="1200" height="3" fill="#14b8a6" opacity="0.15">
+      <animate attributeName="y" values="0;380;0" dur="7s" repeatCount="indefinite"/>
+    </rect>
   </g>
 </svg>

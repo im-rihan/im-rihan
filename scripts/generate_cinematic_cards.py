@@ -1,4 +1,4 @@
-"""Generate cinematic isometric SVG cards + animated stack for the GitHub profile README."""
+"""Generate cinematic SVGs: hero, stack with icons, more-systems, cards."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,7 +33,6 @@ def wrap_text(text: str, width: int = 42) -> list[str]:
 
 
 def section_label(filename: str, label: str) -> None:
-    # Centered title + bidirectional accent line (was left-aligned)
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="56" viewBox="0 0 900 56" role="img">
   <defs>
     <linearGradient id="lineL" x1="100%" y1="0%" x2="0%" y2="0%">
@@ -61,16 +60,48 @@ def section_label(filename: str, label: str) -> None:
     print("wrote", filename)
 
 
-def featured_card(
-    *,
-    filename: str,
-    eyebrow: str,
-    title: str,
-    stack: str,
-    blurb: str,
-    accent: str,
-    delay: float = 0,
-) -> None:
+# Minimal brand-mark icons (self-contained paths) for stack tiles
+ICONS = {
+    "react": '<circle cx="0" cy="0" r="3" fill="#61dafb"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(0)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(60)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(120)"/>',
+    "next": '<path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/>',
+    "ts": '<rect x="-10" y="-10" width="20" height="20" rx="3" fill="#3178c6"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#fff">TS</text>',
+    "nest": '<path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/>',
+    "node": '<path d="M0 -12 L10 -6 V6 L0 12 L-10 6 V-6 Z" fill="none" stroke="#68a063" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#68a063">JS</text>',
+    "php": '<ellipse cx="0" cy="0" rx="13" ry="8" fill="#777bb4"/><text x="0" y="3.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#fff">php</text>',
+    "py": '<path d="M-2 -10 H2 C8 -10 10 -6 10 -2 V2 H2 C-4 2 -6 6 -6 10 H-10 C-10 2 -6 -2 -2 -2 H6 V-6 H-2 C-6 -6 -6 -10 -2 -10 Z" fill="#3776ab"/><circle cx="-4" cy="-6" r="1.2" fill="#ffd43b"/><circle cx="4" cy="6" r="1.2" fill="#3776ab"/>',
+    "mysql": '<path d="M-10 6 Q-10 -8 0 -8 Q10 -8 10 6" fill="none" stroke="#00758f" stroke-width="2.2"/><ellipse cx="0" cy="6" rx="10" ry="3.5" fill="#f29111"/>',
+    "redis": '<path d="M-12 2 L0 -8 L12 2 L0 10 Z" fill="#dc382d"/><path d="M-12 2 L0 6 L12 2" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/>',
+    "aws": '<path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text>',
+    "docker": '<rect x="-9" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-8" width="5" height="5" fill="#2496ed"/><path d="M-12 4 H12" stroke="#2496ed" stroke-width="2"/>',
+    "vercel": '<path d="M0 -9 L10 9 H-10 Z" fill="#e2e8f0"/>',
+    "cf": '<path d="M-12 2 H4 C8 2 10 0 10 -3 C10 -7 6 -9 2 -8 C1 -12 -5 -12 -8 -9 C-12 -9 -13 -4 -12 2 Z" fill="#f38020"/>',
+    "langchain": '<circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/>',
+    "fastapi": '<circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/>',
+    "puppeteer": '<circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/>',
+    "leaflet": '<path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/>',
+}
+
+
+def isometric_tile(cx: float, cy: float, label: str, icon_key: str, accent: str, delay: float, size: float = 36) -> str:
+    hx, hy = size * 0.95, size * 0.55
+    top = f"M{cx} {cy - hy} L{cx + hx} {cy} L{cx} {cy + hy} L{cx - hx} {cy} Z"
+    left = f"M{cx - hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx - hx} {cy + size * 0.55} Z"
+    right = f"M{cx + hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx + hx} {cy + size * 0.55} Z"
+    icon = ICONS.get(icon_key, f'<text text-anchor="middle" y="4" font-size="9" fill="#e2e8f0">{escape(label[:2])}</text>')
+    return f"""<g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="3.8s" begin="{delay}s" repeatCount="indefinite"/>
+  <path d="{left}" fill="{accent}" fill-opacity="0.3"/>
+  <path d="{right}" fill="{accent}" fill-opacity="0.48"/>
+  <path d="{top}" fill="#0b1220" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.9"/>
+  <path d="{top}" fill="{accent}" fill-opacity="0.14">
+    <animate attributeName="fill-opacity" values="0.1;0.28;0.1" dur="3.8s" begin="{delay}s" repeatCount="indefinite"/>
+  </path>
+  <g transform="translate({cx}, {cy - 2}) scale(0.85)">{icon}</g>
+  <text x="{cx}" y="{cy + hy + size * 0.55 + 14}" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#cbd5e1">{escape(label)}</text>
+</g>"""
+
+
+def featured_card(*, filename, eyebrow, title, stack, blurb, accent, delay=0.0):
     lines = wrap_text(blurb, 40)
     text = "\n".join(
         f'<text x="48" y="{132 + i * 17}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" fill="#94a3b8">{escape(line)}</text>'
@@ -79,61 +110,25 @@ def featured_card(
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240" role="img">
   <title>{escape(title)}</title>
   <defs>
-    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020617"/>
-      <stop offset="100%" stop-color="#0b1220"/>
-    </linearGradient>
-    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#122033"/>
-      <stop offset="55%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#0b1524"/>
-    </linearGradient>
-    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.25"/>
-    </linearGradient>
-    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
-    </linearGradient>
-    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.18"/>
-      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="20%" cy="18%" r="50%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"/>
-    </filter>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0b1220"/></linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#122033"/><stop offset="100%" stop-color="#0b1524"/></linearGradient>
+    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.55"/><stop offset="100%" stop-color="#0f766e" stop-opacity="0.25"/></linearGradient>
+    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.22"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/></linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="50%" stop-color="#fff" stop-opacity="0.16"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="glow" cx="20%" cy="18%" r="50%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.45"/><stop offset="100%" stop-color="{accent}" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000" flood-opacity="0.55"/></filter>
   </defs>
   <rect width="400" height="240" fill="url(#void)"/>
-  <ellipse cx="90" cy="50" rx="130" ry="70" fill="url(#glow)">
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" begin="{delay}s" repeatCount="indefinite"/>
-  </ellipse>
+  <ellipse cx="90" cy="50" rx="130" ry="70" fill="url(#glow)"><animate attributeName="opacity" values="0.7;1;0.7" dur="4s" begin="{delay}s" repeatCount="indefinite"/></ellipse>
   <path d="M30 205 L210 185 L370 205 L190 225 Z" fill="#14b8a6" opacity="0.08"/>
   <g filter="url(#shadow)">
     <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="5s" begin="{delay}s" repeatCount="indefinite"/>
     <path d="M340 42 L370 58 L370 188 L340 172 Z" fill="url(#side)"/>
     <path d="M40 42 L70 26 L370 58 L340 42 Z" fill="url(#top)"/>
     <path d="M40 42 L340 42 L340 172 L40 172 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.45"/>
-    <rect x="40" y="42" width="300" height="130" fill="url(#sheen)">
-      <animate attributeName="x" values="-260;340" dur="6s" begin="{delay}s" repeatCount="indefinite"/>
-    </rect>
+    <rect x="40" y="42" width="300" height="130" fill="url(#sheen)"><animate attributeName="x" values="-260;340" dur="6s" begin="{delay}s" repeatCount="indefinite"/></rect>
   </g>
-  <rect x="40" y="42" width="300" height="3" fill="{accent}" opacity="0.85">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
-  </rect>
-  <g stroke="{accent}" stroke-width="1.3" fill="none" opacity="0.65">
-    <path d="M52 58 L52 50 L62 50"/>
-    <path d="M318 50 L328 50 L328 58"/>
-    <path d="M52 156 L52 164 L62 164"/>
-    <path d="M318 164 L328 164 L328 156"/>
-  </g>
+  <rect x="40" y="42" width="300" height="3" fill="{accent}" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="{delay}s" repeatCount="indefinite"/></rect>
   <text x="58" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">{escape(eyebrow.upper())}</text>
   <text x="58" y="100" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#f8fafc">{escape(title)}</text>
   <text x="58" y="120" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#f59e0b">{escape(stack)}</text>
@@ -144,74 +139,35 @@ def featured_card(
     print("wrote", filename)
 
 
-def experience_card(
-    *,
-    filename: str,
-    role: str,
-    company: str,
-    period: str,
-    bullets: list[str],
-    accent: str,
-    delay: float = 0,
-) -> None:
+def experience_card(*, filename, role, company, period, bullets, accent, delay=0.0):
     lines = ""
     y = 116
     for b in bullets[:3]:
-        lines += f'<circle cx="58" cy="{y - 3}" r="2.6" fill="{accent}"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.4s" begin="{delay}s" repeatCount="indefinite"/></circle>\n'
+        lines += f'<circle cx="58" cy="{y-3}" r="2.6" fill="{accent}"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.4s" begin="{delay}s" repeatCount="indefinite"/></circle>\n'
         lines += f'<text x="70" y="{y}" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#cbd5e1">{escape(b)}</text>\n'
         y += 22
-
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="560" height="220" viewBox="0 0 560 220" role="img">
   <title>{escape(role)} - {escape(company)}</title>
   <defs>
-    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020617"/>
-      <stop offset="100%" stop-color="#0b1220"/>
-    </linearGradient>
-    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#132033"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="{accent}" stop-opacity="0.2"/>
-    </linearGradient>
-    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
-    </linearGradient>
-    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="48%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.16"/>
-      <stop offset="52%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="orb" cx="90%" cy="12%" r="35%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="shadow" x="-15%" y="-15%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity="0.5"/>
-    </filter>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0b1220"/></linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#132033"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
+    <linearGradient id="side" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.6"/><stop offset="100%" stop-color="{accent}" stop-opacity="0.2"/></linearGradient>
+    <linearGradient id="top" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.28"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/></linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="50%" stop-color="#fff" stop-opacity="0.14"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="orb" cx="90%" cy="12%" r="35%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.5"/><stop offset="100%" stop-color="{accent}" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000" flood-opacity="0.5"/></filter>
   </defs>
   <rect width="560" height="220" fill="url(#void)"/>
-  <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)">
-    <animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" begin="{delay}s" repeatCount="indefinite"/>
-  </ellipse>
+  <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)"><animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" begin="{delay}s" repeatCount="indefinite"/></ellipse>
   <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="{accent}" opacity="0.08"/>
   <g filter="url(#shadow)">
     <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="5.5s" begin="{delay}s" repeatCount="indefinite"/>
     <path d="M480 36 L520 54 L520 184 L480 166 Z" fill="url(#side)"/>
     <path d="M40 36 L80 18 L520 54 L480 36 Z" fill="url(#top)"/>
     <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.4"/>
-    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)">
-      <animate attributeName="x" values="-400;480" dur="7s" begin="{delay}s" repeatCount="indefinite"/>
-    </rect>
+    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)"><animate attributeName="x" values="-400;480" dur="7s" begin="{delay}s" repeatCount="indefinite"/></rect>
   </g>
-  <rect x="40" y="36" width="8" height="130" fill="{accent}">
-    <animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/>
-  </rect>
+  <rect x="40" y="36" width="8" height="130" fill="{accent}"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/></rect>
   <text x="64" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">EXPERIENCE</text>
   <text x="64" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">{escape(role)}</text>
   <text x="64" y="104" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">{escape(company)}  ·  {escape(period)}</text>
@@ -222,72 +178,44 @@ def experience_card(
     print("wrote", filename)
 
 
-def isometric_tile(cx: float, cy: float, label: str, accent: str, delay: float, size: float = 34) -> str:
-    """Draw one isometric cube tile with floating animation."""
-    hx, hy = size * 0.9, size * 0.52
-    # diamond top
-    top = f"M{cx} {cy - hy} L{cx + hx} {cy} L{cx} {cy + hy} L{cx - hx} {cy} Z"
-    # left face
-    left = f"M{cx - hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx - hx} {cy + size * 0.55} Z"
-    # right face
-    right = f"M{cx + hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx + hx} {cy + size * 0.55} Z"
-    return f"""<g>
-  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
-  <path d="{left}" fill="{accent}" fill-opacity="0.28"/>
-  <path d="{right}" fill="{accent}" fill-opacity="0.45"/>
-  <path d="{top}" fill="#0f172a" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.85"/>
-  <path d="{top}" fill="{accent}" fill-opacity="0.18">
-    <animate attributeName="fill-opacity" values="0.12;0.32;0.12" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
-  </path>
-  <text x="{cx}" y="{cy + 4}" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#e2e8f0">{escape(label)}</text>
-</g>"""
-
-
-def stack_panel() -> None:
-    # Centered cinematic stack: isometric tech lattice + fluent chips
-    tiles = [
-        (150, 95, "React", "#14b8a6", 0.0),
-        (250, 95, "Next", "#22d3ee", 0.25),
-        (350, 95, "TS", "#38bdf8", 0.5),
-        (450, 95, "Nest", "#2dd4bf", 0.75),
-        (550, 95, "Node", "#34d399", 1.0),
-        (650, 95, "PHP", "#f59e0b", 1.25),
-        (750, 95, "Py", "#a3e635", 1.5),
-        (200, 155, "MySQL", "#14b8a6", 0.35),
-        (300, 155, "Redis", "#f43f5e", 0.6),
-        (400, 155, "AWS", "#f59e0b", 0.85),
-        (500, 155, "Docker", "#22d3ee", 1.1),
-        (600, 155, "Vercel", "#e2e8f0", 1.35),
-        (700, 155, "CF", "#f97316", 1.6),
+def more_systems() -> None:
+    """Cinematic expanded 'more systems' panel — replaces ugly markdown table."""
+    items = [
+        ("ha-realtor-plat", "Agent / MLO dashboards · Leaflet maps", "#14b8a6"),
+        ("data-pipelines", "Multi-source scrape → MySQL / Typesense", "#22d3ee"),
+        ("Rental-Estimate-AVM", "CatBoost rent AVM · FastAPI · DuckDB", "#f59e0b"),
+        ("estimate-calculator", "Shared DSCR / fees / liquidity library", "#a78bfa"),
+        ("portfolio", "Case studies · status · blog · R3F", "#34d399"),
     ]
-    tile_svg = "\n".join(isometric_tile(*t) for t in tiles)
-    fluent = [
-        "LangChain",
-        "LangGraph",
-        "MCP",
-        "Typesense",
-        "BullMQ",
-        "FastAPI",
-        "CatBoost",
-        "Puppeteer",
-        "Leaflet",
-    ]
-    chip_w = 86
-    start_x = (900 - len(fluent) * (chip_w + 8) + 8) / 2
-    chips = []
-    for i, name in enumerate(fluent):
-        x = start_x + i * (chip_w + 8)
-        chips.append(
+    cards = []
+    gap = 12
+    w = 168
+    total = len(items) * w + (len(items) - 1) * gap
+    start = (920 - total) / 2
+    for i, (title, focus, accent) in enumerate(items):
+        x = start + i * (w + gap)
+        focus_lines = wrap_text(focus, 20)
+        fl = "\n".join(
+            f'<text x="{x + (w-10)/2}" y="{128 + j * 13}" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">{escape(line)}</text>'
+            for j, line in enumerate(focus_lines[:2])
+        )
+        cards.append(
             f"""<g>
-  <rect x="{x}" y="212" width="{chip_w}" height="26" rx="8" fill="rgba(20,184,166,0.12)" stroke="#14b8a6" stroke-opacity="0.45">
-    <animate attributeName="stroke-opacity" values="0.3;0.85;0.3" dur="3s" begin="{i * 0.15}s" repeatCount="indefinite"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="{i * 0.2}s" repeatCount="indefinite"/>
+  <path d="M{x+w-10} 56 L{x+w+8} 68 L{x+w+8} 168 L{x+w-10} 156 Z" fill="{accent}" fill-opacity="0.35"/>
+  <path d="M{x} 56 L{x+16} 44 L{x+w+8} 68 L{x+w-10} 56 Z" fill="{accent}" fill-opacity="0.2"/>
+  <rect x="{x}" y="56" width="{w-10}" height="100" rx="10" fill="#0f172a" stroke="{accent}" stroke-opacity="0.5"/>
+  <rect x="{x}" y="56" width="{w-10}" height="3" fill="{accent}">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="{i * 0.2}s" repeatCount="indefinite"/>
   </rect>
-  <text x="{x + chip_w / 2}" y="229" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#99f6e4">{escape(name)}</text>
+  <text x="{x + (w-10)/2}" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="{accent}" letter-spacing="1">SYSTEM</text>
+  <text x="{x + (w-10)/2}" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">{escape(title[:15])}</text>
+  {fl}
 </g>"""
         )
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img">
-  <title>Tech stack</title>
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="920" height="210" viewBox="0 0 920 210" role="img">
+  <title>More systems</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#020617"/>
@@ -298,88 +226,280 @@ def stack_panel() -> None:
       <stop offset="50%" stop-color="#14b8a6"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="wash" cx="50%" cy="35%" r="55%">
-      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="900" height="260" rx="18" fill="url(#void)"/>
-  <ellipse cx="450" cy="100" rx="280" ry="90" fill="url(#wash)">
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
-  </ellipse>
-  <rect x="1" y="1" width="898" height="3" rx="1.5" fill="url(#rim)">
-    <animate attributeName="opacity" values="0.45;1;0.45" dur="3.5s" repeatCount="indefinite"/>
+  <rect width="920" height="210" rx="16" fill="url(#void)"/>
+  <rect x="1" y="1" width="918" height="3" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
   </rect>
-  <!-- perspective grid floor -->
-  <g stroke="#14b8a6" stroke-opacity="0.15" fill="none">
-    <path d="M80 190 L450 150 L820 190"/>
-    <path d="M140 210 L450 160 L760 210"/>
-    <path d="M220 230 L450 170 L680 230"/>
+  <text x="460" y="34" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
+  <path d="M60 190 L460 170 L860 190" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
+  {''.join(cards)}
+</svg>
+"""
+    (ASSETS / "more-systems.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote more-systems.svg")
+
+
+def stack_panel() -> None:
+    tiles = [
+        (120, 88, "React", "react", "#61dafb", 0.0),
+        (220, 88, "Next.js", "next", "#e2e8f0", 0.2),
+        (320, 88, "TS", "ts", "#3178c6", 0.4),
+        (420, 88, "NestJS", "nest", "#e0234e", 0.6),
+        (520, 88, "Node", "node", "#68a063", 0.8),
+        (620, 88, "PHP", "php", "#777bb4", 1.0),
+        (720, 88, "Python", "py", "#3776ab", 1.2),
+        (170, 168, "MySQL", "mysql", "#00758f", 0.3),
+        (270, 168, "Redis", "redis", "#dc382d", 0.5),
+        (370, 168, "AWS", "aws", "#ff9900", 0.7),
+        (470, 168, "Docker", "docker", "#2496ed", 0.9),
+        (570, 168, "Vercel", "vercel", "#e2e8f0", 1.1),
+        (670, 168, "Cloudflare", "cf", "#f38020", 1.3),
+        (770, 168, "FastAPI", "fastapi", "#009688", 1.5),
+    ]
+    fluent = [
+        (160, "LangChain", "langchain", "#14b8a6"),
+        (280, "Puppeteer", "puppeteer", "#00d8a2"),
+        (400, "Leaflet", "leaflet", "#199900"),
+        (520, "FastAPI", "fastapi", "#009688"),
+        (640, "CatBoost", "py", "#f59e0b"),
+        (760, "MCP", "langchain", "#22d3ee"),
+    ]
+    tile_svg = "\n".join(isometric_tile(*t) for t in tiles)
+    fluent_svg = []
+    for i, (x, label, key, accent) in enumerate(fluent):
+        icon = ICONS.get(key, "")
+        fluent_svg.append(
+            f"""<g transform="translate({x}, 248)">
+  <rect x="-48" y="-16" width="96" height="32" rx="10" fill="rgba(15,23,42,0.9)" stroke="{accent}" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="{i*0.15}s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(-28,0) scale(0.7)">{icon}</g>
+  <text x="8" y="4" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">{escape(label)}</text>
+</g>"""
+        )
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="290" viewBox="0 0 900 290" role="img">
+  <title>Tech stack</title>
+  <defs>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
+    <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="900" height="290" rx="18" fill="url(#void)"/>
+  <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
+  <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
+  <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
+    <path d="M70 210 L450 175 L830 210"/>
+    <path d="M140 235 L450 190 L760 235"/>
   </g>
-  <text x="450" y="36" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK MATRIX</text>
+  <text x="450" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK MATRIX</text>
   {tile_svg}
-  <text x="450" y="205" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="1.5">FLUENT SYSTEMS</text>
-  {''.join(chips)}
+  {''.join(fluent_svg)}
 </svg>
 """
     (ASSETS / "stack-cinematic.svg").write_text(svg, encoding="utf-8", newline="\n")
     print("wrote stack-cinematic.svg")
 
 
-def enhance_metrics() -> None:
-    path = ASSETS / "metrics-strip.svg"
-    if not path.exists():
-        return
-    # rewrite with subtle pulse on amber metric
-    svg = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" role="img" aria-labelledby="mTitle mDesc">
-  <title id="mTitle">Profile metrics</title>
-  <desc id="mDesc">4+ years, 9+ systems, 60+ webhooks, 2 companies</desc>
+def hero_banner() -> None:
+    """3D cinematic hero — extruded glass plate, parallax aurora, scanline, particles."""
+    particles = []
+    for i, (x, y, r, d) in enumerate(
+        [
+            (180, 70, 1.8, 0),
+            (320, 50, 1.2, 0.5),
+            (520, 90, 2.0, 1.0),
+            (700, 60, 1.4, 1.5),
+            (860, 100, 1.6, 0.8),
+            (980, 45, 1.3, 2.0),
+            (240, 200, 1.5, 1.2),
+            (1100, 180, 1.7, 0.3),
+        ]
+    ):
+        particles.append(
+            f'<circle cx="{x}" cy="{y}" r="{r}" fill="#14b8a6" opacity="0.7"><animate attributeName="cy" values="{y};{y-12};{y}" dur="{4+i*0.3}s" begin="{d}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.9;0.25" dur="{3+i*0.2}s" begin="{d}s" repeatCount="indefinite"/></circle>'
+        )
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img">
+  <title>Rihan Mohammed - Full Stack Developer</title>
   <defs>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#01040c"/>
+      <stop offset="45%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0f766e" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#14b8a6"/>
+    <radialGradient id="auroraA" cx="22%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraB" cx="78%" cy="28%" r="48%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraC" cx="50%" cy="90%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="plate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152033" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#0c1524" stop-opacity="0.88"/>
     </linearGradient>
+    <linearGradient id="plateSide" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="plateTop" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="wordmark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.2"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+    <clipPath id="frame"><rect width="1200" height="380" rx="20"/></clipPath>
   </defs>
-  <rect width="900" height="96" rx="14" fill="url(#panel)" stroke="rgba(20,184,166,0.28)" stroke-width="1"/>
-  <rect x="1" y="1" width="898" height="3" rx="1.5" fill="url(#accentLine)" opacity="0.85">
-    <animate attributeName="opacity" values="0.45;1;0.45" dur="3.2s" repeatCount="indefinite"/>
-  </rect>
-  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
-    <g transform="translate(112.5, 0)">
-      <text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">4+<animate attributeName="opacity" values="0.75;1;0.75" dur="4s" repeatCount="indefinite"/></text>
-      <text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">YEARS</text>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="380" fill="url(#void)"/>
+    <ellipse cx="260" cy="130" rx="340" ry="170" fill="url(#auroraA)" filter="url(#softGlow)">
+      <animate attributeName="cx" values="230;310;230" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.75;1;0.75" dur="9s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="940" cy="100" rx="300" ry="150" fill="url(#auroraB)" filter="url(#softGlow)">
+      <animate attributeName="cy" values="80;130;80" dur="18s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="620" cy="320" rx="400" ry="110" fill="url(#auroraC)"/>
+
+    <!-- deep perspective city grid -->
+    <g opacity="0.22" stroke="#14b8a6" fill="none" stroke-width="1">
+      <path d="M0 300 L600 235 L1200 300"/>
+      <path d="M40 340 L600 250 L1160 340"/>
+      <path d="M120 380 L600 265 L1080 380"/>
+      <path d="M220 380 L600 275 L980 380"/>
+      <path d="M360 380 L600 285 L840 380"/>
+      <line x1="0" y1="310" x2="1200" y2="310"/>
+      <line x1="0" y1="335" x2="1200" y2="335"/>
+      <line x1="0" y1="360" x2="1200" y2="360"/>
     </g>
-    <line x1="225" y1="24" x2="225" y2="72" stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
-    <g transform="translate(337.5, 0)">
-      <text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">9+</text>
-      <text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">SYSTEMS</text>
+
+    <!-- light beams -->
+    <rect x="200" y="0" width="40" height="380" fill="url(#beam)" opacity="0.35">
+      <animate attributeName="x" values="120;280;120" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="880" y="0" width="28" height="380" fill="url(#beam)" opacity="0.25">
+      <animate attributeName="x" values="820;960;820" dur="14s" repeatCount="indefinite"/>
+    </rect>
+
+    {''.join(particles)}
+
+    <!-- HUD corners -->
+    <g stroke="#14b8a6" stroke-width="1.6" fill="none" opacity="0.6">
+      <path d="M28 60 L28 28 L60 28"/>
+      <path d="M1140 28 L1172 28 L1172 60"/>
+      <path d="M28 320 L28 352 L60 352"/>
+      <path d="M1140 352 L1172 352 L1172 320"/>
     </g>
-    <line x1="450" y1="24" x2="450" y2="72" stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
-    <g transform="translate(562.5, 0)">
-      <text x="0" y="42" font-size="28" font-weight="800" fill="#f59e0b">60+<animate attributeName="opacity" values="0.7;1;0.7" dur="2.4s" repeatCount="indefinite"/></text>
-      <text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">WEBHOOKS</text>
+
+    <!-- 3D extruded identity plate -->
+    <g filter="url(#cardShadow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="6s" repeatCount="indefinite"/>
+      <path d="M820 88 L880 118 L880 278 L820 248 Z" fill="url(#plateSide)"/>
+      <path d="M70 88 L130 58 L880 118 L820 88 Z" fill="url(#plateTop)"/>
+      <path d="M70 88 L820 88 L820 248 L70 248 Z" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.45"/>
+      <rect x="70" y="88" width="750" height="160" fill="url(#sheen)">
+        <animate attributeName="x" values="-600;820" dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="70" y="88" width="750" height="3" fill="#14b8a6">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="92" y="118" width="70" height="3" rx="1.5" fill="#f59e0b"/>
+      <text x="92" y="168" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="48" font-weight="800" fill="url(#wordmark)" letter-spacing="-0.5">Rihan Mohammed</text>
+      <text x="92" y="202" font-family="JetBrains Mono, Consolas, monospace" font-size="16" font-weight="700" fill="#14b8a6" letter-spacing="3">FULL STACK DEVELOPER</text>
+      <text x="92" y="230" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#94a3b8">Fintech &amp; Real-Estate Systems - HomeAbroad Inc. - Ziffy.ai</text>
     </g>
-    <line x1="675" y1="24" x2="675" y2="72" stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
-    <g transform="translate(787.5, 0)">
-      <text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">2</text>
-      <text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">COMPANIES</text>
+
+    <!-- status + signal glass pods -->
+    <g transform="translate(92, 300)">
+      <rect width="180" height="30" rx="9" fill="rgba(15,118,110,0.28)" stroke="#14b8a6" stroke-opacity="0.5"/>
+      <circle cx="18" cy="15" r="4.5" fill="#22c55e"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+      <text x="32" y="19" font-family="JetBrains Mono, Consolas, monospace" font-size="12" font-weight="700" fill="#e2e8f0">AVAILABLE FOR WORK</text>
     </g>
+
+    <g filter="url(#cardShadow)">
+      <animateTransform attributeName="transform" type="translate" values="920 130; 920 124; 920 130" dur="5s" repeatCount="indefinite"/>
+      <path d="M200 0 L230 16 L230 140 L200 124 Z" fill="url(#plateSide)"/>
+      <path d="M0 0 L30 -14 L230 16 L200 0 Z" fill="url(#plateTop)"/>
+      <rect width="200" height="124" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.4"/>
+      <text x="18" y="32" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#14b8a6">SYSTEM SIGNAL</text>
+      <text x="18" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">4+ yrs production</text>
+      <text x="18" y="80" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">AI search - pipelines</text>
+      <text x="18" y="102" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#e2e8f0">NestJS - Next.js - AWS</text>
+    </g>
+
+    <!-- scanline -->
+    <rect x="0" y="0" width="1200" height="3" fill="#14b8a6" opacity="0.15">
+      <animate attributeName="y" values="0;380;0" dur="7s" repeatCount="indefinite"/>
+    </rect>
   </g>
 </svg>
 """
-    path.write_text(svg, encoding="utf-8", newline="\n")
+    (ASSETS / "hero-aurora.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote hero-aurora.svg")
+
+
+def metrics() -> None:
+    svg = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" role="img">
+  <title>Profile metrics</title>
+  <defs>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/></linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0f766e" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="900" height="96" rx="14" fill="url(#panel)" stroke="rgba(20,184,166,0.28)"/>
+  <rect x="1" y="1" width="898" height="3" fill="url(#accentLine)"><animate attributeName="opacity" values="0.45;1;0.45" dur="3.2s" repeatCount="indefinite"/></rect>
+  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(112.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">4+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">YEARS</text></g>
+    <line x1="225" y1="24" x2="225" y2="72" stroke="rgba(148,163,184,0.25)"/>
+    <g transform="translate(337.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">9+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">SYSTEMS</text></g>
+    <line x1="450" y1="24" x2="450" y2="72" stroke="rgba(148,163,184,0.25)"/>
+    <g transform="translate(562.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#f59e0b">60+</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">WEBHOOKS</text></g>
+    <line x1="675" y1="24" x2="675" y2="72" stroke="rgba(148,163,184,0.25)"/>
+    <g transform="translate(787.5,0)"><text x="0" y="42" font-size="28" font-weight="800" fill="#14b8a6">2</text><text x="0" y="66" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1.5">COMPANIES</text></g>
+  </g>
+</svg>
+"""
+    (ASSETS / "metrics-strip.svg").write_text(svg, encoding="utf-8", newline="\n")
     print("wrote metrics-strip.svg")
 
 
 if __name__ == "__main__":
     section_label("label-featured.svg", "Featured")
-    section_label("label-experience.svg", "Experience")
     section_label("label-stack.svg", "Stack")
+    section_label("label-experience.svg", "Experience")
+    section_label("label-activity.svg", "Activity")
+    hero_banner()
+    metrics()
+    more_systems()
+    stack_panel()
 
     featured_card(
         filename="card-ziffy.svg",
@@ -408,7 +528,6 @@ if __name__ == "__main__":
         accent="#f59e0b",
         delay=0.8,
     )
-
     experience_card(
         filename="exp-ziffy.svg",
         role="Full Stack Engineer",
@@ -435,6 +554,3 @@ if __name__ == "__main__":
         accent="#f59e0b",
         delay=0.6,
     )
-
-    stack_panel()
-    enhance_metrics()

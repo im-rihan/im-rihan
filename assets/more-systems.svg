@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="210" viewBox="0 0 920 210" role="img">
+  <title>More systems</title>
+  <defs>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="210" rx="16" fill="url(#void)"/>
+  <rect x="1" y="1" width="918" height="3" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="460" y="34" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
+  <path d="M60 190 L460 170 L860 190" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
+  <g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="0.0s" repeatCount="indefinite"/>
+  <path d="M174.0 56 L192.0 68 L192.0 168 L174.0 156 Z" fill="#14b8a6" fill-opacity="0.35"/>
+  <path d="M16.0 56 L32.0 44 L192.0 68 L174.0 56 Z" fill="#14b8a6" fill-opacity="0.2"/>
+  <rect x="16.0" y="56" width="158" height="100" rx="10" fill="#0f172a" stroke="#14b8a6" stroke-opacity="0.5"/>
+  <rect x="16.0" y="56" width="158" height="3" fill="#14b8a6">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="0.0s" repeatCount="indefinite"/>
+  </rect>
+  <text x="95.0" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1">SYSTEM</text>
+  <text x="95.0" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">ha-realtor-plat</text>
+  <text x="95.0" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">Agent / MLO</text>
+<text x="95.0" y="141" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">dashboards · Leaflet</text>
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="0.2s" repeatCount="indefinite"/>
+  <path d="M354.0 56 L372.0 68 L372.0 168 L354.0 156 Z" fill="#22d3ee" fill-opacity="0.35"/>
+  <path d="M196.0 56 L212.0 44 L372.0 68 L354.0 56 Z" fill="#22d3ee" fill-opacity="0.2"/>
+  <rect x="196.0" y="56" width="158" height="100" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-opacity="0.5"/>
+  <rect x="196.0" y="56" width="158" height="3" fill="#22d3ee">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="0.2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="275.0" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#22d3ee" letter-spacing="1">SYSTEM</text>
+  <text x="275.0" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">data-pipelines</text>
+  <text x="275.0" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">Multi-source scrape</text>
+<text x="275.0" y="141" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">→ MySQL / Typesense</text>
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="0.4s" repeatCount="indefinite"/>
+  <path d="M534.0 56 L552.0 68 L552.0 168 L534.0 156 Z" fill="#f59e0b" fill-opacity="0.35"/>
+  <path d="M376.0 56 L392.0 44 L552.0 68 L534.0 56 Z" fill="#f59e0b" fill-opacity="0.2"/>
+  <rect x="376.0" y="56" width="158" height="100" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.5"/>
+  <rect x="376.0" y="56" width="158" height="3" fill="#f59e0b">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="455.0" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#f59e0b" letter-spacing="1">SYSTEM</text>
+  <text x="455.0" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">Rental-Estimate</text>
+  <text x="455.0" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">CatBoost rent AVM ·</text>
+<text x="455.0" y="141" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">FastAPI · DuckDB</text>
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="0.6000000000000001s" repeatCount="indefinite"/>
+  <path d="M714.0 56 L732.0 68 L732.0 168 L714.0 156 Z" fill="#a78bfa" fill-opacity="0.35"/>
+  <path d="M556.0 56 L572.0 44 L732.0 68 L714.0 56 Z" fill="#a78bfa" fill-opacity="0.2"/>
+  <rect x="556.0" y="56" width="158" height="100" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-opacity="0.5"/>
+  <rect x="556.0" y="56" width="158" height="3" fill="#a78bfa">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="0.6000000000000001s" repeatCount="indefinite"/>
+  </rect>
+  <text x="635.0" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#a78bfa" letter-spacing="1">SYSTEM</text>
+  <text x="635.0" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">estimate-calcul</text>
+  <text x="635.0" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">Shared DSCR / fees /</text>
+<text x="635.0" y="141" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">liquidity library</text>
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="0.8s" repeatCount="indefinite"/>
+  <path d="M894.0 56 L912.0 68 L912.0 168 L894.0 156 Z" fill="#34d399" fill-opacity="0.35"/>
+  <path d="M736.0 56 L752.0 44 L912.0 68 L894.0 56 Z" fill="#34d399" fill-opacity="0.2"/>
+  <rect x="736.0" y="56" width="158" height="100" rx="10" fill="#0f172a" stroke="#34d399" stroke-opacity="0.5"/>
+  <rect x="736.0" y="56" width="158" height="3" fill="#34d399">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="815.0" y="82" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#34d399" letter-spacing="1">SYSTEM</text>
+  <text x="815.0" y="106" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11.5" font-weight="800" fill="#f1f5f9">portfolio</text>
+  <text x="815.0" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">Case studies ·</text>
+<text x="815.0" y="141" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="9.5" fill="#94a3b8">status · blog · R3F</text>
+</g>
+</svg>
