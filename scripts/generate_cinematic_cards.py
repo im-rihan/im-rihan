@@ -397,8 +397,192 @@ def stack_panel() -> None:
     print("wrote stack-cinematic.svg")
 
 
+def _parse_activity_numbers() -> dict:
+    """Extract live numbers from cached upstream SVGs (or defaults)."""
+    import re
+
+    stats = {
+        "commits": "222",
+        "prs": "43",
+        "stars": "0",
+        "rank": "C+",
+        "total": "2,838",
+        "current": "1",
+        "longest": "11",
+        "current_range": "Sep 17",
+        "total_range": "2021 — Present",
+    }
+    stats_path = ASSETS / "github-stats.svg"
+    streak_path = ASSETS / "github-streak.svg"
+    if stats_path.exists():
+        text = stats_path.read_text(encoding="utf-8", errors="ignore")
+        m = re.search(r"Total Stars Earned:\s*([\d,]+).*Total Commits[^:]*:\s*([\d,]+).*Total PRs:\s*([\d,]+)", text, re.I | re.S)
+        if m:
+            stats["stars"] = m.group(1).strip(",")
+            stats["commits"] = m.group(2).strip(",")
+            stats["prs"] = m.group(3).strip(",")
+        r = re.search(r"Rank:\s*([A-F][+-]?)", text)
+        if r:
+            stats["rank"] = r.group(1)
+    if streak_path.exists():
+        text = streak_path.read_text(encoding="utf-8", errors="ignore")
+        nums = re.findall(r"font-size='28px'[^>]*>\s*([\d,]+)\s*<", text)
+        if len(nums) >= 3:
+            stats["total"] = nums[0].strip()
+            stats["current"] = nums[1].strip()
+            stats["longest"] = nums[2].strip()
+        # Current streak date line (e.g. Sep 17)
+        cur = re.findall(
+            r"Current Streak.*?</g>\s*<g[^>]*>.*?font-size='12px'[^>]*>\s*([^<]+?)\s*<",
+            text,
+            re.I | re.S,
+        )
+        if not cur:
+            # fallback: small date under current streak area
+            dates = re.findall(r"font-size='12px'[^>]*>\s*([A-Za-z]{3}\s+\d{1,2}(?:,\s*\d{4})?(?:\s*-\s*[A-Za-z]{3}\s+\d{1,2})?)\s*<", text)
+            if dates:
+                stats["current_range"] = dates[0].strip()
+        else:
+            stats["current_range"] = cur[0].strip()
+        years = re.search(r"([A-Za-z]{3}\s+\d{1,2},\s*)?(\d{4})\s*-\s*Present", text)
+        if years:
+            stats["total_range"] = f"{years.group(2)} — Present"
+    return stats
+
+
+def activity_hud(data: dict | None = None) -> None:
+    """Cinematic HUD replacement for flat github-readme-stats + streak cards."""
+    d = data or _parse_activity_numbers()
+    for key in ("stars", "commits", "prs", "total", "current", "longest"):
+        d[key] = str(d[key]).strip().strip(",")
+    rank_map = {"S": 0.95, "A+": 0.88, "A": 0.8, "A-": 0.72, "B+": 0.64, "B": 0.55, "B-": 0.48, "C+": 0.4, "C": 0.32}
+    fill = rank_map.get(d["rank"], 0.4)
+    dash = 163  # 2*pi*26
+    offset = int(dash * (1 - fill))
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img">
+  <title>GitHub activity — {escape(d['commits'])} commits · streak {escape(d['current'])}</title>
+  <defs>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#01040c"/><stop offset="50%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="washL" cx="22%" cy="40%" r="42%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.28"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="washR" cx="80%" cy="45%" r="38%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.16"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152033"/><stop offset="100%" stop-color="#0c1524"/>
+    </linearGradient>
+    <linearGradient id="sideT" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.35"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="sideR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.55"/><stop offset="100%" stop-color="#0f766e" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="sideRo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5"/><stop offset="100%" stop-color="#b45309" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+    <filter id="drop" x="-15%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="900" height="220" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="200" cy="90" rx="260" ry="100" fill="url(#washL)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="720" cy="130" rx="220" ry="80" fill="url(#washR)"/>
+  <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.45">
+    <path d="M16 16 H34 V34"/><path d="M884 16 H866 V34"/><path d="M16 204 H34 V186"/><path d="M884 204 H866 V186"/>
+  </g>
+  <text x="450" y="26" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">ACTIVITY SIGNAL</text>
+
+  <!-- left 3D plate: ops -->
+  <g filter="url(#drop)">
+    <path d="M430 48 L458 64 L458 188 L430 172 Z" fill="url(#sideR)"/>
+    <path d="M36 48 L64 34 L458 64 L430 48 Z" fill="url(#sideT)"/>
+    <rect x="36" y="48" width="394" height="124" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
+    <rect x="36" y="48" width="394" height="3" fill="#14b8a6">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="54" y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="1.6">OPS METRICS</text>
+    <g text-anchor="middle" font-family="Inter, Segoe UI, sans-serif">
+      <g transform="translate(110,118)">
+        <text y="0" font-size="28" font-weight="800" fill="#14b8a6">{escape(d['commits'])}</text>
+        <rect x="-20" y="8" width="40" height="2" rx="1" fill="#14b8a6" fill-opacity="0.7"/>
+        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">COMMITS</text>
+        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">last year</text>
+      </g>
+      <g transform="translate(220,118)">
+        <text y="0" font-size="28" font-weight="800" fill="#22d3ee">{escape(d['prs'])}</text>
+        <rect x="-16" y="8" width="32" height="2" rx="1" fill="#22d3ee" fill-opacity="0.7"/>
+        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">PRS</text>
+        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">all time</text>
+      </g>
+      <g transform="translate(320,118)">
+        <text y="0" font-size="28" font-weight="800" fill="#f59e0b">{escape(d['stars'])}</text>
+        <rect x="-14" y="8" width="28" height="2" rx="1" fill="#f59e0b" fill-opacity="0.7"/>
+        <text y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">STARS</text>
+        <text y="44" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">earned</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- right 3D plate: streak -->
+  <g filter="url(#drop)">
+    <path d="M844 48 L872 64 L872 188 L844 172 Z" fill="url(#sideRo)"/>
+    <path d="M458 48 L486 34 L872 64 L844 48 Z" fill="url(#sideT)"/>
+    <rect x="458" y="48" width="386" height="124" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.35"/>
+    <rect x="458" y="48" width="386" height="3" fill="#f59e0b">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="2.8s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="476" y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.6">STREAK CORE</text>
+
+    <g transform="translate(546,126)">
+      <circle r="40" fill="none" stroke="#14b8a6" stroke-opacity="0.15" stroke-width="7"/>
+      <circle r="40" fill="none" stroke="#14b8a6" stroke-width="7" stroke-linecap="round" stroke-dasharray="188 63">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
+      </circle>
+      <text text-anchor="middle" y="10" font-family="Inter, Segoe UI, sans-serif" font-size="36" font-weight="800" fill="#f8fafc">{escape(d['current'])}</text>
+      <text text-anchor="middle" y="56" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
+    </g>
+
+    <g transform="translate(680,108)" text-anchor="middle">
+      <text y="0" font-family="Inter, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#f59e0b">{escape(d['longest'])}</text>
+      <text y="18" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">LONGEST</text>
+      <text y="52" font-family="Inter, Segoe UI, sans-serif" font-size="22" font-weight="800" fill="#e2e8f0">{escape(d['total'])}</text>
+      <text y="70" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">TOTAL</text>
+    </g>
+
+    <!-- rank chip -->
+    <g transform="translate(800,118)">
+      <circle r="24" fill="none" stroke="#14b8a6" stroke-opacity="0.2" stroke-width="4"/>
+      <circle r="24" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"
+        stroke-dasharray="{dash}" stroke-dashoffset="{offset}" transform="rotate(-90)"/>
+      <text text-anchor="middle" y="5" font-family="Inter, Segoe UI, sans-serif" font-size="14" font-weight="800" fill="url(#ink)">{escape(d['rank'])}</text>
+      <text text-anchor="middle" y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="8" fill="#64748b">RANK</text>
+    </g>
+
+    <text x="651" y="182" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">{escape(d['current_range'])}  ·  {escape(d['total_range'])}</text>
+  </g>
+</svg>
+"""
+    (ASSETS / "activity-hud.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote activity-hud.svg")
+
+
 def refresh_activity_svgs() -> None:
-    """Pull live stats/streak into repo assets so GitHub camo never breaks."""
+    """Pull upstream stats, then render cinematic HUD cards from live numbers."""
     import urllib.request
 
     targets = {
@@ -425,12 +609,12 @@ def refresh_activity_svgs() -> None:
                 print("skip", name, "not svg")
                 continue
             (ASSETS / name).write_bytes(data)
-            print("wrote", name, len(data), "bytes")
+            print("cached", name, len(data), "bytes")
         except Exception as exc:  # noqa: BLE001
             print("fail", name, exc)
-            # keep previously committed file if refresh fails
             if (ASSETS / name).exists():
                 print("kept existing", name)
+    activity_hud(_parse_activity_numbers())
 
 
 def hero_banner() -> None:

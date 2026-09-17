@@ -158,9 +158,10 @@ def main() -> None:
             ("label-stack", 'article img[alt="Stack"]'),
             ("label-experience", 'article img[alt="Experience"]'),
             ("label-activity", 'article img[alt="Activity"]'),
+            ("activity-hud", 'article img[alt*="GitHub activity"]'),
             ("activity-pacman", 'article img[alt*="Pac-Man"]'),
-            ("activity-stats", 'article img[alt="GitHub Stats"]'),
-            ("activity-streak", 'article img[alt="GitHub Streak"]'),
+            ("activity-stats", 'article img[alt*="GitHub activity"]'),
+            ("activity-streak", 'article img[alt*="GitHub activity"]'),
         ]
         for name, sel in shots:
             loc = page.locator(sel).first

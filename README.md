@@ -78,13 +78,12 @@
 
 <div align="center">
 
-<!-- Pac-Man via jsDelivr; stats/streak self-hosted so GitHub camo never breaks -->
+<!-- Pac-Man via jsDelivr; custom HUD activity deck (not flat third-party cards) -->
 <img alt="Pac-Man contribution graph" width="100%" src="https://cdn.jsdelivr.net/gh/im-rihan/im-rihan@output/pacman-contribution-graph-dark.svg" />
 
 <br/>
 
-<img height="150" src="./assets/github-stats.svg" alt="GitHub Stats" />
-<img height="150" src="./assets/github-streak.svg" alt="GitHub Streak" />
+<img src="./assets/activity-hud.svg" alt="GitHub activity — commits, PRs, stars, streak" width="900" />
 
 </div>
 
