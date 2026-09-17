@@ -56,7 +56,7 @@
 <div align="center">
   <img src="./assets/label-stack.svg" alt="Stack" width="900" />
   <br/>
-  <img src="./assets/stack-cinematic.svg" alt="Cinematic tech stack matrix with skill icons" width="900" />
+  <img src="./assets/stack-cinematic.svg" alt="Cinematic 3D tech stack city with skill icons" width="940" />
 </div>
 
 ---
@@ -78,13 +78,13 @@
 
 <div align="center">
 
-<!-- Pac-Man via jsDelivr (stable through GitHub camo); stats via github-stats-extended -->
+<!-- Pac-Man via jsDelivr; stats/streak self-hosted so GitHub camo never breaks -->
 <img alt="Pac-Man contribution graph" width="100%" src="https://cdn.jsdelivr.net/gh/im-rihan/im-rihan@output/pacman-contribution-graph-dark.svg" />
 
 <br/>
 
-<img height="150" src="https://github-stats-extended.vercel.app/api?username=im-rihan&show_icons=true&hide_border=true&count_private=true&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a&hide=issues,contribs" alt="GitHub Stats" />
-<img height="150" src="https://streak-stats.demolab.com/?user=im-rihan&hide_border=true&background=0F172A&stroke=0F766E&ring=14B8A6&fire=F59E0B&currStreakLabel=14B8A6&sideLabels=94A3B8&dates=64748B&currStreakNum=E2E8F0&sideNums=E2E8F0" alt="GitHub Streak" />
+<img height="150" src="./assets/github-stats.svg" alt="GitHub Stats" />
+<img height="150" src="./assets/github-streak.svg" alt="GitHub Streak" />
 
 </div>
 

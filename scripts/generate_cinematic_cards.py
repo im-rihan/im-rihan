@@ -108,22 +108,56 @@ ICONS = {
 }
 
 
-def isometric_tile(cx: float, cy: float, label: str, icon_key: str, accent: str, delay: float, size: float = 36) -> str:
-    hx, hy = size * 0.95, size * 0.55
+def isometric_tile(
+    cx: float,
+    cy: float,
+    label: str,
+    icon_key: str,
+    accent: str,
+    delay: float,
+    size: float = 42,
+    uid: str = "t",
+) -> str:
+    """Premium isometric cube with soft shadow, lit faces, and hover float."""
+    hx, hy = size * 0.98, size * 0.56
+    depth = size * 0.58
     top = f"M{cx} {cy - hy} L{cx + hx} {cy} L{cx} {cy + hy} L{cx - hx} {cy} Z"
-    left = f"M{cx - hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx - hx} {cy + size * 0.55} Z"
-    right = f"M{cx + hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + size * 0.55} L{cx + hx} {cy + size * 0.55} Z"
+    left = f"M{cx - hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + depth} L{cx - hx} {cy + depth} Z"
+    right = f"M{cx + hx} {cy} L{cx} {cy + hy} L{cx} {cy + hy + depth} L{cx + hx} {cy + depth} Z"
     icon = ICONS.get(icon_key, f'<text text-anchor="middle" y="4" font-size="9" fill="#e2e8f0">{escape(label[:2])}</text>')
+    shadow_cy = cy + hy + depth + 6
     return f"""<g>
-  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="3.8s" begin="{delay}s" repeatCount="indefinite"/>
-  <path d="{left}" fill="{accent}" fill-opacity="0.3"/>
-  <path d="{right}" fill="{accent}" fill-opacity="0.48"/>
-  <path d="{top}" fill="#0b1220" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.9"/>
-  <path d="{top}" fill="{accent}" fill-opacity="0.14">
-    <animate attributeName="fill-opacity" values="0.1;0.28;0.1" dur="3.8s" begin="{delay}s" repeatCount="indefinite"/>
-  </path>
-  <g transform="translate({cx}, {cy - 2}) scale(0.85)">{icon}</g>
-  <text x="{cx}" y="{cy + hy + size * 0.55 + 14}" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#cbd5e1">{escape(label)}</text>
+  <defs>
+    <linearGradient id="L{uid}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="R{uid}" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="T{uid}" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#122033"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="S{uid}" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="{cx}" cy="{shadow_cy}" rx="{hx * 0.95}" ry="7" fill="url(#S{uid})"/>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+    <path d="{left}" fill="url(#L{uid})"/>
+    <path d="{right}" fill="url(#R{uid})"/>
+    <path d="{top}" fill="url(#T{uid})" stroke="{accent}" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="{top}" fill="{accent}" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
+    </path>
+    <g transform="translate({cx}, {cy - 1}) scale(0.92)">{icon}</g>
+  </g>
+  <text x="{cx}" y="{cy + hy + depth + 18}" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">{escape(label)}</text>
 </g>"""
 
 
@@ -273,75 +307,130 @@ def more_systems() -> None:
 
 
 def stack_panel() -> None:
-    tiles = [
-        (120, 88, "React", "react", "#61dafb", 0.0),
-        (220, 88, "Next.js", "next", "#e2e8f0", 0.2),
-        (320, 88, "TS", "ts", "#3178c6", 0.4),
-        (420, 88, "NestJS", "nest", "#e0234e", 0.6),
-        (520, 88, "Node", "node", "#68a063", 0.8),
-        (620, 88, "PHP", "php", "#777bb4", 1.0),
-        (720, 88, "Python", "py", "#3776ab", 1.2),
-        (170, 168, "MySQL", "mysql", "#00758f", 0.3),
-        (270, 168, "Redis", "redis", "#dc382d", 0.5),
-        (370, 168, "AWS", "aws", "#ff9900", 0.7),
-        (470, 168, "Docker", "docker", "#2496ed", 0.9),
-        (570, 168, "Vercel", "vercel", "#e2e8f0", 1.1),
-        (670, 168, "CF", "cf", "#f38020", 1.3),
-        (770, 168, "FastAPI", "fastapi", "#009688", 1.5),
+    """3D tech city — larger lit cubes, soft shadows, category rails, AI gems."""
+    # Row layout: core / platform / cloud-ops / ai gems
+    core = [
+        (150, 78, "React", "react", "#61dafb", 0.0),
+        (250, 78, "Next.js", "next", "#e2e8f0", 0.15),
+        (350, 78, "TS", "ts", "#3178c6", 0.3),
+        (450, 78, "NestJS", "nest", "#e0234e", 0.45),
+        (550, 78, "Node", "node", "#68a063", 0.6),
+        (650, 78, "PHP", "php", "#777bb4", 0.75),
+        (750, 78, "Python", "py", "#3776ab", 0.9),
     ]
-    # Centered fluent chips: icon above label, both centered in pill
-    fluent = [
-        ("LangChain", "langchain", "#14b8a6"),
-        ("Puppeteer", "puppeteer", "#00d8a2"),
-        ("Leaflet", "leaflet", "#199900"),
-        ("Typesense", "typesense", "#d4ff52"),
-        ("CatBoost", "catboost", "#ffcc00"),
-        ("MCP", "mcp", "#22d3ee"),
+    data = [
+        (200, 168, "MySQL", "mysql", "#00758f", 0.2),
+        (300, 168, "Redis", "redis", "#dc382d", 0.35),
+        (400, 168, "AWS", "aws", "#ff9900", 0.5),
+        (500, 168, "Docker", "docker", "#2496ed", 0.65),
+        (600, 168, "Vercel", "vercel", "#e2e8f0", 0.8),
+        (700, 168, "CF", "cf", "#f38020", 0.95),
+        (800, 168, "FastAPI", "fastapi", "#009688", 1.1),
     ]
-    tile_svg = "\n".join(isometric_tile(*t) for t in tiles)
-    chip_w = 118
-    gap = 12
-    total = len(fluent) * chip_w + (len(fluent) - 1) * gap
-    start = (900 - total) / 2
-    fluent_svg = []
-    for i, (label, key, accent) in enumerate(fluent):
-        x = start + i * (chip_w + gap) + chip_w / 2
-        icon = ICONS.get(key, "")
-        fluent_svg.append(
-            f"""<g transform="translate({x}, 252)">
-  <rect x="{-chip_w/2}" y="-22" width="{chip_w}" height="44" rx="12" fill="rgba(15,23,42,0.95)" stroke="{accent}" stroke-opacity="0.55">
-    <animate attributeName="stroke-opacity" values="0.3;0.95;0.3" dur="3s" begin="{i*0.15}s" repeatCount="indefinite"/>
-  </rect>
-  <g transform="translate(0, -6) scale(0.62)">{icon}</g>
-  <text x="0" y="16" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">{escape(label)}</text>
-</g>"""
-        )
+    gems = [
+        (200, 258, "LangChain", "langchain", "#14b8a6", 0.1),
+        (320, 258, "Puppeteer", "puppeteer", "#00d8a2", 0.25),
+        (440, 258, "Leaflet", "leaflet", "#199900", 0.4),
+        (560, 258, "Typesense", "typesense", "#d4ff52", 0.55),
+        (680, 258, "CatBoost", "catboost", "#ffcc00", 0.7),
+        (800, 258, "MCP", "mcp", "#22d3ee", 0.85),
+    ]
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img">
-  <title>Tech stack</title>
+    tiles = []
+    for i, t in enumerate(core):
+        tiles.append(isometric_tile(*t, size=40, uid=f"c{i}"))
+    for i, t in enumerate(data):
+        tiles.append(isometric_tile(*t, size=38, uid=f"d{i}"))
+    for i, t in enumerate(gems):
+        tiles.append(isometric_tile(*t, size=32, uid=f"g{i}"))
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="940" height="340" viewBox="0 0 940 340" role="img">
+  <title>3D tech stack city</title>
   <defs>
-    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
-    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient>
-    <radialGradient id="wash" cx="50%" cy="35%" r="55%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.18"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#01040c"/><stop offset="50%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="wash" cx="50%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.22"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx="78%" cy="70%" r="40%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0.1"/>
+    </linearGradient>
   </defs>
-  <rect width="900" height="300" rx="18" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
-  <ellipse cx="450" cy="110" rx="300" ry="90" fill="url(#wash)"><animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/></ellipse>
-  <ellipse cx="180" cy="240" rx="160" ry="50" fill="#f59e0b" fill-opacity="0.05"/>
-  <rect x="1" y="1" width="898" height="3" fill="url(#rim)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/></rect>
-  <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.35">
-    <path d="M14 14 H30 V30"/><path d="M886 14 H870 V30"/><path d="M14 286 H30 V270"/><path d="M886 286 H870 V270"/>
+  <rect width="940" height="340" rx="20" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="470" cy="100" rx="340" ry="100" fill="url(#wash)">
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="5.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="760" cy="260" rx="220" ry="70" fill="url(#amber)"/>
+  <rect x="0" y="260" width="940" height="80" fill="url(#floor)"/>
+  <rect x="1" y="1" width="938" height="2.5" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
+  <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.4">
+    <path d="M16 16 H36 V36"/><path d="M924 16 H904 V36"/><path d="M16 324 H36 V304"/><path d="M924 324 H904 V304"/>
   </g>
-  <g stroke="#14b8a6" stroke-opacity="0.14" fill="none">
-    <path d="M70 210 L450 175 L830 210"/>
-    <path d="M140 235 L450 190 L760 235"/>
+  <!-- perspective city grid -->
+  <g stroke="#14b8a6" stroke-opacity="0.16" fill="none">
+    <path d="M60 300 L470 250 L880 300"/>
+    <path d="M110 320 L470 265 L830 320"/>
+    <path d="M180 338 L470 278 L760 338"/>
+    <line x1="40" y1="285" x2="900" y2="285"/>
+    <line x1="40" y1="310" x2="900" y2="310"/>
   </g>
-  <text x="450" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK MATRIX</text>
-  {tile_svg}
-  {''.join(fluent_svg)}
+  <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK CITY · 3D</text>
+  <!-- row captions -->
+  <g font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#64748b" letter-spacing="1.2">
+    <text x="70" y="48">CORE</text>
+    <text x="70" y="138">CLOUD</text>
+    <text x="70" y="228">AI / TOOLS</text>
+  </g>
+  {''.join(tiles)}
 </svg>
 """
     (ASSETS / "stack-cinematic.svg").write_text(svg, encoding="utf-8", newline="\n")
     print("wrote stack-cinematic.svg")
+
+
+def refresh_activity_svgs() -> None:
+    """Pull live stats/streak into repo assets so GitHub camo never breaks."""
+    import urllib.request
+
+    targets = {
+        "github-stats.svg": (
+            "https://github-stats-extended.vercel.app/api?username=im-rihan"
+            "&show_icons=true&hide_border=true&count_private=true"
+            "&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a"
+            "&hide=issues,contribs"
+        ),
+        "github-streak.svg": (
+            "https://streak-stats.demolab.com/?user=im-rihan&hide_border=true"
+            "&background=0F172A&stroke=0F766E&ring=14B8A6&fire=F59E0B"
+            "&currStreakLabel=14B8A6&sideLabels=94A3B8&dates=64748B"
+            "&currStreakNum=E2E8F0&sideNums=E2E8F0"
+        ),
+    }
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; im-rihan-profile-bot/1.0)"}
+    for name, url in targets.items():
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=40) as resp:
+                data = resp.read()
+            if b"<svg" not in data[:400].lower() and b"<svg" not in data:
+                print("skip", name, "not svg")
+                continue
+            (ASSETS / name).write_bytes(data)
+            print("wrote", name, len(data), "bytes")
+        except Exception as exc:  # noqa: BLE001
+            print("fail", name, exc)
+            # keep previously committed file if refresh fails
+            if (ASSETS / name).exists():
+                print("kept existing", name)
 
 
 def hero_banner() -> None:
@@ -853,6 +942,7 @@ if __name__ == "__main__":
     more_systems()
     stack_panel()
     connect_assets()
+    refresh_activity_svgs()
 
     featured_card(
         filename="card-ziffy.svg",

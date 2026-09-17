@@ -152,7 +152,7 @@ def main() -> None:
         shots = [
             ("hero", 'article img[alt="Rihan Mohammed — Full Stack Developer"]'),
             ("signal-deck", 'article img[alt*="Mission brief"]'),
-            ("stack", 'article img[alt="Cinematic tech stack matrix with skill icons"]'),
+            ("stack", 'article img[alt*="tech stack"]'),
             ("more", 'article img[alt="More production systems"]'),
             ("label-featured", 'article img[alt="Featured"]'),
             ("label-stack", 'article img[alt="Stack"]'),
