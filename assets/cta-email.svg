@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="68" viewBox="0 0 210 68" role="img">
+  <title>Email — im.rihan.dev@</title>
+  <defs>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132033" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#0b1220" stop-opacity="0.94"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA4335" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#EA4335" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#EA4335" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="48%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="52%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <g filter="url(#soft)">
+    <rect x="1" y="1" width="208" height="66" rx="14" fill="url(#glass)" stroke="#EA4335" stroke-opacity="0.45">
+      <animate attributeName="stroke-opacity" values="0.28;0.75;0.28" dur="3.2s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="208" height="2.5" rx="1" fill="url(#edge)">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="208" height="66" rx="14" fill="url(#sheen)">
+      <animate attributeName="x" values="-210;210" dur="7.5s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <g transform="translate(18, 34)">
+    <circle cx="0" cy="0" r="15" fill="#EA4335" fill-opacity="0.14" stroke="#EA4335" stroke-opacity="0.45"/>
+    <g transform="translate(0,0) scale(0.85)"><rect x="-8" y="-5" width="16" height="11" rx="1.5" fill="none" stroke="#EA4335" stroke-width="1.7"/><path d="M-8 -5 L0 2 L8 -5" fill="none" stroke="#EA4335" stroke-width="1.7"/></g>
+  </g>
+  <text x="44" y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#EA4335" letter-spacing="1.6">DIRECT</text>
+  <text x="44" y="46" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">Email</text>
+  <text x="44" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">im.rihan.dev@</text>
+</svg>

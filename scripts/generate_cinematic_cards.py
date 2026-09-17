@@ -509,6 +509,192 @@ def metrics() -> None:
     print("wrote metrics-strip.svg")
 
 
+def intro_signal() -> None:
+    """Manifesto band under hero — editorial, not competing with the nameplate."""
+    svg = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="100" viewBox="0 0 900 100" role="img">
+  <title>I build production fintech and real-estate platforms</title>
+  <defs>
+    <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="100" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="3.4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="0" width="220" height="100" fill="url(#sheen)" opacity="0.9">
+    <animate attributeName="x" values="-240;920" dur="9s" repeatCount="indefinite"/>
+  </rect>
+  <text x="450" y="28" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="3.5">MISSION BRIEF</text>
+  <text x="450" y="56" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#ink)">I build production fintech &amp; real-estate platforms</text>
+  <text x="450" y="80" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" fill="#94a3b8">AI property search  ·  NestJS APIs  ·  data pipelines  ·  cloud infra</text>
+  <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.45">
+    <path d="M18 18 H36 V36"/><path d="M882 18 H864 V36"/><path d="M18 82 H36 V64"/><path d="M882 82 H864 V64"/>
+  </g>
+</svg>
+"""
+    (ASSETS / "intro-signal.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote intro-signal.svg")
+
+
+def cta_tile(
+    *,
+    filename: str,
+    eyebrow: str,
+    title: str,
+    hint: str,
+    accent: str,
+    icon: str,
+    delay: float = 0.0,
+    width: int = 210,
+) -> None:
+    """Glass dock tile — each file is a separate clickable <a><img> target."""
+    h = 68
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{h}" viewBox="0 0 {width} {h}" role="img">
+  <title>{escape(title)} — {escape(hint)}</title>
+  <defs>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132033" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#0b1220" stop-opacity="0.94"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="{accent}" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="48%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="52%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <g filter="url(#soft)">
+    <rect x="1" y="1" width="{width - 2}" height="{h - 2}" rx="14" fill="url(#glass)" stroke="{accent}" stroke-opacity="0.45">
+      <animate attributeName="stroke-opacity" values="0.28;0.75;0.28" dur="3.2s" begin="{delay}s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="{width - 2}" height="2.5" rx="1" fill="url(#edge)">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="{width - 2}" height="{h - 2}" rx="14" fill="url(#sheen)">
+      <animate attributeName="x" values="{-width};{width}" dur="7.5s" begin="{delay}s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <g transform="translate(18, 34)">
+    <circle cx="0" cy="0" r="15" fill="{accent}" fill-opacity="0.14" stroke="{accent}" stroke-opacity="0.45"/>
+    <g transform="translate(0,0) scale(0.85)">{icon}</g>
+  </g>
+  <text x="44" y="28" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="{accent}" letter-spacing="1.6">{escape(eyebrow.upper())}</text>
+  <text x="44" y="46" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">{escape(title)}</text>
+  <text x="44" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">{escape(hint)}</text>
+</svg>
+"""
+    (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote", filename)
+
+
+def link_chip(*, filename: str, label: str, accent: str, delay: float = 0.0) -> None:
+    """Compact secondary URL chip for case-study / footer rails."""
+    w = max(92, 12 + len(label) * 8)
+    h = 34
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img">
+  <title>{escape(label)}</title>
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="10" fill="url(#g)" stroke="{accent}" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.85;0.3" dur="3s" begin="{delay}s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="12" cy="17" r="2.4" fill="{accent}">
+    <animate attributeName="opacity" values="0.45;1;0.45" dur="2.2s" begin="{delay}s" repeatCount="indefinite"/>
+  </circle>
+  <text x="{w / 2 + 4}" y="21" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">{escape(label)}</text>
+</svg>
+"""
+    (ASSETS / filename).write_text(svg, encoding="utf-8", newline="\n")
+    print("wrote", filename)
+
+
+def connect_assets() -> None:
+    intro_signal()
+    cta_tile(
+        filename="cta-portfolio.svg",
+        eyebrow="Web",
+        title="Portfolio",
+        hint="im-rihan.github.io",
+        accent="#14b8a6",
+        icon='<path d="M-7 -7 H7 V7 H-7 Z" fill="none" stroke="#14b8a6" stroke-width="1.8"/><path d="M-3 0 H3 M0 -3 V3" stroke="#14b8a6" stroke-width="1.8"/>',
+        delay=0.0,
+    )
+    cta_tile(
+        filename="cta-linkedin.svg",
+        eyebrow="Social",
+        title="LinkedIn",
+        hint="/in/im-rihan",
+        accent="#0A66C2",
+        icon='<text x="0" y="5" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="800" fill="#0A66C2">in</text>',
+        delay=0.15,
+    )
+    cta_tile(
+        filename="cta-email.svg",
+        eyebrow="Direct",
+        title="Email",
+        hint="im.rihan.dev@",
+        accent="#EA4335",
+        icon='<rect x="-8" y="-5" width="16" height="11" rx="1.5" fill="none" stroke="#EA4335" stroke-width="1.7"/><path d="M-8 -5 L0 2 L8 -5" fill="none" stroke="#EA4335" stroke-width="1.7"/>',
+        delay=0.3,
+        width=210,
+    )
+    cta_tile(
+        filename="cta-available.svg",
+        eyebrow="Status",
+        title="Available",
+        hint="open to opportunities",
+        accent="#22c55e",
+        icon='<circle cx="0" cy="0" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;0.35;1" dur="1.8s" repeatCount="indefinite"/></circle>',
+        delay=0.45,
+        width=200,
+    )
+    chips = [
+        ("chip-casestudy.svg", "case study", "#14b8a6", 0.0),
+        ("chip-live.svg", "live", "#f59e0b", 0.1),
+        ("chip-appi.svg", "appi", "#22d3ee", 0.2),
+        ("chip-pricer.svg", "pricer", "#a78bfa", 0.3),
+        ("chip-realtor.svg", "ha-realtor", "#14b8a6", 0.0),
+        ("chip-pipelines.svg", "pipelines", "#22d3ee", 0.1),
+        ("chip-avm.svg", "AVM", "#f59e0b", 0.2),
+        ("chip-estimate.svg", "estimate", "#a78bfa", 0.3),
+        ("chip-site.svg", "portfolio", "#34d399", 0.4),
+        ("chip-footer-portfolio.svg", "portfolio", "#14b8a6", 0.0),
+        ("chip-footer-linkedin.svg", "linkedin", "#0A66C2", 0.1),
+        ("chip-footer-email.svg", "email", "#EA4335", 0.2),
+        ("chip-footer-follow.svg", "follow", "#f59e0b", 0.3),
+    ]
+    for filename, label, accent, delay in chips:
+        link_chip(filename=filename, label=label, accent=accent, delay=delay)
+
+
 if __name__ == "__main__":
     section_label("label-featured.svg", "Featured")
     section_label("label-stack.svg", "Stack")
@@ -518,6 +704,7 @@ if __name__ == "__main__":
     metrics()
     more_systems()
     stack_panel()
+    connect_assets()
 
     featured_card(
         filename="card-ziffy.svg",

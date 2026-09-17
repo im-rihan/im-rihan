@@ -6,14 +6,14 @@
 
   <br/>
 
-  **I build production fintech & real-estate platforms** — AI property search, NestJS APIs, data pipelines, and cloud infrastructure.
+  <img src="./assets/intro-signal.svg" alt="I build production fintech and real-estate platforms — AI search, NestJS APIs, pipelines, cloud" width="900" />
 
   <br/>
 
-  <a href="https://im-rihan.github.io/"><img src="https://img.shields.io/badge/portfolio-im--rihan.github.io-0f766e?style=flat-square&logo=vercel&logoColor=white" alt="portfolio" /></a>
-  <a href="https://linkedin.com/in/im-rihan"><img src="https://img.shields.io/badge/linkedin-im--rihan-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="linkedin" /></a>
-  <a href="mailto:im.rihan.dev@gmail.com"><img src="https://img.shields.io/badge/email-im.rihan.dev@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="email" /></a>
-  <a href="mailto:im.rihan.dev@gmail.com"><img src="https://img.shields.io/badge/status-available-22c55e?style=flat-square" alt="available" /></a>
+  <a href="https://im-rihan.github.io/"><img src="./assets/cta-portfolio.svg" alt="Portfolio — im-rihan.github.io" height="68" /></a>
+  <a href="https://linkedin.com/in/im-rihan"><img src="./assets/cta-linkedin.svg" alt="LinkedIn — im-rihan" height="68" /></a>
+  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-email.svg" alt="Email — im.rihan.dev@gmail.com" height="68" /></a>
+  <a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/cta-available.svg" alt="Available for work" height="68" /></a>
 
   <br/><br/>
 
@@ -34,10 +34,10 @@
 </p>
 
 <p align="center">
-  <a href="https://im-rihan.github.io/work/ziffy-ai-search/">case study</a> ·
-  <a href="https://ziffy.ai">live</a> ·
-  <a href="https://im-rihan.github.io/work/nestjs-appi-api/">appi</a> ·
-  <a href="https://im-rihan.github.io/work/lambda-mortgage-pricer/">pricer</a>
+  <a href="https://im-rihan.github.io/work/ziffy-ai-search/"><img src="./assets/chip-casestudy.svg" alt="case study" height="34" /></a>
+  <a href="https://ziffy.ai"><img src="./assets/chip-live.svg" alt="live" height="34" /></a>
+  <a href="https://im-rihan.github.io/work/nestjs-appi-api/"><img src="./assets/chip-appi.svg" alt="appi" height="34" /></a>
+  <a href="https://im-rihan.github.io/work/lambda-mortgage-pricer/"><img src="./assets/chip-pricer.svg" alt="pricer" height="34" /></a>
 </p>
 
 <details>
@@ -47,11 +47,11 @@
   <img src="./assets/more-systems.svg" alt="More production systems" width="920" />
 </div>
 <p align="center">
-  <a href="https://im-rihan.github.io/work/ha-realtor-plat/">ha-realtor-plat</a> ·
-  <a href="https://im-rihan.github.io/work/property-data-pipelines/">data-pipelines</a> ·
-  <a href="https://im-rihan.github.io/work/rental-estimate-avm/">AVM</a> ·
-  <a href="https://im-rihan.github.io/work/estimate-calculator/">estimate-calculator</a> ·
-  <a href="https://im-rihan.github.io/">portfolio</a>
+  <a href="https://im-rihan.github.io/work/ha-realtor-plat/"><img src="./assets/chip-realtor.svg" alt="ha-realtor" height="34" /></a>
+  <a href="https://im-rihan.github.io/work/property-data-pipelines/"><img src="./assets/chip-pipelines.svg" alt="pipelines" height="34" /></a>
+  <a href="https://im-rihan.github.io/work/rental-estimate-avm/"><img src="./assets/chip-avm.svg" alt="AVM" height="34" /></a>
+  <a href="https://im-rihan.github.io/work/estimate-calculator/"><img src="./assets/chip-estimate.svg" alt="estimate" height="34" /></a>
+  <a href="https://im-rihan.github.io/"><img src="./assets/chip-site.svg" alt="portfolio" height="34" /></a>
 </p>
 </details>
 
@@ -100,6 +100,9 @@
 
 <div align="center">
 
-[portfolio](https://im-rihan.github.io/) · [linkedin](https://linkedin.com/in/im-rihan) · [email](mailto:im.rihan.dev@gmail.com) · [follow](https://github.com/im-rihan)
+<a href="https://im-rihan.github.io/"><img src="./assets/chip-footer-portfolio.svg" alt="portfolio" height="34" /></a>
+<a href="https://linkedin.com/in/im-rihan"><img src="./assets/chip-footer-linkedin.svg" alt="linkedin" height="34" /></a>
+<a href="mailto:im.rihan.dev@gmail.com"><img src="./assets/chip-footer-email.svg" alt="email" height="34" /></a>
+<a href="https://github.com/im-rihan"><img src="./assets/chip-footer-follow.svg" alt="follow" height="34" /></a>
 
 </div>
