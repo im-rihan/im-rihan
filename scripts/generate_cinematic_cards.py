@@ -181,8 +181,8 @@ def experience_card(*, filename, role, company, period, bullets, accent, delay=0
 def more_systems() -> None:
     """Cinematic expanded 'more systems' panel — replaces ugly markdown table."""
     items = [
-        ("ha-realtor-plat", "Agent / MLO dashboards", "Leaflet maps", "#14b8a6"),
-        ("data-pipelines", "Multi-source scrape", "MySQL / Typesense", "#22d3ee"),
+        ("ha-realtor", "Agent / MLO dashboards", "Leaflet maps", "#14b8a6"),
+        ("pipelines", "Multi-source scrape", "MySQL / Typesense", "#22d3ee"),
         ("Rental AVM", "CatBoost rent model", "FastAPI · DuckDB", "#f59e0b"),
         ("estimate-lib", "Shared DSCR / fees", "liquidity library", "#a78bfa"),
         ("portfolio", "Case studies · status", "blog · R3F", "#34d399"),

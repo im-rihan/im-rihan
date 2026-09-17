@@ -1,5 +1,5 @@
 {
-  "imgCount": 21,
+  "imgCount": 20,
   "broken": [],
   "zeroSize": [],
   "stillLoading": [],
@@ -170,18 +170,6 @@
     },
     {
       "i": 13,
-      "alt": "Skill icons",
-      "src": "https://camo.githubusercontent.com/6b0dd0af9eb8549ca9521e27310e3a34059a68c9fd8e6b914361e17bfd60594e/68747470733a2f2f736b696c6c69636f6e732e64",
-      "naturalW": 386,
-      "naturalH": 104,
-      "displayW": 386,
-      "displayH": 104,
-      "broken": false,
-      "loading": false,
-      "visible": true
-    },
-    {
-      "i": 14,
       "alt": "Experience",
       "src": "https://github.com/im-rihan/im-rihan/raw/main/assets/label-experience.svg",
       "naturalW": 900,
@@ -193,7 +181,7 @@
       "visible": true
     },
     {
-      "i": 15,
+      "i": 14,
       "alt": "Full Stack Engineer \u2014 Ziffy.ai",
       "src": "https://github.com/im-rihan/im-rihan/raw/main/assets/exp-ziffy.svg",
       "naturalW": 560,
@@ -205,7 +193,7 @@
       "visible": true
     },
     {
-      "i": 16,
+      "i": 15,
       "alt": "Full Stack Developer \u2014 HomeAbroad Inc.",
       "src": "https://github.com/im-rihan/im-rihan/raw/main/assets/exp-homeabroad.svg",
       "naturalW": 560,
@@ -217,7 +205,7 @@
       "visible": true
     },
     {
-      "i": 17,
+      "i": 16,
       "alt": "Activity",
       "src": "https://github.com/im-rihan/im-rihan/raw/main/assets/label-activity.svg",
       "naturalW": 900,
@@ -229,7 +217,7 @@
       "visible": true
     },
     {
-      "i": 18,
+      "i": 17,
       "alt": "Pac-Man contribution graph",
       "src": "https://raw.githubusercontent.com/im-rihan/im-rihan/output/pacman-contribution-graph-dark.svg",
       "naturalW": 1166,
@@ -241,7 +229,7 @@
       "visible": true
     },
     {
-      "i": 19,
+      "i": 18,
       "alt": "GitHub Stats",
       "src": "https://camo.githubusercontent.com/11dd328ea93795826de14913d402a4ead48526f08b1e6a3db2a44a36fe6dd370/68747470733a2f2f6769746875622d726561646d",
       "naturalW": 467,
@@ -253,7 +241,7 @@
       "visible": true
     },
     {
-      "i": 20,
+      "i": 19,
       "alt": "GitHub Streak",
       "src": "https://camo.githubusercontent.com/87f304f3779a725e86b1d297e545c6ffc7fdee8efa728453c70387eda62b47bf/68747470733a2f2f73747265616b2d7374617473",
       "naturalW": 495,
