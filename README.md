@@ -125,12 +125,12 @@ familiar  React Native · Django · Flask · Java · Flutter · Angular · Vue
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=im-rihan&show_icons=true&hide_border=true&count_private=true&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a)
-![GitHub Streak](https://streak-stats.demolab.com/?user=im-rihan&hide_border=true&background=0f172a&stroke=0f766e&ring=14b8a6&fire=f59e0b&currStreakLabel=14b8a6&sideLabels=94a3b8&dates=64748b&currStreakNum=e2e8f0&sideNums=e2e8f0)
+![GitHub Stats](https://github-readme-stats.shion.dev/api?username=im-rihan&show_icons=true&hide_border=true&count_private=true&title_color=14b8a6&icon_color=f59e0b&text_color=e2e8f0&bg_color=0f172a)
+![GitHub Streak](https://streak-stats.demolab.com/?user=im-rihan&hide_border=true&background=0F172A&stroke=0F766E&ring=14B8A6&fire=F59E0B&currStreakLabel=14B8A6&sideLabels=94A3B8&dates=64748B&currStreakNum=E2E8F0&sideNums=E2E8F0)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=im-rihan&layout=compact&hide_border=true&langs_count=8&title_color=14b8a6&text_color=e2e8f0&bg_color=0f172a)
+![Top Languages](https://github-readme-stats.shion.dev/api/top-langs/?username=im-rihan&layout=compact&hide_border=true&langs_count=8&title_color=14b8a6&text_color=e2e8f0&bg_color=0f172a)
 
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=im-rihan&theme=react-dark&hide_border=true&area=true&color=14b8a6&line=14b8a6&point=f59e0b&area_color=0f766e&bg_color=0f172a)
+![Activity Graph](https://jeskei-readme-activity-graph.vercel.app/graph?username=im-rihan&bg_color=0f172a&color=14b8a6&line=14b8a6&point=f59e0b&area=true&area_color=0f766e&hide_border=true)
 
 </div>
 
