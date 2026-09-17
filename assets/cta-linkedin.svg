@@ -22,6 +22,7 @@
     </filter>
   </defs>
   <g filter="url(#soft)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="3.4s" begin="0.15s" repeatCount="indefinite"/>
     <rect x="1" y="1" width="214" height="66" rx="14" fill="url(#glass)" stroke="#0A66C2" stroke-opacity="0.45">
       <animate attributeName="stroke-opacity" values="0.28;0.75;0.28" dur="3.2s" begin="0.15s" repeatCount="indefinite"/>
     </rect>

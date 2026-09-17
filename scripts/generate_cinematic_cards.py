@@ -146,14 +146,17 @@ def isometric_tile(
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="{cx}" cy="{shadow_cy}" rx="{hx * 0.95}" ry="7" fill="url(#S{uid})"/>
+  <ellipse cx="{cx}" cy="{shadow_cy}" rx="{hx * 0.95}" ry="7" fill="url(#S{uid})">
+    <animate attributeName="rx" values="{hx * 0.95};{hx * 0.75};{hx * 0.95}" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
     <path d="{left}" fill="url(#L{uid})"/>
     <path d="{right}" fill="url(#R{uid})"/>
     <path d="{top}" fill="url(#T{uid})" stroke="{accent}" stroke-width="1.35" stroke-opacity="0.95"/>
     <path d="{top}" fill="{accent}" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
     </path>
     <g transform="translate({cx}, {cy - 1}) scale(0.92)">{icon}</g>
   </g>
@@ -178,17 +181,19 @@ def featured_card(*, filename, eyebrow, title, stack, blurb, accent, delay=0.0):
     <radialGradient id="glow" cx="20%" cy="18%" r="50%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.45"/><stop offset="100%" stop-color="{accent}" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000" flood-opacity="0.55"/></filter>
   </defs>
-  <rect width="400" height="240" fill="url(#void)"/>
+  <rect width="400" height="240" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.18)"/>
   <ellipse cx="90" cy="50" rx="130" ry="70" fill="url(#glow)"><animate attributeName="opacity" values="0.7;1;0.7" dur="4s" begin="{delay}s" repeatCount="indefinite"/></ellipse>
-  <path d="M30 205 L210 185 L370 205 L190 225 Z" fill="#14b8a6" opacity="0.08"/>
+  <path d="M30 205 L210 185 L370 205 L190 225 Z" fill="#14b8a6" opacity="0.1">
+    <animate attributeName="opacity" values="0.06;0.14;0.06" dur="5s" begin="{delay}s" repeatCount="indefinite"/>
+  </path>
   <g filter="url(#shadow)">
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="5s" begin="{delay}s" repeatCount="indefinite"/>
-    <path d="M340 42 L370 58 L370 188 L340 172 Z" fill="url(#side)"/>
-    <path d="M40 42 L70 26 L370 58 L340 42 Z" fill="url(#top)"/>
-    <path d="M40 42 L340 42 L340 172 L40 172 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.45"/>
-    <rect x="40" y="42" width="300" height="130" fill="url(#sheen)"><animate attributeName="x" values="-260;340" dur="6s" begin="{delay}s" repeatCount="indefinite"/></rect>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="{delay}s" repeatCount="indefinite"/>
+    <path d="M340 42 L376 62 L376 192 L340 172 Z" fill="url(#side)"/>
+    <path d="M40 42 L76 22 L376 62 L340 42 Z" fill="url(#top)"/>
+    <path d="M40 42 L340 42 L340 172 L40 172 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.5"/>
+    <rect x="40" y="42" width="300" height="130" fill="url(#sheen)"><animate attributeName="x" values="-260;340" dur="5.5s" begin="{delay}s" repeatCount="indefinite"/></rect>
   </g>
-  <rect x="40" y="42" width="300" height="3" fill="{accent}" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="{delay}s" repeatCount="indefinite"/></rect>
+  <rect x="40" y="42" width="300" height="3" fill="{accent}" opacity="0.85"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.6s" begin="{delay}s" repeatCount="indefinite"/></rect>
   <text x="58" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">{escape(eyebrow.upper())}</text>
   <text x="58" y="100" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#f8fafc">{escape(title)}</text>
   <text x="58" y="120" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#f59e0b">{escape(stack)}</text>
@@ -217,17 +222,19 @@ def experience_card(*, filename, role, company, period, bullets, accent, delay=0
     <radialGradient id="orb" cx="90%" cy="12%" r="35%"><stop offset="0%" stop-color="{accent}" stop-opacity="0.5"/><stop offset="100%" stop-color="{accent}" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-15%" y="-15%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000" flood-opacity="0.5"/></filter>
   </defs>
-  <rect width="560" height="220" fill="url(#void)"/>
+  <rect width="560" height="220" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.18)"/>
   <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)"><animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" begin="{delay}s" repeatCount="indefinite"/></ellipse>
-  <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="{accent}" opacity="0.08"/>
+  <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="{accent}" opacity="0.1">
+    <animate attributeName="opacity" values="0.06;0.14;0.06" dur="5s" begin="{delay}s" repeatCount="indefinite"/>
+  </path>
   <g filter="url(#shadow)">
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="5.5s" begin="{delay}s" repeatCount="indefinite"/>
-    <path d="M480 36 L520 54 L520 184 L480 166 Z" fill="url(#side)"/>
-    <path d="M40 36 L80 18 L520 54 L480 36 Z" fill="url(#top)"/>
-    <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.4"/>
-    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)"><animate attributeName="x" values="-400;480" dur="7s" begin="{delay}s" repeatCount="indefinite"/></rect>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -7; 0 0" dur="4.6s" begin="{delay}s" repeatCount="indefinite"/>
+    <path d="M480 36 L524 58 L524 188 L480 166 Z" fill="url(#side)"/>
+    <path d="M40 36 L84 16 L524 58 L480 36 Z" fill="url(#top)"/>
+    <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="{accent}" stroke-opacity="0.45"/>
+    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)"><animate attributeName="x" values="-400;480" dur="6s" begin="{delay}s" repeatCount="indefinite"/></rect>
   </g>
-  <rect x="40" y="36" width="8" height="130" fill="{accent}"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" begin="{delay}s" repeatCount="indefinite"/></rect>
+  <rect x="40" y="36" width="8" height="130" fill="{accent}"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.4s" begin="{delay}s" repeatCount="indefinite"/></rect>
   <text x="64" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="{accent}" letter-spacing="2">EXPERIENCE</text>
   <text x="64" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">{escape(role)}</text>
   <text x="64" y="104" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">{escape(company)}  ·  {escape(period)}</text>
@@ -248,29 +255,35 @@ def more_systems() -> None:
         ("portfolio", "Case studies · status", "blog · R3F", "#34d399"),
     ]
     cards = []
-    gap = 14
-    w = 164
+    gap = 12
+    w = 160
     total = len(items) * w + (len(items) - 1) * gap
-    start = (920 - total) / 2
+    start = (900 - total) / 2
     for i, (title, line1, line2, accent) in enumerate(items):
         x = start + i * (w + gap)
         cards.append(
             f"""<g>
-  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="4s" begin="{i * 0.2}s" repeatCount="indefinite"/>
-  <path d="M{x+w-12} 52 L{x+w+6} 64 L{x+w+6} 178 L{x+w-12} 166 Z" fill="{accent}" fill-opacity="0.35"/>
-  <path d="M{x} 52 L{x+14} 40 L{x+w+6} 64 L{x+w-12} 52 Z" fill="{accent}" fill-opacity="0.22"/>
-  <rect x="{x}" y="52" width="{w-12}" height="114" rx="12" fill="#0f172a" stroke="{accent}" stroke-opacity="0.55"/>
+  <ellipse cx="{x + (w-12)/2}" cy="186" rx="{(w-12)/2 * 0.85}" ry="6" fill="#000" opacity="0.35">
+    <animate attributeName="rx" values="{(w-12)/2 * 0.85};{(w-12)/2 * 0.65};{(w-12)/2 * 0.85}" dur="3.6s" begin="{i * 0.18}s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.18;0.4" dur="3.6s" begin="{i * 0.18}s" repeatCount="indefinite"/>
+  </ellipse>
+  <g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -7; 0 0" dur="3.6s" begin="{i * 0.18}s" repeatCount="indefinite"/>
+  <path d="M{x+w-12} 52 L{x+w+6} 64 L{x+w+6} 178 L{x+w-12} 166 Z" fill="{accent}" fill-opacity="0.4"/>
+  <path d="M{x} 52 L{x+14} 40 L{x+w+6} 64 L{x+w-12} 52 Z" fill="{accent}" fill-opacity="0.28"/>
+  <rect x="{x}" y="52" width="{w-12}" height="114" rx="12" fill="#0f172a" stroke="{accent}" stroke-opacity="0.6"/>
   <rect x="{x}" y="52" width="{w-12}" height="3" fill="{accent}">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="{i * 0.2}s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" begin="{i * 0.18}s" repeatCount="indefinite"/>
   </rect>
   <text x="{x + (w-12)/2}" y="78" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="{accent}" letter-spacing="1.5">SYSTEM</text>
   <text x="{x + (w-12)/2}" y="104" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="13" font-weight="800" fill="#f1f5f9">{escape(title)}</text>
   <text x="{x + (w-12)/2}" y="128" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="10" fill="#94a3b8">{escape(line1)}</text>
   <text x="{x + (w-12)/2}" y="144" text-anchor="middle" font-family="Inter,Segoe UI,sans-serif" font-size="10" fill="#94a3b8">{escape(line2)}</text>
+  </g>
 </g>"""
         )
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="920" height="220" viewBox="0 0 920 220" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img">
   <title>More systems</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -287,18 +300,18 @@ def more_systems() -> None:
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="920" height="220" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
-  <ellipse cx="460" cy="90" rx="280" ry="70" fill="url(#wash)">
+  <rect width="900" height="220" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.22)"/>
+  <ellipse cx="450" cy="90" rx="280" ry="70" fill="url(#wash)">
     <animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/>
   </ellipse>
-  <rect x="1" y="1" width="918" height="3" fill="url(#rim)">
+  <rect x="1" y="1" width="898" height="3" fill="url(#rim)">
     <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
   </rect>
   <g stroke="#14b8a6" stroke-width="1.1" fill="none" opacity="0.35">
-    <path d="M14 14 H30 V30"/><path d="M906 14 H890 V30"/><path d="M14 206 H30 V190"/><path d="M906 206 H890 V190"/>
+    <path d="M14 14 H30 V30"/><path d="M886 14 H870 V30"/><path d="M14 206 H30 V190"/><path d="M886 206 H870 V190"/>
   </g>
-  <text x="460" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
-  <path d="M60 200 L460 182 L860 200" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
+  <text x="450" y="32" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">MORE SYSTEMS</text>
+  <path d="M60 200 L450 182 L840 200" fill="none" stroke="#14b8a6" stroke-opacity="0.2"/>
   {''.join(cards)}
 </svg>
 """
@@ -310,30 +323,30 @@ def stack_panel() -> None:
     """3D tech city — larger lit cubes, soft shadows, category rails, AI gems."""
     # Row layout: core / platform / cloud-ops / ai gems
     core = [
-        (150, 78, "React", "react", "#61dafb", 0.0),
-        (250, 78, "Next.js", "next", "#e2e8f0", 0.15),
-        (350, 78, "TS", "ts", "#3178c6", 0.3),
-        (450, 78, "NestJS", "nest", "#e0234e", 0.45),
-        (550, 78, "Node", "node", "#68a063", 0.6),
-        (650, 78, "PHP", "php", "#777bb4", 0.75),
-        (750, 78, "Python", "py", "#3776ab", 0.9),
+        (130, 78, "React", "react", "#61dafb", 0.0),
+        (230, 78, "Next.js", "next", "#e2e8f0", 0.15),
+        (330, 78, "TS", "ts", "#3178c6", 0.3),
+        (430, 78, "NestJS", "nest", "#e0234e", 0.45),
+        (530, 78, "Node", "node", "#68a063", 0.6),
+        (630, 78, "PHP", "php", "#777bb4", 0.75),
+        (730, 78, "Python", "py", "#3776ab", 0.9),
     ]
     data = [
-        (200, 168, "MySQL", "mysql", "#00758f", 0.2),
-        (300, 168, "Redis", "redis", "#dc382d", 0.35),
-        (400, 168, "AWS", "aws", "#ff9900", 0.5),
-        (500, 168, "Docker", "docker", "#2496ed", 0.65),
-        (600, 168, "Vercel", "vercel", "#e2e8f0", 0.8),
-        (700, 168, "CF", "cf", "#f38020", 0.95),
-        (800, 168, "FastAPI", "fastapi", "#009688", 1.1),
+        (180, 168, "MySQL", "mysql", "#00758f", 0.2),
+        (280, 168, "Redis", "redis", "#dc382d", 0.35),
+        (380, 168, "AWS", "aws", "#ff9900", 0.5),
+        (480, 168, "Docker", "docker", "#2496ed", 0.65),
+        (580, 168, "Vercel", "vercel", "#e2e8f0", 0.8),
+        (680, 168, "CF", "cf", "#f38020", 0.95),
+        (780, 168, "FastAPI", "fastapi", "#009688", 1.1),
     ]
     gems = [
-        (200, 258, "LangChain", "langchain", "#14b8a6", 0.1),
-        (320, 258, "Puppeteer", "puppeteer", "#00d8a2", 0.25),
-        (440, 258, "Leaflet", "leaflet", "#199900", 0.4),
-        (560, 258, "Typesense", "typesense", "#d4ff52", 0.55),
-        (680, 258, "CatBoost", "catboost", "#ffcc00", 0.7),
-        (800, 258, "MCP", "mcp", "#22d3ee", 0.85),
+        (180, 258, "LangChain", "langchain", "#14b8a6", 0.1),
+        (300, 258, "Puppeteer", "puppeteer", "#00d8a2", 0.25),
+        (420, 258, "Leaflet", "leaflet", "#199900", 0.4),
+        (540, 258, "Typesense", "typesense", "#d4ff52", 0.55),
+        (660, 258, "CatBoost", "catboost", "#ffcc00", 0.7),
+        (780, 258, "MCP", "mcp", "#22d3ee", 0.85),
     ]
 
     tiles = []
@@ -344,7 +357,7 @@ def stack_panel() -> None:
     for i, t in enumerate(gems):
         tiles.append(isometric_tile(*t, size=32, uid=f"g{i}"))
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="940" height="340" viewBox="0 0 940 340" role="img">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img">
   <title>3D tech stack city</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -363,27 +376,27 @@ def stack_panel() -> None:
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0.1"/>
     </linearGradient>
   </defs>
-  <rect width="940" height="340" rx="20" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
-  <ellipse cx="470" cy="100" rx="340" ry="100" fill="url(#wash)">
+  <rect width="900" height="340" rx="20" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="450" cy="100" rx="320" ry="100" fill="url(#wash)">
     <animate attributeName="opacity" values="0.55;1;0.55" dur="5.5s" repeatCount="indefinite"/>
   </ellipse>
-  <ellipse cx="760" cy="260" rx="220" ry="70" fill="url(#amber)"/>
-  <rect x="0" y="260" width="940" height="80" fill="url(#floor)"/>
-  <rect x="1" y="1" width="938" height="2.5" fill="url(#rim)">
+  <ellipse cx="720" cy="260" rx="200" ry="70" fill="url(#amber)"/>
+  <rect x="0" y="260" width="900" height="80" fill="url(#floor)"/>
+  <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
     <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
   </rect>
   <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.4">
-    <path d="M16 16 H36 V36"/><path d="M924 16 H904 V36"/><path d="M16 324 H36 V304"/><path d="M924 324 H904 V304"/>
+    <path d="M16 16 H36 V36"/><path d="M884 16 H864 V36"/><path d="M16 324 H36 V304"/><path d="M884 324 H864 V304"/>
   </g>
   <!-- perspective city grid -->
   <g stroke="#14b8a6" stroke-opacity="0.16" fill="none">
-    <path d="M60 300 L470 250 L880 300"/>
-    <path d="M110 320 L470 265 L830 320"/>
-    <path d="M180 338 L470 278 L760 338"/>
-    <line x1="40" y1="285" x2="900" y2="285"/>
-    <line x1="40" y1="310" x2="900" y2="310"/>
+    <path d="M60 300 L450 250 L840 300"/>
+    <path d="M110 320 L450 265 L790 320"/>
+    <path d="M180 338 L450 278 L720 338"/>
+    <line x1="40" y1="285" x2="860" y2="285"/>
+    <line x1="40" y1="310" x2="860" y2="310"/>
   </g>
-  <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK CITY · 3D</text>
+  <text x="450" y="30" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK CITY · 3D</text>
   <!-- row captions -->
   <g font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#64748b" letter-spacing="1.2">
     <text x="70" y="48">CORE</text>
@@ -504,6 +517,7 @@ def activity_hud(data: dict | None = None) -> None:
 
   <!-- left 3D plate: ops -->
   <g filter="url(#drop)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.8s" repeatCount="indefinite"/>
     <path d="M412 40 L436 54 L436 168 L412 154 Z" fill="url(#sideR)"/>
     <path d="M32 40 L56 28 L436 54 L412 40 Z" fill="url(#sideT)"/>
     <rect x="32" y="40" width="380" height="114" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
@@ -535,6 +549,7 @@ def activity_hud(data: dict | None = None) -> None:
 
   <!-- right 3D plate: streak -->
   <g filter="url(#drop)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="5.2s" begin="0.35s" repeatCount="indefinite"/>
     <path d="M848 40 L872 54 L872 168 L848 154 Z" fill="url(#sideRo)"/>
     <path d="M468 40 L492 28 L872 54 L848 40 Z" fill="url(#sideT)"/>
     <rect x="468" y="40" width="380" height="114" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.35"/>
@@ -731,7 +746,7 @@ def hero_banner() -> None:
 
     <!-- 3D extruded identity plate -->
     <g filter="url(#cardShadow)">
-      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="5.4s" repeatCount="indefinite"/>
       <path d="M820 88 L880 118 L880 278 L820 248 Z" fill="url(#plateSide)"/>
       <path d="M70 88 L130 58 L880 118 L820 88 Z" fill="url(#plateTop)"/>
       <path d="M70 88 L820 88 L820 248 L70 248 Z" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.45"/>
@@ -755,7 +770,7 @@ def hero_banner() -> None:
     </g>
 
     <g filter="url(#cardShadow)">
-      <animateTransform attributeName="transform" type="translate" values="920 130; 920 124; 920 130" dur="5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="920 130; 920 120; 920 130" dur="4.6s" repeatCount="indefinite"/>
       <path d="M200 0 L230 16 L230 140 L200 124 Z" fill="url(#plateSide)"/>
       <path d="M0 0 L30 -14 L230 16 L200 0 Z" fill="url(#plateTop)"/>
       <rect width="200" height="124" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.4"/>
@@ -805,9 +820,10 @@ def _metrics_cells(y0: int = 0) -> tuple[str, str]:
     parts = []
     for cx, value, label, color, delay in cells:
         parts.append(
-            f"""<g transform="translate({cx},{y0})">
+            f"""<g>
+  <animateTransform attributeName="transform" type="translate" values="{cx} {y0}; {cx} {y0 - 4}; {cx} {y0}" dur="3.8s" begin="{delay}s" repeatCount="indefinite"/>
   <circle cx="0" cy="32" r="28" fill="{color}" fill-opacity="0.08">
-    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="{delay}s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.14;0.05" dur="3.6s" begin="{delay}s" repeatCount="indefinite"/>
   </circle>
   <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="{color}">{value}</text>
   <rect x="-16" y="44" width="32" height="2" rx="1" fill="{color}" fill-opacity="0.75"/>
@@ -1002,6 +1018,7 @@ def cta_tile(
     </filter>
   </defs>
   <g filter="url(#soft)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="3.4s" begin="{delay}s" repeatCount="indefinite"/>
     <rect x="1" y="1" width="{width - 2}" height="{h - 2}" rx="14" fill="url(#glass)" stroke="{accent}" stroke-opacity="0.45">
       <animate attributeName="stroke-opacity" values="0.28;0.75;0.28" dur="3.2s" begin="{delay}s" repeatCount="indefinite"/>
     </rect>

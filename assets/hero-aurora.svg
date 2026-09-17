@@ -99,7 +99,7 @@
 
     <!-- 3D extruded identity plate -->
     <g filter="url(#cardShadow)">
-      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="5.4s" repeatCount="indefinite"/>
       <path d="M820 88 L880 118 L880 278 L820 248 Z" fill="url(#plateSide)"/>
       <path d="M70 88 L130 58 L880 118 L820 88 Z" fill="url(#plateTop)"/>
       <path d="M70 88 L820 88 L820 248 L70 248 Z" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.45"/>
@@ -123,7 +123,7 @@
     </g>
 
     <g filter="url(#cardShadow)">
-      <animateTransform attributeName="transform" type="translate" values="920 130; 920 124; 920 130" dur="5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="920 130; 920 120; 920 130" dur="4.6s" repeatCount="indefinite"/>
       <path d="M200 0 L230 16 L230 140 L200 124 Z" fill="url(#plateSide)"/>
       <path d="M0 0 L30 -14 L230 16 L200 0 Z" fill="url(#plateTop)"/>
       <rect width="200" height="124" fill="url(#plate)" stroke="#14b8a6" stroke-opacity="0.4"/>

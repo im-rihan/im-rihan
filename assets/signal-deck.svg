@@ -56,30 +56,34 @@
   <line x1="225" y1="120" x2="225" y2="172" stroke="#334155" stroke-opacity="0.5"/>
 <line x1="450" y1="120" x2="450" y2="172" stroke="#334155" stroke-opacity="0.5"/>
 <line x1="675" y1="120" x2="675" y2="172" stroke="#334155" stroke-opacity="0.5"/>
-  <g transform="translate(112.5,104)">
+  <g>
+  <animateTransform attributeName="transform" type="translate" values="112.5 104; 112.5 100; 112.5 104" dur="3.8s" begin="0.0s" repeatCount="indefinite"/>
   <circle cx="0" cy="32" r="28" fill="#14b8a6" fill-opacity="0.08">
-    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="0.0s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.14;0.05" dur="3.6s" begin="0.0s" repeatCount="indefinite"/>
   </circle>
   <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#14b8a6">4+</text>
   <rect x="-16" y="44" width="32" height="2" rx="1" fill="#14b8a6" fill-opacity="0.75"/>
   <text x="0" y="64" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">YEARS</text>
-</g><g transform="translate(337.5,104)">
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="337.5 104; 337.5 100; 337.5 104" dur="3.8s" begin="0.2s" repeatCount="indefinite"/>
   <circle cx="0" cy="32" r="28" fill="#14b8a6" fill-opacity="0.08">
-    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="0.2s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.14;0.05" dur="3.6s" begin="0.2s" repeatCount="indefinite"/>
   </circle>
   <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#14b8a6">9+</text>
   <rect x="-16" y="44" width="32" height="2" rx="1" fill="#14b8a6" fill-opacity="0.75"/>
   <text x="0" y="64" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">SYSTEMS</text>
-</g><g transform="translate(562.5,104)">
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="562.5 104; 562.5 100; 562.5 104" dur="3.8s" begin="0.4s" repeatCount="indefinite"/>
   <circle cx="0" cy="32" r="28" fill="#f59e0b" fill-opacity="0.08">
-    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.14;0.05" dur="3.6s" begin="0.4s" repeatCount="indefinite"/>
   </circle>
   <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#f59e0b">60+</text>
   <rect x="-16" y="44" width="32" height="2" rx="1" fill="#f59e0b" fill-opacity="0.75"/>
   <text x="0" y="64" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">WEBHOOKS</text>
-</g><g transform="translate(787.5,104)">
+</g><g>
+  <animateTransform attributeName="transform" type="translate" values="787.5 104; 787.5 100; 787.5 104" dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
   <circle cx="0" cy="32" r="28" fill="#14b8a6" fill-opacity="0.08">
-    <animate attributeName="fill-opacity" values="0.05;0.12;0.05" dur="4s" begin="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.05;0.14;0.05" dur="3.6s" begin="0.6s" repeatCount="indefinite"/>
   </circle>
   <text x="0" y="36" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#14b8a6">2</text>
   <rect x="-16" y="44" width="32" height="2" rx="1" fill="#14b8a6" fill-opacity="0.75"/>

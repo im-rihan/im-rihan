@@ -9,17 +9,19 @@
     <radialGradient id="orb" cx="90%" cy="12%" r="35%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.5"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-15%" y="-15%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000" flood-opacity="0.5"/></filter>
   </defs>
-  <rect width="560" height="220" fill="url(#void)"/>
+  <rect width="560" height="220" rx="16" fill="url(#void)" stroke="rgba(20,184,166,0.18)"/>
   <ellipse cx="500" cy="36" rx="120" ry="70" fill="url(#orb)"><animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" begin="0.2s" repeatCount="indefinite"/></ellipse>
-  <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="#14b8a6" opacity="0.08"/>
+  <path d="M40 198 L290 180 L520 198 L270 216 Z" fill="#14b8a6" opacity="0.1">
+    <animate attributeName="opacity" values="0.06;0.14;0.06" dur="5s" begin="0.2s" repeatCount="indefinite"/>
+  </path>
   <g filter="url(#shadow)">
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="5.5s" begin="0.2s" repeatCount="indefinite"/>
-    <path d="M480 36 L520 54 L520 184 L480 166 Z" fill="url(#side)"/>
-    <path d="M40 36 L80 18 L520 54 L480 36 Z" fill="url(#top)"/>
-    <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
-    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)"><animate attributeName="x" values="-400;480" dur="7s" begin="0.2s" repeatCount="indefinite"/></rect>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -7; 0 0" dur="4.6s" begin="0.2s" repeatCount="indefinite"/>
+    <path d="M480 36 L524 58 L524 188 L480 166 Z" fill="url(#side)"/>
+    <path d="M40 36 L84 16 L524 58 L480 36 Z" fill="url(#top)"/>
+    <path d="M40 36 L480 36 L480 166 L40 166 Z" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.45"/>
+    <rect x="40" y="36" width="440" height="130" fill="url(#sheen)"><animate attributeName="x" values="-400;480" dur="6s" begin="0.2s" repeatCount="indefinite"/></rect>
   </g>
-  <rect x="40" y="36" width="8" height="130" fill="#14b8a6"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.8s" begin="0.2s" repeatCount="indefinite"/></rect>
+  <rect x="40" y="36" width="8" height="130" fill="#14b8a6"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.4s" begin="0.2s" repeatCount="indefinite"/></rect>
   <text x="64" y="58" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="2">EXPERIENCE</text>
   <text x="64" y="84" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Full Stack Engineer</text>
   <text x="64" y="104" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">Ziffy.ai  ·  Jan 2025 - Present · Remote</text>

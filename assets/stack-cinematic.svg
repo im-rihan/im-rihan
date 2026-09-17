@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="340" viewBox="0 0 940 340" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img">
   <title>3D tech stack city</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -17,27 +17,27 @@
       <stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0.1"/>
     </linearGradient>
   </defs>
-  <rect width="940" height="340" rx="20" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
-  <ellipse cx="470" cy="100" rx="340" ry="100" fill="url(#wash)">
+  <rect width="900" height="340" rx="20" fill="url(#void)" stroke="rgba(20,184,166,0.28)"/>
+  <ellipse cx="450" cy="100" rx="320" ry="100" fill="url(#wash)">
     <animate attributeName="opacity" values="0.55;1;0.55" dur="5.5s" repeatCount="indefinite"/>
   </ellipse>
-  <ellipse cx="760" cy="260" rx="220" ry="70" fill="url(#amber)"/>
-  <rect x="0" y="260" width="940" height="80" fill="url(#floor)"/>
-  <rect x="1" y="1" width="938" height="2.5" fill="url(#rim)">
+  <ellipse cx="720" cy="260" rx="200" ry="70" fill="url(#amber)"/>
+  <rect x="0" y="260" width="900" height="80" fill="url(#floor)"/>
+  <rect x="1" y="1" width="898" height="2.5" fill="url(#rim)">
     <animate attributeName="opacity" values="0.35;1;0.35" dur="3.2s" repeatCount="indefinite"/>
   </rect>
   <g stroke="#14b8a6" stroke-width="1.2" fill="none" opacity="0.4">
-    <path d="M16 16 H36 V36"/><path d="M924 16 H904 V36"/><path d="M16 324 H36 V304"/><path d="M924 324 H904 V304"/>
+    <path d="M16 16 H36 V36"/><path d="M884 16 H864 V36"/><path d="M16 324 H36 V304"/><path d="M884 324 H864 V304"/>
   </g>
   <!-- perspective city grid -->
   <g stroke="#14b8a6" stroke-opacity="0.16" fill="none">
-    <path d="M60 300 L470 250 L880 300"/>
-    <path d="M110 320 L470 265 L830 320"/>
-    <path d="M180 338 L470 278 L760 338"/>
-    <line x1="40" y1="285" x2="900" y2="285"/>
-    <line x1="40" y1="310" x2="900" y2="310"/>
+    <path d="M60 300 L450 250 L840 300"/>
+    <path d="M110 320 L450 265 L790 320"/>
+    <path d="M180 338 L450 278 L720 338"/>
+    <line x1="40" y1="285" x2="860" y2="285"/>
+    <line x1="40" y1="310" x2="860" y2="310"/>
   </g>
-  <text x="470" y="30" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK CITY · 3D</text>
+  <text x="450" y="30" text-anchor="middle" font-family="JetBrains Mono,Consolas,monospace" font-size="11" font-weight="700" fill="#14b8a6" letter-spacing="3">STACK CITY · 3D</text>
   <!-- row captions -->
   <g font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700" fill="#64748b" letter-spacing="1.2">
     <text x="70" y="48">CORE</text>
@@ -64,18 +64,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="150" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc0)"/>
+  <ellipse cx="130" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc0)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.0s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.0s" repeatCount="indefinite"/>
-    <path d="M110.8 78 L150 100.4 L150 123.60000000000001 L110.8 101.2 Z" fill="url(#Lc0)"/>
-    <path d="M189.2 78 L150 100.4 L150 123.60000000000001 L189.2 101.2 Z" fill="url(#Rc0)"/>
-    <path d="M150 55.599999999999994 L189.2 78 L150 100.4 L110.8 78 Z" fill="url(#Tc0)" stroke="#61dafb" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M150 55.599999999999994 L189.2 78 L150 100.4 L110.8 78 Z" fill="#61dafb" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.0s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.0s" repeatCount="indefinite"/>
+    <path d="M90.8 78 L130 100.4 L130 123.60000000000001 L90.8 101.2 Z" fill="url(#Lc0)"/>
+    <path d="M169.2 78 L130 100.4 L130 123.60000000000001 L169.2 101.2 Z" fill="url(#Rc0)"/>
+    <path d="M130 55.599999999999994 L169.2 78 L130 100.4 L90.8 78 Z" fill="url(#Tc0)" stroke="#61dafb" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M130 55.599999999999994 L169.2 78 L130 100.4 L90.8 78 Z" fill="#61dafb" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.0s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(150, 77) scale(0.92)"><circle cx="0" cy="0" r="3" fill="#61dafb"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(0)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(60)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(120)"/></g>
+    <g transform="translate(130, 77) scale(0.92)"><circle cx="0" cy="0" r="3" fill="#61dafb"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(0)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(60)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="none" stroke="#61dafb" stroke-width="1.4" transform="rotate(120)"/></g>
   </g>
-  <text x="150" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">React</text>
+  <text x="130" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">React</text>
 </g><g>
   <defs>
     <linearGradient id="Lc1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,18 +99,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="250" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc1)"/>
+  <ellipse cx="230" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc1)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.15s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.15s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.15s" repeatCount="indefinite"/>
-    <path d="M210.8 78 L250 100.4 L250 123.60000000000001 L210.8 101.2 Z" fill="url(#Lc1)"/>
-    <path d="M289.2 78 L250 100.4 L250 123.60000000000001 L289.2 101.2 Z" fill="url(#Rc1)"/>
-    <path d="M250 55.599999999999994 L289.2 78 L250 100.4 L210.8 78 Z" fill="url(#Tc1)" stroke="#e2e8f0" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M250 55.599999999999994 L289.2 78 L250 100.4 L210.8 78 Z" fill="#e2e8f0" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.15s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.15s" repeatCount="indefinite"/>
+    <path d="M190.8 78 L230 100.4 L230 123.60000000000001 L190.8 101.2 Z" fill="url(#Lc1)"/>
+    <path d="M269.2 78 L230 100.4 L230 123.60000000000001 L269.2 101.2 Z" fill="url(#Rc1)"/>
+    <path d="M230 55.599999999999994 L269.2 78 L230 100.4 L190.8 78 Z" fill="url(#Tc1)" stroke="#e2e8f0" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M230 55.599999999999994 L269.2 78 L230 100.4 L190.8 78 Z" fill="#e2e8f0" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.15s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(250, 77) scale(0.92)"><path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/></g>
+    <g transform="translate(230, 77) scale(0.92)"><path d="M-8 8 V-8 H-4 L8 6 V-8 H12 V8 H8 L-4 -6 V8 Z" fill="#e2e8f0"/></g>
   </g>
-  <text x="250" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Next.js</text>
+  <text x="230" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Next.js</text>
 </g><g>
   <defs>
     <linearGradient id="Lc2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -128,18 +134,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="350" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc2)"/>
+  <ellipse cx="330" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc2)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.3s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.3s" repeatCount="indefinite"/>
-    <path d="M310.8 78 L350 100.4 L350 123.60000000000001 L310.8 101.2 Z" fill="url(#Lc2)"/>
-    <path d="M389.2 78 L350 100.4 L350 123.60000000000001 L389.2 101.2 Z" fill="url(#Rc2)"/>
-    <path d="M350 55.599999999999994 L389.2 78 L350 100.4 L310.8 78 Z" fill="url(#Tc2)" stroke="#3178c6" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M350 55.599999999999994 L389.2 78 L350 100.4 L310.8 78 Z" fill="#3178c6" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.3s" repeatCount="indefinite"/>
+    <path d="M290.8 78 L330 100.4 L330 123.60000000000001 L290.8 101.2 Z" fill="url(#Lc2)"/>
+    <path d="M369.2 78 L330 100.4 L330 123.60000000000001 L369.2 101.2 Z" fill="url(#Rc2)"/>
+    <path d="M330 55.599999999999994 L369.2 78 L330 100.4 L290.8 78 Z" fill="url(#Tc2)" stroke="#3178c6" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M330 55.599999999999994 L369.2 78 L330 100.4 L290.8 78 Z" fill="#3178c6" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.3s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(350, 77) scale(0.92)"><rect x="-10" y="-10" width="20" height="20" rx="3" fill="#3178c6"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#fff">TS</text></g>
+    <g transform="translate(330, 77) scale(0.92)"><rect x="-10" y="-10" width="20" height="20" rx="3" fill="#3178c6"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#fff">TS</text></g>
   </g>
-  <text x="350" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">TS</text>
+  <text x="330" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">TS</text>
 </g><g>
   <defs>
     <linearGradient id="Lc3" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -160,18 +169,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="450" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc3)"/>
+  <ellipse cx="430" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc3)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.45s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.45s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.45s" repeatCount="indefinite"/>
-    <path d="M410.8 78 L450 100.4 L450 123.60000000000001 L410.8 101.2 Z" fill="url(#Lc3)"/>
-    <path d="M489.2 78 L450 100.4 L450 123.60000000000001 L489.2 101.2 Z" fill="url(#Rc3)"/>
-    <path d="M450 55.599999999999994 L489.2 78 L450 100.4 L410.8 78 Z" fill="url(#Tc3)" stroke="#e0234e" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M450 55.599999999999994 L489.2 78 L450 100.4 L410.8 78 Z" fill="#e0234e" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.45s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.45s" repeatCount="indefinite"/>
+    <path d="M390.8 78 L430 100.4 L430 123.60000000000001 L390.8 101.2 Z" fill="url(#Lc3)"/>
+    <path d="M469.2 78 L430 100.4 L430 123.60000000000001 L469.2 101.2 Z" fill="url(#Rc3)"/>
+    <path d="M430 55.599999999999994 L469.2 78 L430 100.4 L390.8 78 Z" fill="url(#Tc3)" stroke="#e0234e" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M430 55.599999999999994 L469.2 78 L430 100.4 L390.8 78 Z" fill="#e0234e" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.45s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(450, 77) scale(0.92)"><path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/></g>
+    <g transform="translate(430, 77) scale(0.92)"><path d="M0 -11 C6 -11 10 -6 10 0 C10 7 4 11 0 11 C-2 11 -4 10 -5 8 C-2 10 2 8 2 3 C2 -2 -2 -4 -5 -2 C-7 -6 -4 -11 0 -11 Z" fill="#e0234e"/></g>
   </g>
-  <text x="450" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">NestJS</text>
+  <text x="430" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">NestJS</text>
 </g><g>
   <defs>
     <linearGradient id="Lc4" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -192,18 +204,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="550" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc4)"/>
+  <ellipse cx="530" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc4)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.6s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.6s" repeatCount="indefinite"/>
-    <path d="M510.8 78 L550 100.4 L550 123.60000000000001 L510.8 101.2 Z" fill="url(#Lc4)"/>
-    <path d="M589.2 78 L550 100.4 L550 123.60000000000001 L589.2 101.2 Z" fill="url(#Rc4)"/>
-    <path d="M550 55.599999999999994 L589.2 78 L550 100.4 L510.8 78 Z" fill="url(#Tc4)" stroke="#68a063" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M550 55.599999999999994 L589.2 78 L550 100.4 L510.8 78 Z" fill="#68a063" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.6s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.6s" repeatCount="indefinite"/>
+    <path d="M490.8 78 L530 100.4 L530 123.60000000000001 L490.8 101.2 Z" fill="url(#Lc4)"/>
+    <path d="M569.2 78 L530 100.4 L530 123.60000000000001 L569.2 101.2 Z" fill="url(#Rc4)"/>
+    <path d="M530 55.599999999999994 L569.2 78 L530 100.4 L490.8 78 Z" fill="url(#Tc4)" stroke="#68a063" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M530 55.599999999999994 L569.2 78 L530 100.4 L490.8 78 Z" fill="#68a063" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.6s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(550, 77) scale(0.92)"><path d="M0 -12 L10 -6 V6 L0 12 L-10 6 V-6 Z" fill="none" stroke="#68a063" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#68a063">JS</text></g>
+    <g transform="translate(530, 77) scale(0.92)"><path d="M0 -12 L10 -6 V6 L0 12 L-10 6 V-6 Z" fill="none" stroke="#68a063" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#68a063">JS</text></g>
   </g>
-  <text x="550" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Node</text>
+  <text x="530" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Node</text>
 </g><g>
   <defs>
     <linearGradient id="Lc5" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -224,18 +239,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="650" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc5)"/>
+  <ellipse cx="630" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc5)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.75s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.75s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.75s" repeatCount="indefinite"/>
-    <path d="M610.8 78 L650 100.4 L650 123.60000000000001 L610.8 101.2 Z" fill="url(#Lc5)"/>
-    <path d="M689.2 78 L650 100.4 L650 123.60000000000001 L689.2 101.2 Z" fill="url(#Rc5)"/>
-    <path d="M650 55.599999999999994 L689.2 78 L650 100.4 L610.8 78 Z" fill="url(#Tc5)" stroke="#777bb4" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M650 55.599999999999994 L689.2 78 L650 100.4 L610.8 78 Z" fill="#777bb4" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.75s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.75s" repeatCount="indefinite"/>
+    <path d="M590.8 78 L630 100.4 L630 123.60000000000001 L590.8 101.2 Z" fill="url(#Lc5)"/>
+    <path d="M669.2 78 L630 100.4 L630 123.60000000000001 L669.2 101.2 Z" fill="url(#Rc5)"/>
+    <path d="M630 55.599999999999994 L669.2 78 L630 100.4 L590.8 78 Z" fill="url(#Tc5)" stroke="#777bb4" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M630 55.599999999999994 L669.2 78 L630 100.4 L590.8 78 Z" fill="#777bb4" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.75s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(650, 77) scale(0.92)"><ellipse cx="0" cy="0" rx="13" ry="8" fill="#777bb4"/><text x="0" y="3.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#fff">php</text></g>
+    <g transform="translate(630, 77) scale(0.92)"><ellipse cx="0" cy="0" rx="13" ry="8" fill="#777bb4"/><text x="0" y="3.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#fff">php</text></g>
   </g>
-  <text x="650" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">PHP</text>
+  <text x="630" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">PHP</text>
 </g><g>
   <defs>
     <linearGradient id="Lc6" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -256,18 +274,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="750" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc6)"/>
+  <ellipse cx="730" cy="129.60000000000002" rx="37.24" ry="7" fill="url(#Sc6)">
+    <animate attributeName="rx" values="37.24;29.400000000000002;37.24" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
-    <path d="M710.8 78 L750 100.4 L750 123.60000000000001 L710.8 101.2 Z" fill="url(#Lc6)"/>
-    <path d="M789.2 78 L750 100.4 L750 123.60000000000001 L789.2 101.2 Z" fill="url(#Rc6)"/>
-    <path d="M750 55.599999999999994 L789.2 78 L750 100.4 L710.8 78 Z" fill="url(#Tc6)" stroke="#3776ab" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M750 55.599999999999994 L789.2 78 L750 100.4 L710.8 78 Z" fill="#3776ab" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.9s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
+    <path d="M690.8 78 L730 100.4 L730 123.60000000000001 L690.8 101.2 Z" fill="url(#Lc6)"/>
+    <path d="M769.2 78 L730 100.4 L730 123.60000000000001 L769.2 101.2 Z" fill="url(#Rc6)"/>
+    <path d="M730 55.599999999999994 L769.2 78 L730 100.4 L690.8 78 Z" fill="url(#Tc6)" stroke="#3776ab" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M730 55.599999999999994 L769.2 78 L730 100.4 L690.8 78 Z" fill="#3776ab" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.9s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(750, 77) scale(0.92)"><path d="M-2 -10 H2 C8 -10 10 -6 10 -2 V2 H2 C-4 2 -6 6 -6 10 H-10 C-10 2 -6 -2 -2 -2 H6 V-6 H-2 C-6 -6 -6 -10 -2 -10 Z" fill="#3776ab"/><circle cx="-4" cy="-6" r="1.2" fill="#ffd43b"/><circle cx="4" cy="6" r="1.2" fill="#3776ab"/></g>
+    <g transform="translate(730, 77) scale(0.92)"><path d="M-2 -10 H2 C8 -10 10 -6 10 -2 V2 H2 C-4 2 -6 6 -6 10 H-10 C-10 2 -6 -2 -2 -2 H6 V-6 H-2 C-6 -6 -6 -10 -2 -10 Z" fill="#3776ab"/><circle cx="-4" cy="-6" r="1.2" fill="#ffd43b"/><circle cx="4" cy="6" r="1.2" fill="#3776ab"/></g>
   </g>
-  <text x="750" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Python</text>
+  <text x="730" y="141.60000000000002" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Python</text>
 </g><g>
   <defs>
     <linearGradient id="Ld0" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -288,18 +309,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="200" cy="217.32" rx="35.378" ry="7" fill="url(#Sd0)"/>
+  <ellipse cx="180" cy="217.32" rx="35.378" ry="7" fill="url(#Sd0)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.2s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.2s" repeatCount="indefinite"/>
-    <path d="M162.76 168 L200 189.28 L200 211.32 L162.76 190.04 Z" fill="url(#Ld0)"/>
-    <path d="M237.24 168 L200 189.28 L200 211.32 L237.24 190.04 Z" fill="url(#Rd0)"/>
-    <path d="M200 146.72 L237.24 168 L200 189.28 L162.76 168 Z" fill="url(#Td0)" stroke="#00758f" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M200 146.72 L237.24 168 L200 189.28 L162.76 168 Z" fill="#00758f" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.2s" repeatCount="indefinite"/>
+    <path d="M142.76 168 L180 189.28 L180 211.32 L142.76 190.04 Z" fill="url(#Ld0)"/>
+    <path d="M217.24 168 L180 189.28 L180 211.32 L217.24 190.04 Z" fill="url(#Rd0)"/>
+    <path d="M180 146.72 L217.24 168 L180 189.28 L142.76 168 Z" fill="url(#Td0)" stroke="#00758f" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M180 146.72 L217.24 168 L180 189.28 L142.76 168 Z" fill="#00758f" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.2s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(200, 167) scale(0.92)"><path d="M-10 6 Q-10 -8 0 -8 Q10 -8 10 6" fill="none" stroke="#00758f" stroke-width="2.2"/><ellipse cx="0" cy="6" rx="10" ry="3.5" fill="#f29111"/></g>
+    <g transform="translate(180, 167) scale(0.92)"><path d="M-10 6 Q-10 -8 0 -8 Q10 -8 10 6" fill="none" stroke="#00758f" stroke-width="2.2"/><ellipse cx="0" cy="6" rx="10" ry="3.5" fill="#f29111"/></g>
   </g>
-  <text x="200" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">MySQL</text>
+  <text x="180" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">MySQL</text>
 </g><g>
   <defs>
     <linearGradient id="Ld1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -320,18 +344,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="300" cy="217.32" rx="35.378" ry="7" fill="url(#Sd1)"/>
+  <ellipse cx="280" cy="217.32" rx="35.378" ry="7" fill="url(#Sd1)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.35s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.35s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.35s" repeatCount="indefinite"/>
-    <path d="M262.76 168 L300 189.28 L300 211.32 L262.76 190.04 Z" fill="url(#Ld1)"/>
-    <path d="M337.24 168 L300 189.28 L300 211.32 L337.24 190.04 Z" fill="url(#Rd1)"/>
-    <path d="M300 146.72 L337.24 168 L300 189.28 L262.76 168 Z" fill="url(#Td1)" stroke="#dc382d" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M300 146.72 L337.24 168 L300 189.28 L262.76 168 Z" fill="#dc382d" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.35s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.35s" repeatCount="indefinite"/>
+    <path d="M242.76 168 L280 189.28 L280 211.32 L242.76 190.04 Z" fill="url(#Ld1)"/>
+    <path d="M317.24 168 L280 189.28 L280 211.32 L317.24 190.04 Z" fill="url(#Rd1)"/>
+    <path d="M280 146.72 L317.24 168 L280 189.28 L242.76 168 Z" fill="url(#Td1)" stroke="#dc382d" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M280 146.72 L317.24 168 L280 189.28 L242.76 168 Z" fill="#dc382d" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.35s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(300, 167) scale(0.92)"><path d="M-12 2 L0 -8 L12 2 L0 10 Z" fill="#dc382d"/><path d="M-12 2 L0 6 L12 2" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/></g>
+    <g transform="translate(280, 167) scale(0.92)"><path d="M-12 2 L0 -8 L12 2 L0 10 Z" fill="#dc382d"/><path d="M-12 2 L0 6 L12 2" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/></g>
   </g>
-  <text x="300" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Redis</text>
+  <text x="280" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Redis</text>
 </g><g>
   <defs>
     <linearGradient id="Ld2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -352,18 +379,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="400" cy="217.32" rx="35.378" ry="7" fill="url(#Sd2)"/>
+  <ellipse cx="380" cy="217.32" rx="35.378" ry="7" fill="url(#Sd2)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
-    <path d="M362.76 168 L400 189.28 L400 211.32 L362.76 190.04 Z" fill="url(#Ld2)"/>
-    <path d="M437.24 168 L400 189.28 L400 211.32 L437.24 190.04 Z" fill="url(#Rd2)"/>
-    <path d="M400 146.72 L437.24 168 L400 189.28 L362.76 168 Z" fill="url(#Td2)" stroke="#ff9900" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M400 146.72 L437.24 168 L400 189.28 L362.76 168 Z" fill="#ff9900" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.5s" repeatCount="indefinite"/>
+    <path d="M342.76 168 L380 189.28 L380 211.32 L342.76 190.04 Z" fill="url(#Ld2)"/>
+    <path d="M417.24 168 L380 189.28 L380 211.32 L417.24 190.04 Z" fill="url(#Rd2)"/>
+    <path d="M380 146.72 L417.24 168 L380 189.28 L342.76 168 Z" fill="url(#Td2)" stroke="#ff9900" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M380 146.72 L417.24 168 L380 189.28 L342.76 168 Z" fill="#ff9900" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.5s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(400, 167) scale(0.92)"><path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text></g>
+    <g transform="translate(380, 167) scale(0.92)"><path d="M-11 4 Q0 12 11 4" fill="none" stroke="#ff9900" stroke-width="2.2" stroke-linecap="round"/><text x="0" y="-1" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="800" fill="#e2e8f0">aws</text></g>
   </g>
-  <text x="400" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">AWS</text>
+  <text x="380" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">AWS</text>
 </g><g>
   <defs>
     <linearGradient id="Ld3" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -384,18 +414,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="500" cy="217.32" rx="35.378" ry="7" fill="url(#Sd3)"/>
+  <ellipse cx="480" cy="217.32" rx="35.378" ry="7" fill="url(#Sd3)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.65s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.65s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.65s" repeatCount="indefinite"/>
-    <path d="M462.76 168 L500 189.28 L500 211.32 L462.76 190.04 Z" fill="url(#Ld3)"/>
-    <path d="M537.24 168 L500 189.28 L500 211.32 L537.24 190.04 Z" fill="url(#Rd3)"/>
-    <path d="M500 146.72 L537.24 168 L500 189.28 L462.76 168 Z" fill="url(#Td3)" stroke="#2496ed" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M500 146.72 L537.24 168 L500 189.28 L462.76 168 Z" fill="#2496ed" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.65s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.65s" repeatCount="indefinite"/>
+    <path d="M442.76 168 L480 189.28 L480 211.32 L442.76 190.04 Z" fill="url(#Ld3)"/>
+    <path d="M517.24 168 L480 189.28 L480 211.32 L517.24 190.04 Z" fill="url(#Rd3)"/>
+    <path d="M480 146.72 L517.24 168 L480 189.28 L442.76 168 Z" fill="url(#Td3)" stroke="#2496ed" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M480 146.72 L517.24 168 L480 189.28 L442.76 168 Z" fill="#2496ed" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.65s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(500, 167) scale(0.92)"><rect x="-9" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-8" width="5" height="5" fill="#2496ed"/><path d="M-12 4 H12" stroke="#2496ed" stroke-width="2"/></g>
+    <g transform="translate(480, 167) scale(0.92)"><rect x="-9" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="3" y="-2" width="5" height="5" fill="#2496ed"/><rect x="-3" y="-8" width="5" height="5" fill="#2496ed"/><path d="M-12 4 H12" stroke="#2496ed" stroke-width="2"/></g>
   </g>
-  <text x="500" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Docker</text>
+  <text x="480" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Docker</text>
 </g><g>
   <defs>
     <linearGradient id="Ld4" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -416,18 +449,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="600" cy="217.32" rx="35.378" ry="7" fill="url(#Sd4)"/>
+  <ellipse cx="580" cy="217.32" rx="35.378" ry="7" fill="url(#Sd4)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.8s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.8s" repeatCount="indefinite"/>
-    <path d="M562.76 168 L600 189.28 L600 211.32 L562.76 190.04 Z" fill="url(#Ld4)"/>
-    <path d="M637.24 168 L600 189.28 L600 211.32 L637.24 190.04 Z" fill="url(#Rd4)"/>
-    <path d="M600 146.72 L637.24 168 L600 189.28 L562.76 168 Z" fill="url(#Td4)" stroke="#e2e8f0" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M600 146.72 L637.24 168 L600 189.28 L562.76 168 Z" fill="#e2e8f0" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.8s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.8s" repeatCount="indefinite"/>
+    <path d="M542.76 168 L580 189.28 L580 211.32 L542.76 190.04 Z" fill="url(#Ld4)"/>
+    <path d="M617.24 168 L580 189.28 L580 211.32 L617.24 190.04 Z" fill="url(#Rd4)"/>
+    <path d="M580 146.72 L617.24 168 L580 189.28 L542.76 168 Z" fill="url(#Td4)" stroke="#e2e8f0" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M580 146.72 L617.24 168 L580 189.28 L542.76 168 Z" fill="#e2e8f0" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.8s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(600, 167) scale(0.92)"><path d="M0 -9 L10 9 H-10 Z" fill="#e2e8f0"/></g>
+    <g transform="translate(580, 167) scale(0.92)"><path d="M0 -9 L10 9 H-10 Z" fill="#e2e8f0"/></g>
   </g>
-  <text x="600" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Vercel</text>
+  <text x="580" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Vercel</text>
 </g><g>
   <defs>
     <linearGradient id="Ld5" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -448,18 +484,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="700" cy="217.32" rx="35.378" ry="7" fill="url(#Sd5)"/>
+  <ellipse cx="680" cy="217.32" rx="35.378" ry="7" fill="url(#Sd5)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="0.95s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.95s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.95s" repeatCount="indefinite"/>
-    <path d="M662.76 168 L700 189.28 L700 211.32 L662.76 190.04 Z" fill="url(#Ld5)"/>
-    <path d="M737.24 168 L700 189.28 L700 211.32 L737.24 190.04 Z" fill="url(#Rd5)"/>
-    <path d="M700 146.72 L737.24 168 L700 189.28 L662.76 168 Z" fill="url(#Td5)" stroke="#f38020" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M700 146.72 L737.24 168 L700 189.28 L662.76 168 Z" fill="#f38020" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.95s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.95s" repeatCount="indefinite"/>
+    <path d="M642.76 168 L680 189.28 L680 211.32 L642.76 190.04 Z" fill="url(#Ld5)"/>
+    <path d="M717.24 168 L680 189.28 L680 211.32 L717.24 190.04 Z" fill="url(#Rd5)"/>
+    <path d="M680 146.72 L717.24 168 L680 189.28 L642.76 168 Z" fill="url(#Td5)" stroke="#f38020" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M680 146.72 L717.24 168 L680 189.28 L642.76 168 Z" fill="#f38020" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.95s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(700, 167) scale(0.92)"><path d="M-12 2 H4 C8 2 10 0 10 -3 C10 -7 6 -9 2 -8 C1 -12 -5 -12 -8 -9 C-12 -9 -13 -4 -12 2 Z" fill="#f38020"/></g>
+    <g transform="translate(680, 167) scale(0.92)"><path d="M-12 2 H4 C8 2 10 0 10 -3 C10 -7 6 -9 2 -8 C1 -12 -5 -12 -8 -9 C-12 -9 -13 -4 -12 2 Z" fill="#f38020"/></g>
   </g>
-  <text x="700" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">CF</text>
+  <text x="680" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">CF</text>
 </g><g>
   <defs>
     <linearGradient id="Ld6" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -480,18 +519,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="800" cy="217.32" rx="35.378" ry="7" fill="url(#Sd6)"/>
+  <ellipse cx="780" cy="217.32" rx="35.378" ry="7" fill="url(#Sd6)">
+    <animate attributeName="rx" values="35.378;27.93;35.378" dur="4.2s" begin="1.1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="1.1s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="1.1s" repeatCount="indefinite"/>
-    <path d="M762.76 168 L800 189.28 L800 211.32 L762.76 190.04 Z" fill="url(#Ld6)"/>
-    <path d="M837.24 168 L800 189.28 L800 211.32 L837.24 190.04 Z" fill="url(#Rd6)"/>
-    <path d="M800 146.72 L837.24 168 L800 189.28 L762.76 168 Z" fill="url(#Td6)" stroke="#009688" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M800 146.72 L837.24 168 L800 189.28 L762.76 168 Z" fill="#009688" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="1.1s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="1.1s" repeatCount="indefinite"/>
+    <path d="M742.76 168 L780 189.28 L780 211.32 L742.76 190.04 Z" fill="url(#Ld6)"/>
+    <path d="M817.24 168 L780 189.28 L780 211.32 L817.24 190.04 Z" fill="url(#Rd6)"/>
+    <path d="M780 146.72 L817.24 168 L780 189.28 L742.76 168 Z" fill="url(#Td6)" stroke="#009688" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M780 146.72 L817.24 168 L780 189.28 L742.76 168 Z" fill="#009688" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="1.1s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(800, 167) scale(0.92)"><circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/></g>
+    <g transform="translate(780, 167) scale(0.92)"><circle cx="0" cy="0" r="10" fill="#009688"/><path d="M-2 -6 L6 0 L-2 6 Z" fill="#fff"/></g>
   </g>
-  <text x="800" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">FastAPI</text>
+  <text x="780" y="229.32" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">FastAPI</text>
 </g><g>
   <defs>
     <linearGradient id="Lg0" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -512,18 +554,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="200" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg0)"/>
+  <ellipse cx="180" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg0)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.1s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.1s" repeatCount="indefinite"/>
-    <path d="M168.64 258 L200 275.92 L200 294.48 L168.64 276.56 Z" fill="url(#Lg0)"/>
-    <path d="M231.36 258 L200 275.92 L200 294.48 L231.36 276.56 Z" fill="url(#Rg0)"/>
-    <path d="M200 240.07999999999998 L231.36 258 L200 275.92 L168.64 258 Z" fill="url(#Tg0)" stroke="#14b8a6" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M200 240.07999999999998 L231.36 258 L200 275.92 L168.64 258 Z" fill="#14b8a6" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.1s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.1s" repeatCount="indefinite"/>
+    <path d="M148.64 258 L180 275.92 L180 294.48 L148.64 276.56 Z" fill="url(#Lg0)"/>
+    <path d="M211.36 258 L180 275.92 L180 294.48 L211.36 276.56 Z" fill="url(#Rg0)"/>
+    <path d="M180 240.07999999999998 L211.36 258 L180 275.92 L148.64 258 Z" fill="url(#Tg0)" stroke="#14b8a6" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M180 240.07999999999998 L211.36 258 L180 275.92 L148.64 258 Z" fill="#14b8a6" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.1s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(200, 257) scale(0.92)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
+    <g transform="translate(180, 257) scale(0.92)"><circle cx="-5" cy="0" r="5" fill="none" stroke="#1c3c3c" stroke-width="2"/><circle cx="5" cy="0" r="5" fill="none" stroke="#14b8a6" stroke-width="2"/><path d="M-1 0 H1" stroke="#f59e0b" stroke-width="2"/></g>
   </g>
-  <text x="200" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">LangChain</text>
+  <text x="180" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">LangChain</text>
 </g><g>
   <defs>
     <linearGradient id="Lg1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -544,18 +589,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="320" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg1)"/>
+  <ellipse cx="300" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg1)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.25s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.25s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.25s" repeatCount="indefinite"/>
-    <path d="M288.64 258 L320 275.92 L320 294.48 L288.64 276.56 Z" fill="url(#Lg1)"/>
-    <path d="M351.36 258 L320 275.92 L320 294.48 L351.36 276.56 Z" fill="url(#Rg1)"/>
-    <path d="M320 240.07999999999998 L351.36 258 L320 275.92 L288.64 258 Z" fill="url(#Tg1)" stroke="#00d8a2" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M320 240.07999999999998 L351.36 258 L320 275.92 L288.64 258 Z" fill="#00d8a2" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.25s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.25s" repeatCount="indefinite"/>
+    <path d="M268.64 258 L300 275.92 L300 294.48 L268.64 276.56 Z" fill="url(#Lg1)"/>
+    <path d="M331.36 258 L300 275.92 L300 294.48 L331.36 276.56 Z" fill="url(#Rg1)"/>
+    <path d="M300 240.07999999999998 L331.36 258 L300 275.92 L268.64 258 Z" fill="url(#Tg1)" stroke="#00d8a2" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M300 240.07999999999998 L331.36 258 L300 275.92 L268.64 258 Z" fill="#00d8a2" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.25s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(320, 257) scale(0.92)"><circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/></g>
+    <g transform="translate(300, 257) scale(0.92)"><circle cx="0" cy="-2" r="7" fill="none" stroke="#00d8a2" stroke-width="2"/><circle cx="-2.5" cy="-3" r="1.3" fill="#00d8a2"/><circle cx="2.5" cy="-3" r="1.3" fill="#00d8a2"/><path d="M-4 6 Q0 10 4 6" fill="none" stroke="#00d8a2" stroke-width="1.5"/></g>
   </g>
-  <text x="320" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Puppeteer</text>
+  <text x="300" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Puppeteer</text>
 </g><g>
   <defs>
     <linearGradient id="Lg2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -576,18 +624,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="440" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg2)"/>
+  <ellipse cx="420" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg2)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.4s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.4s" repeatCount="indefinite"/>
-    <path d="M408.64 258 L440 275.92 L440 294.48 L408.64 276.56 Z" fill="url(#Lg2)"/>
-    <path d="M471.36 258 L440 275.92 L440 294.48 L471.36 276.56 Z" fill="url(#Rg2)"/>
-    <path d="M440 240.07999999999998 L471.36 258 L440 275.92 L408.64 258 Z" fill="url(#Tg2)" stroke="#199900" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M440 240.07999999999998 L471.36 258 L440 275.92 L408.64 258 Z" fill="#199900" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.4s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.4s" repeatCount="indefinite"/>
+    <path d="M388.64 258 L420 275.92 L420 294.48 L388.64 276.56 Z" fill="url(#Lg2)"/>
+    <path d="M451.36 258 L420 275.92 L420 294.48 L451.36 276.56 Z" fill="url(#Rg2)"/>
+    <path d="M420 240.07999999999998 L451.36 258 L420 275.92 L388.64 258 Z" fill="url(#Tg2)" stroke="#199900" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M420 240.07999999999998 L451.36 258 L420 275.92 L388.64 258 Z" fill="#199900" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.4s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(440, 257) scale(0.92)"><path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/></g>
+    <g transform="translate(420, 257) scale(0.92)"><path d="M0 -10 C6 -10 10 -4 10 0 C10 6 0 12 0 12 C0 12 -10 6 -10 0 C-10 -4 -6 -10 0 -10 Z" fill="#199900"/><circle cx="0" cy="-1" r="3" fill="#fff"/></g>
   </g>
-  <text x="440" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Leaflet</text>
+  <text x="420" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Leaflet</text>
 </g><g>
   <defs>
     <linearGradient id="Lg3" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -608,18 +659,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="560" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg3)"/>
+  <ellipse cx="540" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg3)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.55s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.55s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.55s" repeatCount="indefinite"/>
-    <path d="M528.64 258 L560 275.92 L560 294.48 L528.64 276.56 Z" fill="url(#Lg3)"/>
-    <path d="M591.36 258 L560 275.92 L560 294.48 L591.36 276.56 Z" fill="url(#Rg3)"/>
-    <path d="M560 240.07999999999998 L591.36 258 L560 275.92 L528.64 258 Z" fill="url(#Tg3)" stroke="#d4ff52" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M560 240.07999999999998 L591.36 258 L560 275.92 L528.64 258 Z" fill="#d4ff52" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.55s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.55s" repeatCount="indefinite"/>
+    <path d="M508.64 258 L540 275.92 L540 294.48 L508.64 276.56 Z" fill="url(#Lg3)"/>
+    <path d="M571.36 258 L540 275.92 L540 294.48 L571.36 276.56 Z" fill="url(#Rg3)"/>
+    <path d="M540 240.07999999999998 L571.36 258 L540 275.92 L508.64 258 Z" fill="url(#Tg3)" stroke="#d4ff52" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M540 240.07999999999998 L571.36 258 L540 275.92 L508.64 258 Z" fill="#d4ff52" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.55s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(560, 257) scale(0.92)"><circle cx="-2" cy="-2" r="7" fill="none" stroke="#d4ff52" stroke-width="2.2"/><path d="M3 3 L9 9" stroke="#d4ff52" stroke-width="2.4" stroke-linecap="round"/><circle cx="-2" cy="-2" r="2" fill="#d4ff52"/></g>
+    <g transform="translate(540, 257) scale(0.92)"><circle cx="-2" cy="-2" r="7" fill="none" stroke="#d4ff52" stroke-width="2.2"/><path d="M3 3 L9 9" stroke="#d4ff52" stroke-width="2.4" stroke-linecap="round"/><circle cx="-2" cy="-2" r="2" fill="#d4ff52"/></g>
   </g>
-  <text x="560" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Typesense</text>
+  <text x="540" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">Typesense</text>
 </g><g>
   <defs>
     <linearGradient id="Lg4" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -640,18 +694,21 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="680" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg4)"/>
+  <ellipse cx="660" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg4)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
-    <path d="M648.64 258 L680 275.92 L680 294.48 L648.64 276.56 Z" fill="url(#Lg4)"/>
-    <path d="M711.36 258 L680 275.92 L680 294.48 L711.36 276.56 Z" fill="url(#Rg4)"/>
-    <path d="M680 240.07999999999998 L711.36 258 L680 275.92 L648.64 258 Z" fill="url(#Tg4)" stroke="#ffcc00" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M680 240.07999999999998 L711.36 258 L680 275.92 L648.64 258 Z" fill="#ffcc00" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.7s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
+    <path d="M628.64 258 L660 275.92 L660 294.48 L628.64 276.56 Z" fill="url(#Lg4)"/>
+    <path d="M691.36 258 L660 275.92 L660 294.48 L691.36 276.56 Z" fill="url(#Rg4)"/>
+    <path d="M660 240.07999999999998 L691.36 258 L660 275.92 L628.64 258 Z" fill="url(#Tg4)" stroke="#ffcc00" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M660 240.07999999999998 L691.36 258 L660 275.92 L628.64 258 Z" fill="#ffcc00" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.7s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(680, 257) scale(0.92)"><rect x="-10" y="-10" width="20" height="20" rx="4" fill="#ffcc00"/><path d="M-6 4 L0 -6 L6 4 Z" fill="#1a1a1a"/></g>
+    <g transform="translate(660, 257) scale(0.92)"><rect x="-10" y="-10" width="20" height="20" rx="4" fill="#ffcc00"/><path d="M-6 4 L0 -6 L6 4 Z" fill="#1a1a1a"/></g>
   </g>
-  <text x="680" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">CatBoost</text>
+  <text x="660" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">CatBoost</text>
 </g><g>
   <defs>
     <linearGradient id="Lg5" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -672,17 +729,20 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <ellipse cx="800" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg5)"/>
+  <ellipse cx="780" cy="300.48" rx="29.791999999999998" ry="7" fill="url(#Sg5)">
+    <animate attributeName="rx" values="29.791999999999998;23.52;29.791999999999998" dur="4.2s" begin="0.85s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="4.2s" begin="0.85s" repeatCount="indefinite"/>
+  </ellipse>
   <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.2s" begin="0.85s" repeatCount="indefinite"/>
-    <path d="M768.64 258 L800 275.92 L800 294.48 L768.64 276.56 Z" fill="url(#Lg5)"/>
-    <path d="M831.36 258 L800 275.92 L800 294.48 L831.36 276.56 Z" fill="url(#Rg5)"/>
-    <path d="M800 240.07999999999998 L831.36 258 L800 275.92 L768.64 258 Z" fill="url(#Tg5)" stroke="#22d3ee" stroke-width="1.35" stroke-opacity="0.95"/>
-    <path d="M800 240.07999999999998 L831.36 258 L800 275.92 L768.64 258 Z" fill="#22d3ee" fill-opacity="0.12">
-      <animate attributeName="fill-opacity" values="0.08;0.26;0.08" dur="3.6s" begin="0.85s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="4.2s" begin="0.85s" repeatCount="indefinite"/>
+    <path d="M748.64 258 L780 275.92 L780 294.48 L748.64 276.56 Z" fill="url(#Lg5)"/>
+    <path d="M811.36 258 L780 275.92 L780 294.48 L811.36 276.56 Z" fill="url(#Rg5)"/>
+    <path d="M780 240.07999999999998 L811.36 258 L780 275.92 L748.64 258 Z" fill="url(#Tg5)" stroke="#22d3ee" stroke-width="1.35" stroke-opacity="0.95"/>
+    <path d="M780 240.07999999999998 L811.36 258 L780 275.92 L748.64 258 Z" fill="#22d3ee" fill-opacity="0.12">
+      <animate attributeName="fill-opacity" values="0.08;0.3;0.08" dur="3.6s" begin="0.85s" repeatCount="indefinite"/>
     </path>
-    <g transform="translate(800, 257) scale(0.92)"><rect x="-11" y="-8" width="22" height="16" rx="3" fill="none" stroke="#22d3ee" stroke-width="1.8"/><circle cx="-4" cy="0" r="2.2" fill="#22d3ee"/><circle cx="4" cy="0" r="2.2" fill="#22d3ee"/><path d="M-2 0 H2" stroke="#f59e0b" stroke-width="1.6"/></g>
+    <g transform="translate(780, 257) scale(0.92)"><rect x="-11" y="-8" width="22" height="16" rx="3" fill="none" stroke="#22d3ee" stroke-width="1.8"/><circle cx="-4" cy="0" r="2.2" fill="#22d3ee"/><circle cx="4" cy="0" r="2.2" fill="#22d3ee"/><path d="M-2 0 H2" stroke="#f59e0b" stroke-width="1.6"/></g>
   </g>
-  <text x="800" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">MCP</text>
+  <text x="780" y="312.48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" font-weight="700" fill="#e2e8f0">MCP</text>
 </g>
 </svg>

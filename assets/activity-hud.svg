@@ -47,6 +47,7 @@
 
   <!-- left 3D plate: ops -->
   <g filter="url(#drop)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="4.8s" repeatCount="indefinite"/>
     <path d="M412 40 L436 54 L436 168 L412 154 Z" fill="url(#sideR)"/>
     <path d="M32 40 L56 28 L436 54 L412 40 Z" fill="url(#sideT)"/>
     <rect x="32" y="40" width="380" height="114" fill="url(#face)" stroke="#14b8a6" stroke-opacity="0.4"/>
@@ -78,6 +79,7 @@
 
   <!-- right 3D plate: streak -->
   <g filter="url(#drop)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="5.2s" begin="0.35s" repeatCount="indefinite"/>
     <path d="M848 40 L872 54 L872 168 L848 154 Z" fill="url(#sideRo)"/>
     <path d="M468 40 L492 28 L872 54 L848 40 Z" fill="url(#sideT)"/>
     <rect x="468" y="40" width="380" height="114" fill="url(#face)" stroke="#f59e0b" stroke-opacity="0.35"/>
