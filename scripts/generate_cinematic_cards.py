@@ -410,7 +410,7 @@ def _parse_activity_numbers() -> dict:
         "current": "1",
         "longest": "11",
         "current_range": "Sep 17",
-        "total_range": "2021 — Present",
+        "total_range": "2021 - Present",
     }
     stats_path = ASSETS / "github-stats.svg"
     streak_path = ASSETS / "github-streak.svg"
@@ -433,8 +433,7 @@ def _parse_activity_numbers() -> dict:
             stats["longest"] = nums[2].strip()
         years = re.search(r"(\d{4})\s*-\s*Present", text)
         if years:
-            stats["total_range"] = f"{years.group(1)} — Present"
-        # Prefer a short current-streak day label if present near "Current Streak"
+            stats["total_range"] = f"{years.group(1)} - Present"
         day = re.search(
             r"Current Streak</text>[\s\S]{0,400}?font-size='12px'[^>]*>\s*([A-Za-z]{3}\s+\d{1,2})\s*<",
             text,
