@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img">
-  <title>GitHub activity — 241 commits · streak 2</title>
+  <title>GitHub activity — 241 commits · streak 0</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#01040c"/><stop offset="50%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
@@ -93,7 +93,7 @@
       <circle r="36" fill="none" stroke="#14b8a6" stroke-width="6" stroke-linecap="round" stroke-dasharray="170 56">
         <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
       </circle>
-      <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">2</text>
+      <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">0</text>
       <text text-anchor="middle" y="56" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
     </g>
 
