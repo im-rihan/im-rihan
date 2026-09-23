@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img">
-  <title>GitHub activity — 241 commits · streak 1</title>
+  <title>GitHub activity — 248 commits · streak 0</title>
   <defs>
     <linearGradient id="void" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#01040c"/><stop offset="50%" stop-color="#0b1220"/><stop offset="100%" stop-color="#0f172a"/>
@@ -57,13 +57,13 @@
     <text x="50" y="60" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="700" fill="#14b8a6" letter-spacing="1.6">OPS METRICS</text>
     <g text-anchor="middle" font-family="Inter, Segoe UI, sans-serif">
       <g transform="translate(100,105)">
-        <text y="0" font-size="28" font-weight="800" fill="#14b8a6">241</text>
+        <text y="0" font-size="28" font-weight="800" fill="#14b8a6">248</text>
         <rect x="-20" y="8" width="40" height="2" rx="1" fill="#14b8a6" fill-opacity="0.7"/>
         <text y="26" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">COMMITS</text>
         <text y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">last year</text>
       </g>
       <g transform="translate(210,105)">
-        <text y="0" font-size="28" font-weight="800" fill="#22d3ee">43</text>
+        <text y="0" font-size="28" font-weight="800" fill="#22d3ee">44</text>
         <rect x="-16" y="8" width="32" height="2" rx="1" fill="#22d3ee" fill-opacity="0.7"/>
         <text y="26" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1.2">PRS</text>
         <text y="40" font-family="JetBrains Mono, Consolas, monospace" font-size="9" fill="#64748b">all time</text>
@@ -93,14 +93,14 @@
       <circle r="36" fill="none" stroke="#14b8a6" stroke-width="6" stroke-linecap="round" stroke-dasharray="170 56">
         <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
       </circle>
-      <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">1</text>
+      <text text-anchor="middle" y="8" font-family="Inter, Segoe UI, sans-serif" font-size="32" font-weight="800" fill="#f8fafc">0</text>
       <text text-anchor="middle" y="56" font-family="JetBrains Mono, Consolas, monospace" font-size="9" font-weight="700" fill="#14b8a6" letter-spacing="1.2">CURRENT</text>
     </g>
 
     <g transform="translate(680,95)" text-anchor="middle">
       <text y="0" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="800" fill="#f59e0b">11</text>
       <text y="16" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">LONGEST</text>
-      <text y="48" font-family="Inter, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#e2e8f0">2,838</text>
+      <text y="48" font-family="Inter, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#e2e8f0">2,876</text>
       <text y="64" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">TOTAL</text>
     </g>
 
