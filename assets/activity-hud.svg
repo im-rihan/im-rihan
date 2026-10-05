@@ -100,7 +100,7 @@
     <g transform="translate(680,95)" text-anchor="middle">
       <text y="0" font-family="Inter, Segoe UI, sans-serif" font-size="24" font-weight="800" fill="#f59e0b">11</text>
       <text y="16" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">LONGEST</text>
-      <text y="48" font-family="Inter, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#e2e8f0">2,898</text>
+      <text y="48" font-family="Inter, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#e2e8f0">2,840</text>
       <text y="64" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#94a3b8" letter-spacing="1">TOTAL</text>
     </g>
 
@@ -113,5 +113,5 @@
     </g>
   </g>
 
-  <text x="450" y="186" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">streak today  ·  contributions 2021 - Present</text>
+  <text x="450" y="186" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10" fill="#64748b">streak today  ·  contributions 2022 - Present</text>
 </svg>
